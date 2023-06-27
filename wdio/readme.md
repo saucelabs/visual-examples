@@ -6,6 +6,7 @@
 - Sauce Labs Account
 - Git
 - Homebrew
+- VPN enabled
 
 ## Run the demo
 
@@ -41,6 +42,7 @@
 
 - Add sauce visual dependency
   ```sh
+  echo "@saucelabs:registry=https://artifactory.tools.saucelabs.net/artifactory/api/npm/all-npm" >> .npmrc
   npm install --save @saucelabs/wdio-sauce-visual-service
   ```
 
