@@ -1,1 +1,3 @@
-# visual-examples TROLL
+# Getting started with Sauce Visual
+
+- [JavaScript / TypeScript / WebdriverIO](./wdio/readme.md)
