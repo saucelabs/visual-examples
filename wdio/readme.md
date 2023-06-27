@@ -10,16 +10,20 @@
 
 ## Run the demo
 
-- Clone and install dependencies:
-  ```sh
+- Install Node.js:
+  ```sh { name=nodejs }
   brew install node@18
-  git clone github.com/saucelabs/visual-examples
+  ```
+
+- Clone and install dependencies:
+  ```sh { name=clone }
+  git clone https://github.com/saucelabs/visual-examples
   cd visual-examples/wdio
   npm install
   ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
-  ```sh
+  ```sh {name=}
   export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
   export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
   export SAUCE_REGION=us-west-1 # change this only if you are not on the default US-WEST region

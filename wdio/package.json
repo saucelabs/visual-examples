@@ -1,5 +1,5 @@
 {
-  "name": "my-new-project",
+  "name": "Sauce Labs Visual Example for WebdriverIO",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^8.11.2",
