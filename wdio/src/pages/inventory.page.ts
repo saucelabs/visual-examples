@@ -3,7 +3,7 @@ import Page from './page.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class CataloguePage extends Page {
+class InventoryPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -27,4 +27,4 @@ class CataloguePage extends Page {
     }
 }
 
-export default new CataloguePage();
+export default new InventoryPage();
