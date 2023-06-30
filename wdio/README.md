@@ -1,16 +1,11 @@
-# Getting started with WebdriverIO
-
-```sh { name=ls }
-ls
-```
+# Getting started with WebdriverIO [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
 
 ## Prerequisites
 
-- Mac System - Ventura
+- OSX Ventura with Git and Brew
+- Linux with bash curl and git
+- Windows with NodeJS 18 (untested)
 - Sauce Labs Account
-- Git
-- Homebrew
-- VPN enabled
 
 ## Run the demo
 
