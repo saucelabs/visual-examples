@@ -12,8 +12,8 @@
     "typescript": "^5.1.3"
   },
   "scripts": {
-    "sauce-visual": "wdio run ./wdio.conf.ts",
-    "sauce-visual-modified": "wdio run ./wdio.conf.ts"
+    "sauce-visual": "wdio run ./wdio.conf.ts --spec src/inventory.spec.ts",
+    "sauce-visual-modified": "wdio run ./wdio.conf.ts --spec src/inventory-modified.spec.ts"
   },
   "dependencies": {
     "@saucelabs/wdio-sauce-visual-service": "^0.2.5",
