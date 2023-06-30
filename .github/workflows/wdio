@@ -12,18 +12,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - run: cd wdio
-    - run: npm install -g runme
-    - run: >
-        cat README.md
-        | sed s/__YOUR_SAUCE_USER_NAME__/$YOUR_SAUCE_USER_NAME/g
-        | sed s/__YOUR_SAUCE_ACCESS_KEY__/$YOUR_SAUCE_ACCESS_KEY/g
-        > README.executable.md
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        uses: docker/setup-buildx-action@v1
+        with:
+          context: ./wdio
+          file: ./wdio/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
     
