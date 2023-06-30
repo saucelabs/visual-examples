@@ -16,7 +16,7 @@
     "sauce-visual-modified": "wdio run ./wdio.conf.ts"
   },
   "dependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.0.5",
+    "@saucelabs/wdio-sauce-visual-service": "^0.2.5",
     "readline-sync": "^1.4.10",
     "update-dotenv": "^1.1.1"
   }
