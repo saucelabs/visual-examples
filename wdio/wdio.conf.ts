@@ -37,7 +37,10 @@ export const config: Options.Testrunner = {
     // in via the `region` property. Available short handles for regions are `us` (default), `eu` and `apac`.
     // These regions are used for the Sauce Labs VM cloud and the Sauce Labs Real Device Cloud.
     // If you don't provide the region it will default for the `us`
-    region: 'us',
+    protocol: 'https',
+    hostname: 'ondemand.saucelabs.com',
+    port: 443,
+    path: '/wd/hub',
     //
     // ==================
     // Specify Test Files
@@ -55,7 +58,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        // ToDo: define location for spec files here
+        'src/*.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [
