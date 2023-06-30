@@ -60,10 +60,10 @@
 - Initialize WebDriver and VisualApi in @BeforeAll section
   ```
   @BeforeAll
-  public static void init() throws MalformedURLException {
+  public static void init() {
       DesiredCapabilities caps = new DesiredCapabilities();
       caps.setBrowserName("chrome");
-      // WD_URL should look like https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@ondemand.us-west-1.saucelabs.com:443/wd/hub
+      // WD_URL should look like "https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@ondemand.us-west-1.saucelabs.com:443/wd/hub"
       driver = new RemoteWebDriver(new URL(WD_URL), caps);
       visual = VisualApi.forProductionUsWest(driver);
   }
