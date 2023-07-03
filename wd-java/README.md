@@ -21,7 +21,7 @@
   ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
-  ```sh {name=}
+  ```sh {name=setup}
   export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
   export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
