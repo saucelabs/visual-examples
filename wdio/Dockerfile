@@ -1,5 +1,3 @@
-ARG TARGETARCH
-
 FROM ubuntu:22.04 as amd64
 
 # Install runme
