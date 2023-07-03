@@ -40,7 +40,7 @@ npm install
 ```sh { name=set-credentials }
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
-export SAUCE_REGION=us-west-1 # change this only if you are not on the default US-WEST region
+# to change the region you are testing in please change the `hostname property in the wdio.conf.ts file
 ```
 
 - Run the test
@@ -97,7 +97,6 @@ export const config: Options.Testrunner = {
 ```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
-export SAUCE_REGION=us-west-1 # change this only if you are not on the default US-WEST region
 ```
 
 - Run the test the way you are used to.
