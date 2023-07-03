@@ -17,7 +17,7 @@ public class InventoryTest {
     private static final String USERNAME = System.getenv("SAUCE_USERNAME");
     private static final String ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
     public static final String WD_URL = "https://" + USERNAME + ":" + ACCESS_KEY +
-            "@ondemand.us-west-1.saucelabs.com:443/wd/hub";
+            "@ondemand.saucelabs.com:443/wd/hub";
 
     private static VisualApi visual;
     private static RemoteWebDriver driver;

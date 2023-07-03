@@ -16,8 +16,8 @@ public class InventoryModifiedTest {
 
     private static final String USERNAME = System.getenv("SAUCE_USERNAME");
     private static final String ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
-    public static final String EU_URL = "https://" + USERNAME + ":" + ACCESS_KEY +
-            "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+    public static final String WD_URL = "https://" + USERNAME + ":" + ACCESS_KEY +
+            "@ondemand.saucelabs.com:443/wd/hub";
 
     private static VisualApi visual;
     private static RemoteWebDriver driver;
@@ -26,8 +26,8 @@ public class InventoryModifiedTest {
     public static void init() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName("chrome");
-        driver = new RemoteWebDriver(new URL(EU_URL), caps);
-        visual = VisualApi.forProductionEu(driver);
+        driver = new RemoteWebDriver(new URL(WD_URL), caps);
+        visual = VisualApi.forProductionUsWest(driver);
     }
 
     @Test
