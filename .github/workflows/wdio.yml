@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build and push Docker image
-        uses: docker/setup-buildx-action@v1
+        uses: docker/build-push-action@v4
         with:
           context: ./wdio
           file: ./wdio/Dockerfile
