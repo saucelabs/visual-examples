@@ -1,16 +1,23 @@
-FROM ubuntu:22.04
+ARG TARGETARCH
 
-# Dependencies
-RUN apt-get update && apt-get install -y curl bash
-
-ARG BUILDARCH
+FROM ubuntu:22.04 as amd64
 
 # Install runme
-RUN curl -sSL https://download.stateful.com/runme/1.2.6/runme_linux_${BUILDARCH}.tar.gz  | tar -xz -C /usr/local/bin runme
+RUN curl -sSL https://download.stateful.com/runme/1.2.6/runme_linux_x86_64.tar.gz  | tar -xz -C /usr/local/bin runme
 RUN runme --version
+
+FROM ubuntu:22.04 as arm64
+
+# Install runme
+RUN curl -sSL https://download.stateful.com/runme/1.2.6/runme_linux_arm64.tar.gz  | tar -xz -C /usr/local/bin runme
+RUN runme --version
+
+FROM ${TARGETARCH}
 
 RUN mkdir -p /workspace
 WORKDIR /workspace
+
+COPY /usr/local/bin/runme /usr/local/bin/runme
 
 COPY . .
 
