@@ -2,10 +2,9 @@
 
 ## Prerequisites
 
-- Mac System - Ventura
+- For macOS Ventura: Git and Homebrew
+- For Linux: Git and Adoptium Eclipse Temurin JDK 11+
 - Sauce Labs Account
-- Git
-- Homebrew
 
 ## Run the demo
 
@@ -20,11 +19,14 @@
   cd visual-examples/wd-java
   ```
 
-- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
-  ```sh {name=setup}
+- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
+  ```sh { name=set-credentials }
   echo SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__ >> src/test/resources/.env
   echo SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__ >> src/test/resources/.env
+  ```
 
+- Run the test
+  ```sh { name=run-test }
   ./runTest InventoryTest
   ```
 
@@ -32,7 +34,7 @@
 - Accept all diffs, so they become new baselines.
 
 - Re-run the tests
-  ```sh
+  ```sh { name=run-test-modified }
   ./runTest InventoryModifiedTest
   ```
 
