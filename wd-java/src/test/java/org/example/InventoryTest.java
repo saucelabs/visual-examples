@@ -1,33 +1,27 @@
 package org.example;
 
+import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import org.example.pageobjects.InventoryPage;
 import org.example.pageobjects.LoginPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+
+import static org.example.TestUtils.dotenv;
 
 public class InventoryTest {
-
-    private static final String USERNAME = System.getenv("SAUCE_USERNAME");
-    private static final String ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
-    public static final String WD_URL = "https://" + USERNAME + ":" + ACCESS_KEY +
-            "@ondemand.saucelabs.com:443/wd/hub";
 
     private static VisualApi visual;
     private static RemoteWebDriver driver;
 
     @BeforeAll
     public static void init() throws MalformedURLException {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName("chrome");
-        driver = new RemoteWebDriver(new URL(WD_URL), caps);
-        visual = VisualApi.forProductionUsWest(driver);
+        driver = TestUtils.getWebDriver();
+        visual = new VisualApi(driver, Region.US_WEST_1, dotenv.get("SAUCE_USERNAME"), dotenv.get("SAUCE_ACCESS_KEY"));
     }
 
     @Test
