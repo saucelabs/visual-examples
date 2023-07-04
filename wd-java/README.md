@@ -26,16 +26,16 @@
   ```
 
 - Run the test
-  ```sh { name=run-test }
-  ./runTest InventoryTest
+  ```sh { name=mvn-run-test }
+  ./mvnw clean test -Dtest=InventoryTest
   ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 
 - Re-run the tests
-  ```sh { name=run-test-modified }
-  ./runTest InventoryModifiedTest
+  ```sh { name=mvn-run-test-modified }
+  ./mvnw clean test -Dtest=InventoryModifiedTest
   ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
