@@ -3,14 +3,14 @@
 ## Prerequisites
 
 - For macOS Ventura: Git and Homebrew
-- For Linux: Git and Eclipse Temurin JDK 11+
+- For Linux: Git and Eclipse Temurin JDK 11+ (https://adoptium.net/temurin/releases/)
 - Sauce Labs Account
 
 ## Run the demo
 
-- Install java (for macOS Ventura):
+- Install Eclipse Temurin JDK (for macOS Ventura):
   ```sh { name=java }
-  brew install java
+  brew install --cask temurin
   ```
 
 - Clone the repository:
