@@ -10,7 +10,5 @@ RUN mkdir -p /workspace
 WORKDIR /workspace
 COPY . .
 
-RUN ls
-
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run run-test
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run run-test-modified
+RUN --mount=type=secret,id=dotenv,target=/workspace/src/test/resources/.env runme run mvn-run-test
+RUN --mount=type=secret,id=dotenv,target=/workspace/src/test/resources/.env runme run mvn-run-test-modified
