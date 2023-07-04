@@ -22,10 +22,10 @@
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
   ```sh {name=setup}
-  export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
-  export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+  echo SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__ >> src/test/resources/.env
+  echo SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__ >> src/test/resources/.env
 
-  ./mvnw clean test -Dtest=InventoryTest
+  ./runTest InventoryTest
   ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
@@ -33,7 +33,7 @@
 
 - Re-run the tests
   ```sh
-  ./mvnw clean test -Dtest=InventoryModifiedTest
+  ./runTest InventoryModifiedTest
   ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
@@ -61,11 +61,8 @@
   ```
   @BeforeAll
   public static void init() {
-      DesiredCapabilities caps = new DesiredCapabilities();
-      caps.setBrowserName("chrome");
-      // WD_URL should look like "https://<SAUCE_USERNAME>:<SAUCE_ACCESS_KEY>@ondemand.us-west-1.saucelabs.com:443/wd/hub"
-      driver = new RemoteWebDriver(new URL(WD_URL), caps);
-      visual = VisualApi.forProductionUsWest(driver);
+      driver = new RemoteWebDriver(webDriverUrl, capabilities);
+      visual = new VisualApi(driver, Region.US_WEST_1, sauceUsername, sauceAccessKey);
   }
   ```
 
@@ -86,8 +83,8 @@
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
   ```sh
-  export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
-  export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+  echo SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__ >> src/test/resources/.env
+  echo SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__ >> src/test/resources/.env
   ```
 
 - Run the test the way you are used to.
