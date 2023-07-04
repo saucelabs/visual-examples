@@ -1,0 +1,15 @@
+{
+  "name": "example-sauce-labs-visual-cypress",
+  "scripts": {
+    "dev": "cypress open",
+    "sauce-visual": "cypress run --spec \"cypress/e2e/inventory.cy.ts\"",
+    "sauce-visual-modified": "cypress run --spec \"cypress/e2e/inventory-modified.cy.ts\""
+  },
+  "devDependencies": {
+    "cypress": "12.16.0",
+    "typescript": "5.1.6"
+  },
+  "dependencies": {
+    "@saucelabs/visual": "0.2.7"
+  }
+}
