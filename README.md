@@ -3,4 +3,4 @@
 This repository contains several examples which explain how to get started with Sauce Visual:
 
 - [JS/TS - WebdriverIO](./wdio/README.md)
-- [JAVA - WebDriver + JUnit](./wd-java/README.md)
+- [Java - WebDriver + JUnit](./wd-java/README.md)
