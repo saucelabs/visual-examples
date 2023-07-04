@@ -8,7 +8,7 @@
 
 ## Run the demo
 
-- Install java:
+- Install java (for macOS Ventura):
   ```sh { name=java }
   brew install java
   ```
@@ -48,7 +48,7 @@
   <dependency>
     <groupId>com.saucelabs.visual</groupId>
     <artifactId>java-client</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.8</version>
     <scope>test</scope>
   </dependency>
   ```
