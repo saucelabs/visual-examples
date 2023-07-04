@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - For macOS Ventura: Git and Homebrew
-- For Linux: Git and Adoptium Eclipse Temurin JDK 11+
+- For Linux: Git and Eclipse Temurin JDK 11+
 - Sauce Labs Account
 
 ## Run the demo
