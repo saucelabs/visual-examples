@@ -13,6 +13,17 @@
   brew install --cask temurin
   ```
 
+- Install Eclipse Temurin JDK (for [Ubuntu](https://askubuntu.com/questions/1375383/how-to-properly-install-temurin-jdk-with-update-alternatives)):
+  ```sh { name=java }
+  wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo apt-key add -
+  echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | sudo tee /etc/apt/sources.list.d/adoptium.list
+  sudo apt update
+  sudo apt install temurin-8-jdk
+  sudo apt install temurin-17-jdk
+  sudo update-alternatives --config java
+  JAVA_HOME=/usr
+  ```
+
 - Clone the repository:
   ```sh { name=clone }
   git clone https://github.com/saucelabs/visual-examples
