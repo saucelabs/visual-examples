@@ -28,10 +28,10 @@ Visual uses different Statuses:
 
 | Status   | Description |
 | -------- | ----------- |
-| In Progress | Those builds have been finished yet. As soon as this happend they can be reviewed |
-| No Changes | The snapshots assigned to your build where equal to your baseline. This is considered as susccess as your assertions succeeded. |
+| In Progress | Those builds have been finished yet. As soon as this happened they can be reviewed |
+| No Changes | The snapshots assigned to your build were equal to your baseline. This is considered as success as your assertions succeeded. |
 | For Review | There where either no baselines available to compare against your upload snapshot or some of them where different then their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted they are considered a failure state. |
-| Accpeted   | All detected changes where accepted. This is considered a success state. |
+| Accepted   | All detected changes where accepted. This is considered a success state. |
 | Rejected   | Some of your detected changes where rejected. This is considered an failure state. |
 
 ## API
