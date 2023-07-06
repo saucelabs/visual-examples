@@ -2,22 +2,22 @@
 
 ## Intro
 
-Sauce Visual helps you to compare uploaded images (so called snapshots) against reference images (called baselines). It offers APIs to upload snapshots and compare those against baselines. The result of the comparison prrocess is a diff with details about eventually detected differences. All snapshots in Sauce Visual need to be assigned to visual builds.
+Sauce Visual helps you to compare uploaded images (called snapshots) against reference images (called baselines). It offers APIs to upload snapshots and compare those against baselines. The result of the comparison process includes the details of eventually detected differences. All snapshots in Sauce Visual need to be assigned to visual builds.
 
 ## Workflow
 
-To be able to benfit from Sauce Visual you typically add it to your exsting automated tests using provided libraries. We currently provide bindings for:
+To be able to benefit from Sauce Visual you typically add it to your existing automated tests using provided libraries. We currently provide bindings for:
 - JavaScript/TypeScript
 - Java
-You can use those standalone or with your Selenium/Appium based tests. Support for other frameworks like Cypress, StoryBooks, Playwright are on the Roadmap.
+You can use those standalone or with your Selenium/Appium-based tests. Support for other frameworks like Cypress, StoryBooks and Playwright is on the Roadmap.
 
-The best way to integrate Sauce Visual into your existing tests (or writing new ones) is to follow the examples listed [in this repo](../README.md).
+The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in this repo](../README.md).
 
-After you have executed your tests you will find your Visual test results in the Builds History Page:
+After you have executed your tests you will find your Visual test results on the Builds History Page:
 
 ![Diff History Page}](./resources/BuildHistoryPage.png)
 
-By selecting one of the builds you get to the Diff Review Page where you cann Approve/Reject detected diffs.
+By selecting one of the builds you get to the Diff Review Page where you can Approve/Reject detected diffs.
 
 
 ![Diff Review Page}](./resources/DiffReviewPage.png)
@@ -36,7 +36,7 @@ Visual uses different Statuses:
 
 ## API
 
-Sauce Visual offers an public GraphQL API which can be used to understand the available feature set and to generate client bindings from them. The public api can be found here:
+Sauce Visual offers a public GraphQL API which can be used to understand the available feature set and to generate client bindings from them. The public API can be found here:
 
 [US West API](https://api.us-west-1.saucelabs.com/v1/visual/graphql)
 [US East API](https://api.us-east-4.saucelabs.com/v1/visual/graphql)
