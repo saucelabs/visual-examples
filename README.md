@@ -4,3 +4,7 @@ This repository contains several examples which explain how to get started with 
 
 - [JS/TS - WebdriverIO](./wdio/README.md)
 - [Java - WebDriver + JUnit](./wd-java/README.md)
+
+## Documentation
+
+[Docs](./docs/README.md)
