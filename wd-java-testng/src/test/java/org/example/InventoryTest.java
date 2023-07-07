@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 
 public class InventoryTest {
 
-    private static final Dotenv dotenv = Dotenv.load();
+    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final String username = dotenv.get("SAUCE_USERNAME");
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
