@@ -21,8 +21,8 @@
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
   ```sh { name=set-credentials }
-  echo SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__ >> src/test/resources/.env
-  echo SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__ >> src/test/resources/.env
+  export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
+  export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
   ```
 
 - Run the test
