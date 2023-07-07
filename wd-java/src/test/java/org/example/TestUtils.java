@@ -10,7 +10,7 @@ public class TestUtils {
     
     static RemoteWebDriver getWebDriver(String username, String accessKey) throws MalformedURLException {
         if (username == null || accessKey == null || username.trim().isEmpty() || accessKey.trim().isEmpty()) {
-            String err = "Sauce Labs credentials not found. Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY in src/test/resources/.env file";
+            String err = "Sauce Labs credentials not found. Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY in your environment";
             throw new RuntimeException(err);
         }
         // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
