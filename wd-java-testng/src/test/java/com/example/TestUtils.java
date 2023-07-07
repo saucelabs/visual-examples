@@ -1,4 +1,4 @@
-package org.example;
+package com.example;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;

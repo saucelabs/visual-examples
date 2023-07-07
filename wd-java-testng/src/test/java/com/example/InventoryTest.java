@@ -1,14 +1,14 @@
-package org.example;
+package com.example;
 
+import com.example.pageobjects.InventoryPage;
+import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.pageobjects.InventoryPage;
-import org.example.pageobjects.LoginPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
@@ -21,7 +21,7 @@ public class InventoryTest {
     private static VisualApi visual;
     private static RemoteWebDriver driver;
 
-    @BeforeAll
+    @BeforeSuite
     public static void init() throws MalformedURLException {
         driver = TestUtils.getWebDriver(username, accessKey);
         visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
@@ -42,7 +42,7 @@ public class InventoryTest {
         visual.check("Inventory Page");
     }
 
-    @AfterAll
+    @AfterSuite
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
