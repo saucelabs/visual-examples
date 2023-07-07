@@ -9,17 +9,17 @@
 ## Run the demo
 
 - Install Eclipse Temurin JDK (for macOS Ventura):
-  ```sh { name=java }
+  ```sh { name=java-macos }
   brew install --cask temurin
   ```
 
-- Install Eclipse Temurin JDK (for [Ubuntu](https://askubuntu.com/questions/1375383/how-to-properly-install-temurin-jdk-with-update-alternatives)):
-  ```sh { name=java }
+- Install Eclipse Temurin JDK (for [Ubuntu](https://adoptium.net/blog/2021/12/eclipse-temurin-linux-installers-available/)):
+  ```sh { name=java-ubuntu }
+  sudo apt-get install -y wget apt-transport-https gnupg
   wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo apt-key add -
   echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | sudo tee /etc/apt/sources.list.d/adoptium.list
   sudo apt update
-  sudo apt install temurin-8-jdk
-  sudo apt install temurin-17-jdk
+  sudo apt install temurin-11-jdk
   sudo update-alternatives --config java
   JAVA_HOME=/usr
   ```
