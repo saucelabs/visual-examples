@@ -1,13 +1,13 @@
 import { defineConfig } from 'cypress'
 import {question} from 'readline-sync';
-import { getApi } from "@saucelabs/visual";
+import * as visual from "@saucelabs/visual";
 
 const sauceConfig = {
   protocol: 'http',
   hostname: 'localhost',
   port: 9000,
-  user: '',
-  key: ''
+  user: ' ',
+  key: ' '
 }
 
 function getSauceCredentials(config): { user: string; key: string; } {
@@ -33,9 +33,26 @@ export default defineConfig({
   video: false,
 
   e2e: {
-    setupNodeEvents(on, config) {
-      // getSauceCredentials(sauceConfig)
-      console.log({getApi})
+    setupNodeEvents(on) {
+      const {user, key} = getSauceCredentials(sauceConfig)
+      const api = visual.getApi({...sauceConfig, user, key})
+      
+      let data: any = {}
+
+      on('before:run', () => {
+          const build = api.graphql.createBuild(
+            'MOCK_BUILD_NAME',
+          ).then(() => {
+            data.buildId = build.id
+          });       
+      })
+
+      on('after:run', () => {
+        api.graphql.finishBuild(
+          data.buildId,
+        );
+        data = {}
+      })
     },
   }
 });

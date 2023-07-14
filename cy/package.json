@@ -5,8 +5,8 @@
     "sauce-visual": "cypress run --spec \"cypress/e2e/inventory.cy.ts\"",
     "sauce-visual-modified": "cypress run --spec \"cypress/e2e/inventory-modified.cy.ts\""
   },
+  "type": "module",
   "devDependencies": {
-    "@types/readline-sync": "1.4.4",
     "cypress": "12.16.0",
     "typescript": "5.1.6"
   },

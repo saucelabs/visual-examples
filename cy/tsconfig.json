@@ -3,6 +3,8 @@
     "baseUrl": "./",
     "target": "es5",
     "lib": ["es5", "dom"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "types": ["cypress", "node"]
   },
   "include": ["**/*.ts"]
