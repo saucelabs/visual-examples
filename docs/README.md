@@ -13,7 +13,7 @@ You can use those standalone or with your Selenium/Appium-based tests. Support f
 
 The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in this repo](../README.md).
 
-After you have executed your tests you will find your Visual test results on the Builds History Page:
+After you have executed your tests you will find your Visual test results on the Visual / Builds Page:
 
 ![Diff History Page}](./resources/BuildHistoryPage.png)
 
