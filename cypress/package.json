@@ -1,5 +1,13 @@
 {
+  "name": "@saucelabs/cypress-visual-plugin-example",
+  "description": "Sauce Labs Visual Example for Cypress",
   "type": "module",
+  "scripts": {
+    "copy-locked": "cp ./cypress/e2e/saucedemo.locked.ts ./cypress/e2e/saucedemo.cy.ts",
+    "copy-standard": "cp ./cypress/e2e/saucedemo.standard.ts ./cypress/e2e/saucedemo.cy.ts",
+    "cypress": "npm run copy-standard && cypress run",
+    "cypress-modified": "npm run copy-locked && cypress run"
+  },
   "dependencies": {
     "@saucelabs/cypress-visual-plugin": "file:../../iris/clients/js/visual-cypress",
     "@tsconfig/node18": "^18.2.0",

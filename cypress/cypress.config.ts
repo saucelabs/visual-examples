@@ -6,8 +6,9 @@ export default defineConfig({
     saucelabs: {
       buildName: 'Cypress - {BROWSER_NAME} {BROWSER_VERSION} - {OS_NAME} {OS_VERSION}',
       namePattern: '^visual: .*',
-      region: 'staging',
+      region: 'us-west-1',
     },
+    specPattern: 'cypress/e2e/**/*.cy.ts',
     supportFile: './cypress/support/e2e.ts',
     setupNodeEvents(on, config) {
       CypressVisualPlugin(on, config);
