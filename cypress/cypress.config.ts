@@ -4,8 +4,8 @@ import CypressVisualPlugin from '@saucelabs/cypress-visual-plugin';
 export default defineConfig({
   e2e: {
     saucelabs: {
-      buildName: 'Cypress - {BROWSER_NAME} {BROWSER_VERSION} - {OS_NAME} {OS_VERSION}',
-      namePattern: '^visual: .*',
+      buildName: 'SauceDemo - Cypress',
+      namePrefix: 'visual: ',
       region: 'us-west-1',
     },
     specPattern: 'cypress/e2e/**/*.cy.ts',
