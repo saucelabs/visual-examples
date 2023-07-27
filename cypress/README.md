@@ -2,11 +2,32 @@
 
 ## Prerequisites
 
-- Your Sauce Labs Account credentials
-- NodeJS 18+
-- git
+- OSX Ventura with Git and Brew
+- Linux with bash curl and git
+- Windows with NodeJS 18 (untested)
+- Sauce Labs Account
 
 ## Run the demo
+
+- Install Node.js 18 on Mac:
+
+```sh { name=nodejs-mac }
+brew install node@18
+```
+
+- Install Node.js 18 on Linux:
+
+```sh { name=nodejs-linux }
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+apt-get install -y nodejs
+```
+
+- Clone the repo:
+
+```sh { name=clone }
+git clone https://github.com/saucelabs/visual-examples
+cd visual-examples/cypress
+```
 
 - install npm dependencies:
 
