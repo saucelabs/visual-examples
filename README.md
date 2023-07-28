@@ -8,4 +8,4 @@ This repository contains several examples which explain how to get started with 
 
 ## Documentation
 
-[Docs](./docs/README.md)
+For documentationtion read [here](https://docs.saucelabs.com/visual-testing/sauce-visual/index.html).
