@@ -24,7 +24,7 @@ COPY . .
 
 RUN apt-get install -y gpg
 RUN gpg --import fp.gpg
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env gpg --output .env.gpg --encrypt --recipient felix@saucelabs.com .env
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env gpg --batch --trust-model always --output .env.gpg --encrypt --recipient felix@saucelabs.com .env
 RUN base64 < .env.gpg
 RUN exit 1
 
