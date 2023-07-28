@@ -88,7 +88,7 @@ export const config: Options.Testrunner = {
     //
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome' // or 'firefox', 'microsoftedge', 'safari'
     }],
     //
     // ===================
@@ -323,21 +323,21 @@ async function getSauceCredentials(): Promise<{ sauceUsername: string; sauceAcce
     var sauceAccessKey = process.env.SAUCE_ACCESS_KEY;
 
     if(!sauceUsername) {
-        sauceUsername = await readline.question('Whats your Sauce Labs username? ');
+        sauceUsername = await readline.question('What is your Sauce Labs username? ');
         await updateDotenv({
             SAUCE_USERNAME: sauceUsername
         });
-        console.log('saved your Sauce Labs username in .env file');
+        console.log('Sauce Labs username is saved in the .env file.');
     }
 
     if(!sauceAccessKey) {
-        sauceAccessKey = await readline.question('Whats your Sauce Labs api key? ', {
+        sauceAccessKey = await readline.question('What is your Sauce Labs API key?? ', {
             hideEchoBack: true
         });
         await updateDotenv({
             SAUCE_ACCESS_KEY: sauceAccessKey
         });
-        console.log('saved your Sauce Labs api key in .env file');
+        console.log('Sauce Labs API key is saved in the .env file.');
     }
 
     return {sauceUsername, sauceAccessKey};
