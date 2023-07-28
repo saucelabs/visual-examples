@@ -1,6 +1,4 @@
 context('Sauce Demo', () => {
-  beforeEach(() => {
-  })
 
   it('.type() - type into a DOM element', () => {
     cy.visit('https://www.saucedemo.com/')
