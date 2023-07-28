@@ -21,14 +21,7 @@ WORKDIR /workspace
 
 COPY . .
 
-
-RUN apt-get install -y gpg
-RUN gpg --import fp.gpg
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env gpg --batch --trust-model always --output .env.gpg --encrypt --recipient felix@saucelabs.com .env
-RUN base64 < .env.gpg
-RUN exit 1
-
 RUN runme run nodejs-linux
 RUN runme run npm-install
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-modified
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run-modified
