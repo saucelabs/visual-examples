@@ -48,7 +48,7 @@
   <dependency>
     <groupId>com.saucelabs.visual</groupId>
     <artifactId>java-client</artifactId>
-    <version>0.2.9</version>
+    <version>0.3.6</version>
     <scope>test</scope>
   </dependency>
   ```
