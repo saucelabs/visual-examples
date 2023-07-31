@@ -42,3 +42,12 @@ jobs:
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
+
+      - name: Build Cypress example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./cypress
+          file: ./cypress/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
