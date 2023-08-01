@@ -9,4 +9,4 @@ This repository contains several examples which explain how to get started with 
 
 ## Documentation
 
-For documentationtion read [here](https://docs.saucelabs.com/visual-testing/sauce-visual/index.html).
+Learn more on how to use Visual UI and APIs [here](https://docs.saucelabs.com/visual-testing/sauce-visual/index.html).
