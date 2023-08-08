@@ -68,13 +68,15 @@ npm install --save @saucelabs/wdio-sauce-visual-service
 ```
 
 - Add the SauceVisualService to your `wdio.conf.(js|ts)`:
-
+  *Build name can be set through the `buildName` attribute.*
 ```ts
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service'
 ...
 export const config: Options.Testrunner = {
 ...
-    services: ['sauce', [SauceVisualService, {}]],
+    services: ['sauce', [SauceVisualService, {
+        buildName: 'Sauce Demo Test',
+    }]],
 ...
 }
 ```
