@@ -101,3 +101,44 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
 - Run the test the way you are used to.
+
+## Advanced Usage
+
+### Build Name
+
+`buildName` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
+
+Example:
+``` ts
+    services: ['sauce', [SauceVisualService, {
+        buildName: 'Sauce Demo Test',
+    }]],
+```
+
+### Ignored Regions
+
+In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
+
+Those ignored regions are specified when requesting a new snapshot.
+
+A region is defined by four elements.
+- `x`, `y`: The location of the top-left corner of the ignored region
+- `width`: The width of the region to ignore
+- `height`: The heigh of the region to ignore
+
+*Note: all values are pixels*
+
+Example:
+```ts
+await browser.check('Before Login', {
+    ignore: [
+        {
+            x: 100,
+            y: 100,
+            width: 200,
+            height: 200,
+        },
+    ],
+});
+```
+[Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12) to see complete working example

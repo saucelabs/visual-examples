@@ -95,3 +95,43 @@
   ```
 
 - Run the test the way you are used to.
+
+## Advanced Usage
+
+### Build Name
+
+`buildName` can be defined through the `SAUCE_VISUAL_BUILD_NAME` environment variable.
+
+It needs to be defined prior to running your tests.
+
+Example:
+```sh
+export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
+```
+
+### Ignored Regions
+
+In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
+
+Those ignored regions are specified when requesting a new snapshot.
+
+A region is defined by four elements.
+- `x`, `y`: The location of the top-left corner of the ignored region
+- `width`: The width of the region to ignore
+- `height`: The heigh of the region to ignore
+
+*Note: all values are pixels*
+
+Example:
+```java
+  Options options = new Options();
+  IgnoreRegion ignoreRegion = new IgnoreRegion(
+    200, // width
+    200, // height
+    100, // x
+    100  // y
+  );
+  options.setIgnoreRegions(List.of(ignoreRegion));
+  visual.check("Before Login", options);
+```
+[Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L41) to see complete working example
