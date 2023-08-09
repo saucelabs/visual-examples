@@ -96,9 +96,9 @@
 
 - Run the test the way you are used to.
 
-## Advanced Usage
+## Advanced usage
 
-### Build Name
+### Build name
 
 `buildName` can be defined through the `SAUCE_VISUAL_BUILD_NAME` environment variable.
 
@@ -109,7 +109,7 @@ Example:
 export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
 ```
 
-### Ignored Regions
+### Ignored regions
 
 In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
 

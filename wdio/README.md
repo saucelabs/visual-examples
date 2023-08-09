@@ -67,7 +67,7 @@ npm run sauce-visual-modified
 npm install --save @saucelabs/wdio-sauce-visual-service
 ```
 
-- Add the SauceVisualService to your `wdio.conf.(js|ts)`:
+- Add the SauceVisualService to your `wdio.conf.(js|ts)`:\
   *Build name can be set through the `buildName` attribute.*
 ```ts
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service'
@@ -102,9 +102,9 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test the way you are used to.
 
-## Advanced Usage
+## Advanced usage
 
-### Build Name
+### Build name
 
 `buildName` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
 
@@ -115,7 +115,7 @@ Example:
     }]],
 ```
 
-### Ignored Regions
+### Ignored regions
 
 In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
 
