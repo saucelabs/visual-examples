@@ -115,6 +115,8 @@ In the case you need to ignore some region when running your tests, Visual Testi
 
 Those ignored regions are specified when requesting a new snapshot.
 
+#### User-specified ignored region
+
 A region is defined by four elements.
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
@@ -134,4 +136,20 @@ Example:
   options.setIgnoreRegions(List.of(ignoreRegion));
   visual.check("Before Login", options);
 ```
-[Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L41) to see complete working example
+
+#### Component-based ignored region
+
+Alternatively, a ignored region can a specific element from the page.
+
+Example:
+```java
+  Options options = new Options();
+  options.setIgnoreElements(List.of(
+    // AddBackpackToCartButton will be ignored
+    inventoryPage.getAddBackpackToCartButton()
+  ));
+  visual.check("Inventory Page", options);
+```
+
+
+[Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example

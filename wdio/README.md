@@ -117,6 +117,8 @@ Example:
 
 ### Ignored regions
 
+#### User-specified ignored region
+
 In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
 
 Those ignored regions are specified when requesting a new snapshot.
@@ -141,4 +143,20 @@ await browser.check('Before Login', {
     ],
 });
 ```
-[Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12) to see complete working example
+
+#### Component-based ignored region
+
+Alternatively, a ignored region can a specific element from the page.
+
+Example:
+```ts
+    await browser.check('Inventory Page', {
+        ignore: [
+            // addBackPackToCartButton will be ignored
+            InventoryPage.addBackPackToCartButton,
+        ],
+    });
+
+```
+
+[Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12-L18) to see complete working example
