@@ -111,6 +111,8 @@ export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
 
 ### Ignored regions
 
+#### User-specified ignored region
+
 In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
 
 Those ignored regions are specified when requesting a new snapshot.
@@ -134,4 +136,19 @@ Example:
   options.setIgnoreRegions(List.of(ignoreRegion));
   visual.check("Before Login", options);
 ```
-[Follow me](/wd-java-testng/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L41) to see complete working example
+
+#### Component-based ignored region
+
+Alternatively, an ignored region can be a specific element from the page.
+
+Example:
+```java
+  Options options = new Options();
+  options.setIgnoreElements(List.of(
+    // AddBackpackToCartButton will be ignored
+    inventoryPage.getAddBackpackToCartButton()
+  ));
+  visual.check("Inventory Page", options);
+```
+
+[Follow me](/wd-java-testng/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example
