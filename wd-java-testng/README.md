@@ -25,6 +25,11 @@
   export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
   ```
 
+  - Configure your build name
+  ```sh { name=set-credentials }
+  export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
+  ```
+
 - Run the test
   ```sh { name=mvn-run-test }
   ./mvnw clean test -Dtest=InventoryTest
