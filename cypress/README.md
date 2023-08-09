@@ -60,6 +60,42 @@ npm run cypress-modified
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 
+## Running with `saucectl`
+
+Alternatively, you can run your tests on Sauce Labs.
+
+- Install `saucectl`
+```sh { name=npm-install-saucectl}
+npm install saucectl
+```
+
+- Install the plugin in your `.sauce/config.yml`
+```yml
+[...]
+
+npm:
+  packages:
+    "@saucelabs/cypress-visual-plugin": "^0.3.3"
+
+[...]
+```
+
+- Run saucectl
+```sh { name=saucectl-run }
+npx saucectl run
+```
+
+- Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
+- Accept all diffs, so they become new baselines.
+
+- Run saucectl (with a modified screen)
+```sh { name=saucectl-run-modified }
+npm run copy-locked
+npx saucectl run
+```
+
+- Go to https://app.saucelabs.com/visual/builds to review changes.
+
 ## How to add visual testing to your setup
 
 - Add plugin to your Cypress project

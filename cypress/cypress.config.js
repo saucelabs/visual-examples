@@ -12,5 +12,5 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       CypressVisualPlugin(on, config);
     },
-  } as Cypress.EndToEndConfigOptions,
+  },
 })
