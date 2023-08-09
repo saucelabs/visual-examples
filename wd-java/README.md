@@ -139,7 +139,7 @@ Example:
 
 #### Component-based ignored region
 
-Alternatively, a ignored region can a specific element from the page.
+Alternatively, an ignored region can be a specific element from the page.
 
 Example:
 ```java
