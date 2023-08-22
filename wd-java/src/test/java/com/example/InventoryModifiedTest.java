@@ -40,7 +40,7 @@ public class InventoryModifiedTest {
         inventoryPage.open();
         inventoryPage.addBackpackToCart();
 
-        visual.check("Inventory page");
+        visual.check("Inventory Page");
     }
 
     @AfterAll
