@@ -1,7 +1,6 @@
 package com.example;
 
-import com.example.pageobjects.InventoryPage;
-import com.example.pageobjects.LoginPage;
+import com.example.pageobjects.HomePage;
 import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class InventoryTest {
+public class WootTest {
 
     private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final String username = dotenv.get("SAUCE_USERNAME");
@@ -29,17 +28,16 @@ public class InventoryTest {
 
     @Test
     void checkInventoryPageLooksTheSame() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open();
+        HomePage homePage = new HomePage(driver);
 
-        visual.check("Before Login");
+        homePage.open();
+        visual.check("Top of Page");
 
-        loginPage.login("standard_user", "secret_sauce");
+        homePage.scrollToSecondRow();
+        visual.check("Second Row");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
-        inventoryPage.open();
-
-        visual.check("Inventory Page");
+        homePage.scrollToBestSellers();
+        visual.check("Best Sellers");
     }
 
     @AfterSuite

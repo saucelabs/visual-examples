@@ -1,12 +1,12 @@
 package com.example;
 
-import com.example.pageobjects.InventoryPage;
-import com.example.pageobjects.LoginPage;
+import com.example.pageobjects.HomePage;
 import com.saucelabs.visual.Options;
 import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.model.IgnoreRegion;
 import io.github.cdimascio.dotenv.Dotenv;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.util.List;
 
-public class InventoryIgnoreRegionsTest {
+public class WootIgnoreRegionsTest {
 
     private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final String username = dotenv.get("SAUCE_USERNAME");
@@ -32,22 +32,20 @@ public class InventoryIgnoreRegionsTest {
 
     @Test
     void checkInventoryPageWithIgnoreRegions() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.open();
+        HomePage homePage = new HomePage(driver);
+        homePage.open();
+        visual.check("Top of Page");
 
         Options options = new Options();
-        IgnoreRegion ignoreRegion = new IgnoreRegion(200,200,100,100);
+        WebElement element = homePage.getFirstAd();
+        IgnoreRegion ignoreRegion = new IgnoreRegion("name", element.getSize().getHeight(), element.getSize().getWidth(), element.getLocation().getX(), element.getLocation().getY());
         options.setIgnoreRegions(List.of(ignoreRegion));
-        visual.check("Before Login", options);
+        homePage.scrollToSecondRow();
+        visual.check("Second Row", options);
 
-        loginPage.login("standard_user", "secret_sauce");
+        homePage.scrollToBestSellers();
+        visual.check("Best Sellers");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
-        inventoryPage.open();
-
-        Options options2 = new Options();
-        options2.setIgnoreElements(List.of(inventoryPage.getAddBackpackToCartButton()));
-        visual.check("Inventory Page", options2);
     }
 
     @AfterSuite
@@ -56,4 +54,15 @@ public class InventoryIgnoreRegionsTest {
             driver.quit();
         }
     }
+
+    public class IgnoreRegionByElement extends IgnoreRegion {
+        IgnoreRegionByElement(WebElement element) {
+            super(element.getLocation().getX(), element.getLocation().getY(), element.getSize().getWidth(), element.getSize().getHeight());
+        }
+
+        IgnoreRegionByElement(String name, WebElement element) {
+            super("", element.getLocation().getX(), element.getLocation().getY(), element.getSize().getWidth(), element.getSize().getHeight());
+        }
+    }
 }
+
