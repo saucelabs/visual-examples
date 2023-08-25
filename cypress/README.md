@@ -75,7 +75,7 @@ npm install saucectl
 
 npm:
   packages:
-    "@saucelabs/cypress-visual-plugin": "^0.3.3"
+    "@saucelabs/cypress-visual-plugin": "^0.3.33"
 
 [...]
 ```
