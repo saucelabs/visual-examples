@@ -75,7 +75,7 @@ npm install saucectl
 
 npm:
   packages:
-    "@saucelabs/cypress-visual-plugin": "^0.3.3"
+    "@saucelabs/cypress-visual-plugin": "^0.3.33"
 
 [...]
 ```
@@ -106,16 +106,21 @@ npm install --save @saucelabs/cypress-visual-plugin
 
 - Add plugin in the project configuration, at the top of the file:
 ```ts
-import CypressVisualPlugin from '@saucelabs/cypress-visual-plugin';
+import { CypressSauceVisual } from '@saucelabs/cypress-visual-plugin';
 
 export default defineConfig({
   e2e: {
     [...]
     setupNodeEvents(on, config) {
-      CypressVisualPlugin(on, config);
+      CypressSauceVisual.register(on, config);
     },
   },
 })
+```
+
+- Register Sauce Visual for Cypress commands. Add the following line in your `cypress/support/e2e.ts`:
+```ts
+import '@saucelabs/cypress-visual-plugin/build/commands';
 ```
 
 - Capture screenshot in one of your tests:
