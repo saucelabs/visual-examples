@@ -12,7 +12,7 @@
     "cypress-modified": "npm run copy-locked && cypress run"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.3.21",
+    "@saucelabs/cypress-visual-plugin": "^0.3.33",
     "@tsconfig/node18": "^18.2.0",
     "cypress": "^12.17.2",
     "ts-node": "^10.9.1",
