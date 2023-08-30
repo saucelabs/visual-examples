@@ -59,6 +59,13 @@ npm run cypress-modified
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
+- It should detect changes. Reject diffs.
+- Run modified test with ignore regions.
+```sh { name=npm-run-ignored }
+npm run cypress-ignored
+```
+- Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
+- Build should passed with "No changes" status.
 
 ## Running with `saucectl`
 
