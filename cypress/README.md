@@ -127,7 +127,7 @@ export default defineConfig({
 
 - Register Sauce Visual for Cypress commands. Add the following line in your `cypress/support/e2e.ts`:
 ```ts
-import '@saucelabs/cypress-visual-plugin/build/commands';
+import '@saucelabs/cypress-visual-plugin/commands';
 ```
 
 - Capture screenshot in one of your tests:
@@ -137,7 +137,7 @@ context('Sauce Demo', () => {
   it('.type() - type into a DOM element', () => {
     cy.visit('https://www.saucedemo.com/')
 
-    cy.screenshot('visual: my-homepage');
+    cy.visualCheck('visual: my-homepage');
   })
 });
 ```

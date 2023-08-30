@@ -1,1 +1,1 @@
-import '@saucelabs/cypress-visual-plugin/build/commands';
+import '@saucelabs/cypress-visual-plugin/commands';
