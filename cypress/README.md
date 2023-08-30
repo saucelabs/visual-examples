@@ -150,3 +150,81 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
 - Run the test the way you are used to.
+
+
+## Advanced usage
+
+### Build name
+
+`buildName` can be defined in the `cypress.config.js` configuration file.
+
+Example
+```javascript
+export default defineConfig({
+  e2e: {
+    [...]
+    saucelabs: {
+      buildName: 'SauceDemo - Cypress',
+    },
+    [...]
+  }
+}
+```
+
+### Region
+
+By default, visual tests are uploaded to `us-west-1` region. \
+This value can be overridden in the `cypress.config.js` configuration file.
+
+Example
+```javascript
+export default defineConfig({
+  e2e: {
+    [...]
+    saucelabs: {
+      regionbuildName: 'eu-central-1',
+    },
+    [...]
+  }
+}
+```
+
+### Ignored regions
+
+In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
+
+Those ignored regions are specified when requesting a new snapshot.
+
+#### User-specified ignored region
+
+A region is defined by four elements.
+- `x`, `y`: The location of the top-left corner of the ignored region
+- `width`: The width of the region to ignore
+- `height`: The heigh of the region to ignore
+
+*Note: all values are pixels*
+
+Example:
+```javascript
+    cy.visualCheck('login-page', { ignoredRegions: [
+      {
+        x: 240,
+        y: 800,
+        width: 1520,
+        height: 408
+      }
+    ] });
+```
+
+#### Component-based ignored region
+
+Alternatively, an ignored region can be a specific element from the page.
+
+If the selectors matches multiple elements, all will be ignored.
+
+Example:
+```javascript
+    cy.visualCheck('login-page', { ignoredRegions: [
+      cy.get('[data-test="username"]'),
+    ] });
+```
