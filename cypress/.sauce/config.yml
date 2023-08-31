@@ -14,7 +14,7 @@ cypress:
 
 npm:
   packages:
-    "@saucelabs/cypress-visual-plugin": "^0.3.36"
+    "@saucelabs/cypress-visual-plugin": "^0.3.41"
 
 rootDir: ./
 suites:
