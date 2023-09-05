@@ -14,6 +14,7 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 @Execution(ExecutionMode.CONCURRENT)
 public class SauceVisualBaseTest extends SauceBaseTest {
     protected static ThreadLocal<VisualApi> threadLocalVisual = ThreadLocal.withInitial(() -> null);
+
     protected HomePage homePage;
 
     @BeforeEach
@@ -27,16 +28,11 @@ public class SauceVisualBaseTest extends SauceBaseTest {
 
         homePage = new HomePage(driver);
         homePage.open();
+        homePage.sync();
     }
 
     protected VisualApi visual() {
         return threadLocalVisual.get();
-    }
-
-    @BeforeEach
-    public void initTest() {
-        homePage = new HomePage(driver);
-        homePage.open();
     }
 
     @Override

@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import java.util.List;
 
 public abstract class BasePage {
     protected final WebDriver driver;
@@ -14,15 +15,19 @@ public abstract class BasePage {
 
     protected abstract String getUrlPath();
 
+    protected abstract void sync();
+
+    public abstract List<WebElement> getIgnoreRegions();
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
     @Setter
-    private boolean with_bugs = false;
+    private boolean withBugs = false;
 
     public void open() {
-        driver.get(getFullUrl(with_bugs));
+        driver.get(getFullUrl(withBugs));
     }
 
     protected String getFullUrl(boolean debug) {
@@ -33,6 +38,8 @@ public abstract class BasePage {
     public HomePage navigateToHome() {
         WebElement home = driver.findElement(homeLink);
         home.click();
-        return new HomePage(driver);
+        HomePage homePage = new HomePage(driver);
+        homePage.sync();
+        return homePage;
     }
 }
