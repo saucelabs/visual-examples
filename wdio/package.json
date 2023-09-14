@@ -16,7 +16,7 @@
     "sauce-visual-modified": "wdio run ./wdio.conf.ts --spec src/inventory-modified.spec.ts"
   },
   "dependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.6",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.55",
     "readline-sync": "^1.4.10",
     "update-dotenv": "^1.1.1"
   }
