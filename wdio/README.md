@@ -67,14 +67,14 @@ npm run sauce-visual-modified
 npm install --save @saucelabs/wdio-sauce-visual-service
 ```
 
-- Add the SauceVisualService to your `wdio.conf.(js|ts)`:\
-  *Build name can be set through the `buildName` attribute.*
+- Add the SauceVisualService to your `wdio.conf.(js|ts)`:  
+   *Build name can be set through the `buildName` attribute.*
+
 ```ts
-import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service'
 ...
 export const config: Options.Testrunner = {
 ...
-    services: ['sauce', [SauceVisualService, {
+    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
         buildName: 'Sauce Demo Test',
     }]],
 ...
@@ -109,8 +109,9 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 `buildName` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
 
 Example:
-``` ts
-    services: ['sauce', [SauceVisualService, {
+
+```ts
+    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
         buildName: 'Sauce Demo Test',
     }]],
 ```
@@ -124,6 +125,7 @@ In the case you need to ignore some region when running your tests, Visual Testi
 Those ignored regions are specified when requesting a new snapshot.
 
 A region is defined by four elements.
+
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
 - `height`: The heigh of the region to ignore
@@ -131,6 +133,7 @@ A region is defined by four elements.
 *Note: all values are pixels*
 
 Example:
+
 ```ts
 await browser.check('Before Login', {
     ignore: [
@@ -149,6 +152,7 @@ await browser.check('Before Login', {
 Alternatively, an ignored region can be a specific element from the page.
 
 Example:
+
 ```ts
     await browser.check('Inventory Page', {
         ignore: [
