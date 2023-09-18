@@ -36,13 +36,17 @@ cd visual-examples/cypress
 npm install
 ```
 
-- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
+- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and (in UNIX) run
 
 ```sh { name=set-credentials }
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 # to change the region you are testing in please change the `region` property in the cypress.config.ts file.
 ```
+
+In Windows, use the "set" command instead of the "export" command:
+set SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
+set SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test
 
