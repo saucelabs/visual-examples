@@ -104,15 +104,17 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ## Advanced usage
 
-### Build name
+### Build attributes
 
-`buildName` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
+`buildName`, `branch` and `project` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
 
 Example:
 
 ```ts
     services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
         buildName: 'Sauce Demo Test',
+        branch: 'main',
+        project: 'WDIO examples'
     }]],
 ```
 
