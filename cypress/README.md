@@ -71,6 +71,13 @@ npm run cypress-ignored
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 - Build should passed with "No changes" status.
 
+For Windows, replace the first 3 script lines in the package.json with:
+
+  "copy-standard": "copy \".\\cypress\\e2e\\saucedemo.standard.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
+  "copy-locked": "copy \".\\cypress\\e2e\\saucedemo.locked.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
+  "copy-ignored": "copy \".\\cypress\\e2e\\saucedemo.ignored.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
+  
+
 ## Running with `saucectl`
 
 Alternatively, you can run your tests on Sauce Labs.
