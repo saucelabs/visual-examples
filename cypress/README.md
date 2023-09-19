@@ -49,6 +49,7 @@ set SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 set SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test
+(for Windows, make sure to use the cmd window, NOT PowerShell)
 
 ```sh { name=npm-run }
 npm run cypress
@@ -76,7 +77,7 @@ For Windows, replace the first 3 script lines in the package.json with:
   "copy-standard": "copy \".\\cypress\\e2e\\saucedemo.standard.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
   "copy-locked": "copy \".\\cypress\\e2e\\saucedemo.locked.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
   "copy-ignored": "copy \".\\cypress\\e2e\\saucedemo.ignored.ts\" \".\\cypress\\e2e\\saucedemo.cy.ts\"",
-  
+
 
 ## Running with `saucectl`
 
