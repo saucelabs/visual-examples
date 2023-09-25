@@ -14,7 +14,7 @@
     "cypress-ignored": "npm run copy-ignored && cypress run"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.3.55",
+    "@saucelabs/cypress-visual-plugin": "^0.3.62",
     "@tsconfig/node18": "^18.2.0",
     "cypress": "^12.17.4",
     "ts-node": "^10.9.1",

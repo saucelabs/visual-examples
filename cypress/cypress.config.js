@@ -5,6 +5,8 @@ export default defineConfig({
   e2e: {
     saucelabs: {
       buildName: 'SauceDemo - Cypress',
+      branch: 'main',
+      project: 'CY examples',
       region: 'us-west-1',
     },
     specPattern: 'cypress/e2e/**/*.cy.ts',
