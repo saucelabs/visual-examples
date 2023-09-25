@@ -61,9 +61,11 @@ npm run cypress-modified
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 - It should detect changes. Reject diffs.
 - Run modified test with ignore regions.
+
 ```sh { name=npm-run-ignored }
 npm run cypress-ignored
 ```
+
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 - Build should passed with "No changes" status.
 
@@ -72,11 +74,13 @@ npm run cypress-ignored
 Alternatively, you can run your tests on Sauce Labs.
 
 - Install `saucectl`
-```sh { name=npm-install-saucectl}
+
+```sh { name=npm-install-saucectl }
 npm install saucectl
 ```
 
 - Install the plugin in your `.sauce/config.yml`
+
 ```yml
 [...]
 
@@ -88,14 +92,15 @@ npm:
 ```
 
 - Run saucectl
+
 ```sh { name=saucectl-run }
 npx saucectl run
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
-
 - Run saucectl (with a modified screen)
+
 ```sh { name=saucectl-run-modified }
 npm run copy-locked
 npx saucectl run
@@ -112,6 +117,7 @@ npm install --save @saucelabs/cypress-visual-plugin
 ```
 
 - Add plugin in the project configuration, at the top of the file:
+
 ```ts
 import { CypressSauceVisual } from '@saucelabs/cypress-visual-plugin';
 
@@ -126,6 +132,7 @@ export default defineConfig({
 ```
 
 - Register Sauce Visual for Cypress commands. Add the following line in your `cypress/support/e2e.ts`:
+
 ```ts
 import '@saucelabs/cypress-visual-plugin/commands';
 ```
@@ -151,20 +158,22 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test the way you are used to.
 
-
 ## Advanced usage
 
-### Build name
+### Build attributes
 
-`buildName` can be defined in the `cypress.config.js` configuration file.
+`buildName`, `branch` and `project` can be defined in the `cypress.config.js` configuration file.
 
 Example
+
 ```javascript
 export default defineConfig({
   e2e: {
     [...]
     saucelabs: {
       buildName: 'SauceDemo - Cypress',
+      branch: 'main',
+      project: 'CY examples'
     },
     [...]
   }
@@ -173,10 +182,11 @@ export default defineConfig({
 
 ### Region
 
-By default, visual tests are uploaded to `us-west-1` region. \
+By default, visual tests are uploaded to `us-west-1` region.   
 This value can be overridden in the `cypress.config.js` configuration file.
 
 Example
+
 ```javascript
 export default defineConfig({
   e2e: {
@@ -198,6 +208,7 @@ Those ignored regions are specified when requesting a new snapshot.
 #### User-specified ignored region
 
 A region is defined by four elements.
+
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
 - `height`: The heigh of the region to ignore
@@ -205,6 +216,7 @@ A region is defined by four elements.
 *Note: all values are pixels*
 
 Example:
+
 ```javascript
     cy.visualCheck('login-page', { ignoredRegions: [
       {
@@ -223,6 +235,7 @@ Alternatively, an ignored region can be a specific element from the page.
 If the selectors matches multiple elements, all will be ignored.
 
 Example:
+
 ```javascript
     cy.visualCheck('login-page', { ignoredRegions: [
       cy.get('[data-test="username"]'),
