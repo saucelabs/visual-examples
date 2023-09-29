@@ -88,6 +88,10 @@ export const config: Options.Testrunner = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome' // or 'firefox', 'microsoftedge', 'safari'
+        "sauce:options": {
+            "seleniumVersion": '4.13.0'
+        }
+        
     }],
     //
     // ===================
