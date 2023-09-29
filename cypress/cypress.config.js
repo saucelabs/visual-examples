@@ -1,7 +1,7 @@
-import { defineConfig } from 'cypress';
-import { CypressSauceVisual } from '@saucelabs/cypress-visual-plugin';
+const { defineConfig } = require('cypress');
+const { CypressSauceVisual } = require('@saucelabs/cypress-visual-plugin');
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
     saucelabs: {
       buildName: 'SauceDemo - Cypress',
