@@ -228,3 +228,9 @@ Example:
       cy.get('[data-test="username"]'),
     ] });
 ```
+
+## Limitations
+
+Sauce Visual plugin for Cypress **DOES NOT** support `cypress open`.
+
+Screenshots will be captured and sent to Sauce Labs only when `cypress run` is executed.
