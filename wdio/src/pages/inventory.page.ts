@@ -11,6 +11,10 @@ class InventoryPage extends Page {
         return $('#add-to-cart-sauce-labs-backpack');
     }
 
+    public get formInput () {
+        return $$('.form_input');
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password

@@ -9,7 +9,10 @@ describe('Check Inventory', () => {
     it('check that the inventory page looks the same with ignore regions', async () => {
         await LoginPage.open()
 
-        await browser.check('Before Login', {ignore: [{width:200, height:200, x:100, y:100}]})
+        await browser.check('Before Login', {ignore: [
+            { width: 200, height: 200, x: 100, y: 100 },
+            InventoryPage.formInput,
+        ]})
 
         await LoginPage.login(USERNAME, PASSWORD)
 
