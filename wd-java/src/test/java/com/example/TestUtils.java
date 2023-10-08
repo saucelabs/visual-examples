@@ -20,6 +20,7 @@ public class TestUtils {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName("chrome");
 
+
         return new RemoteWebDriver(new URL(webDriverUrl), caps);
     }
 }
