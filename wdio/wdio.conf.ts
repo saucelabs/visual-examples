@@ -2,7 +2,10 @@ import type { Options } from '@wdio/types';
 import 'dotenv/config';
 import updateDotenv from 'update-dotenv';
 import readline from 'readline-sync';
+<<<<<<< HEAD
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
+=======
+>>>>>>> main
 
 const { sauceUsername, sauceAccessKey } = await getSauceCredentials();
 
@@ -20,7 +23,6 @@ export const config: Options.Testrunner = {
       transpileOnly: true,
     },
   },
-
   //
   // =================
   // Service Providers

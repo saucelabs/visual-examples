@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  wdio:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,6 +25,11 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
+  wd-java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build wd-java example
         uses: docker/build-push-action@v4
         with:
@@ -34,6 +39,11 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
+  wd-java-testng:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build wd-java-testng example
         uses: docker/build-push-action@v4
         with:
@@ -43,11 +53,32 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Build Cypress example
         uses: docker/build-push-action@v4
         with:
           context: ./cypress
           file: ./cypress/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  cypress-saucectl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Cypress example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./cypress
+          file: ./cypress/Dockerfile.saucectl
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"

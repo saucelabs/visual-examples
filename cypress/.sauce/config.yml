@@ -9,12 +9,12 @@ sauce:
       - demo
     build: Visual Demo
 cypress:
-  version: 12.17.2 # See https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms for a list of supported versions.
+  version: 12.17.4 # See https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms for a list of supported versions.
   configFile: "cypress.config.js"
 
 npm:
   packages:
-    "@saucelabs/cypress-visual-plugin": "^0.3.3"
+    "@saucelabs/cypress-visual-plugin": "^0.3.41"
 
 rootDir: ./
 suites:

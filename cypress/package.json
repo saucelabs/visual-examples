@@ -1,18 +1,26 @@
 {
   "name": "@saucelabs/cypress-visual-plugin-example",
   "description": "Sauce Labs Visual Example for Cypress",
-  "type": "module",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
-    "copy-locked": "cp ./cypress/e2e/saucedemo.locked.ts ./cypress/e2e/saucedemo.cy.ts",
     "copy-standard": "cp ./cypress/e2e/saucedemo.standard.ts ./cypress/e2e/saucedemo.cy.ts",
+    "copy-locked": "cp ./cypress/e2e/saucedemo.locked.ts ./cypress/e2e/saucedemo.cy.ts",
+    "copy-ignored": "cp ./cypress/e2e/saucedemo.ignored.ts ./cypress/e2e/saucedemo.cy.ts",
     "cypress": "npm run copy-standard && cypress run",
-    "cypress-modified": "npm run copy-locked && cypress run"
+    "cypress-modified": "npm run copy-locked && cypress run",
+    "cypress-ignored": "npm run copy-ignored && cypress run"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.3.3",
+    "@saucelabs/cypress-visual-plugin": "^0.3.66",
     "@tsconfig/node18": "^18.2.0",
-    "cypress": "^12.17.2",
+    "cypress": "^12.17.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.4",
+    "chalk": "^5.3.0"
   }
 }
