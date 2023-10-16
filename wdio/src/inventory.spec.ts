@@ -1,3 +1,4 @@
+import { browser } from '@wdio/globals';
 import InventoryPage from './pages/inventory.page.js';
 import LoginPage from './pages/login.page.js';
 
