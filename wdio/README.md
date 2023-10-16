@@ -54,7 +54,7 @@ npm run sauce-visual
 - Re-run the tests
 
 ```sh { name=npm-run-modified }
-npm run sauce-visual-modified
+npm run sauce-visual-check
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
