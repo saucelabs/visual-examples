@@ -87,6 +87,12 @@ export const config: Options.Testrunner = {
     {
       // capabilities for local browser web tests
       browserName: 'chrome', // or 'firefox', 'microsoftedge', 'safari'
+      browserVersion: 'latest',
+      platformName: 'Windows 11',
+      'sauce:options': {
+        screenResolution: '1920x1080',
+        build: `Sauce Demo Test - ${new Date().getTime()}`,
+      },
     },
   ],
   //
@@ -142,7 +148,7 @@ export const config: Options.Testrunner = {
       SauceVisualService,
       {
         buildName: 'Sauce Demo Test',
-        branch: 'main-2',
+        branch: 'main',
         project: 'WDIO examples',
       },
     ],
