@@ -1,4 +1,5 @@
 import type { Options } from '@wdio/types';
+import { browser } from '@wdio/globals';
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
 import { config as sharedConfig } from './wdio.shared.conf.ts';
 import { getSauceCredentials } from '../helpers.ts';
@@ -26,7 +27,7 @@ export const config: Options.Testrunner = {
   // ========
   // Services
   // ========
-  services: sharedConfig.services.concat([
+  services: (sharedConfig.services || []).concat([
     //
     // This service is needed for WDIO to make sure it can connect to Sauce Labs to:
     // - automatically update the names
@@ -52,6 +53,7 @@ export const config: Options.Testrunner = {
   // =====
   before: async (_capabilities, _specs) => {
     // Set all browsers to the "same" viewport
-    await browser.setWindowSize(1920, 1080);
+    // @ts-ignore
+    await browser.setWindowRect(1920, 1080);
   },
 };
