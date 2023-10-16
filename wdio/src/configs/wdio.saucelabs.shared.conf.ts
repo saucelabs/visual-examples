@@ -54,6 +54,6 @@ export const config: Options.Testrunner = {
   before: async (_capabilities, _specs) => {
     // Set all browsers to the "same" viewport
     // @ts-ignore
-    await browser.setWindowRect(1920, 1080);
+    await browser.setWindowSize(1920, 1080);
   },
 };
