@@ -1,10 +1,4 @@
 import type { Options } from '@wdio/types';
-import 'dotenv/config';
-import updateDotenv from 'update-dotenv';
-import readline from 'readline-sync';
-import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
-
-const { sauceUsername, sauceAccessKey } = await getSauceCredentials();
 
 export const config: Options.Testrunner = {
   //
@@ -28,17 +22,9 @@ export const config: Options.Testrunner = {
   // should work too though). These services define specific user and key (or access key)
   // values you need to put in here in order to connect to these services.
   //
-  user: sauceUsername,
-  key: sauceAccessKey,
-  //
-  // If you run your tests on Sauce Labs you can specify the region you want to run your tests
-  // in via the `region` property. Available short handles for regions are `us` (default), `eu` and `apac`.
-  // These regions are used for the Sauce Labs VM cloud and the Sauce Labs Real Device Cloud.
-  // If you don't provide the region it will default for the `us`
-  protocol: 'https',
-  hostname: 'ondemand.saucelabs.com',
-  port: 443,
-  path: '/wd/hub',
+  //    =======================================================
+  //    See wdio.saucelabs.shared.conf.ts for more information.
+  //    =======================================================
   //
   // ==================
   // Specify Test Files
@@ -82,18 +68,12 @@ export const config: Options.Testrunner = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
-  capabilities: [
-    {
-      // capabilities for local browser web tests
-      browserName: 'chrome', // or 'firefox', 'microsoftedge', 'safari'
-      browserVersion: 'latest',
-      platformName: 'Windows 11',
-      'sauce:options': {
-        screenResolution: '1920x1080',
-        build: `Sauce Demo Test - ${new Date().getTime()}`,
-      },
-    },
-  ],
+  //    =================================
+  //    For capabilities see:
+  //    - wdio.saucelabs.desktop.conf.ts
+  //    =================================
+  //
+  capabilities: [],
   //
   // ===================
   // Test Configurations
@@ -141,17 +121,12 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: [
-    'sauce',
-    [
-      SauceVisualService,
-      {
-        buildName: 'Sauce Demo Test',
-        branch: 'main',
-        project: 'WDIO examples',
-      },
-    ],
-  ],
+  //
+  //    ==============================================================
+  //    For implementing Sauce Labs, see wdio.saucelabs.shared.conf.ts
+  //    ==============================================================
+  //
+  services: [],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -329,36 +304,3 @@ export const config: Options.Testrunner = {
   // onReload: function(oldSessionId, newSessionId) {
   // }
 };
-
-async function getSauceCredentials(): Promise<{
-  sauceUsername: string;
-  sauceAccessKey: string;
-}> {
-  var sauceUsername = process.env.SAUCE_USERNAME;
-  var sauceAccessKey = process.env.SAUCE_ACCESS_KEY;
-
-  if (!sauceUsername) {
-    sauceUsername = await readline.question(
-      'What is your Sauce Labs username? '
-    );
-    await updateDotenv({
-      SAUCE_USERNAME: sauceUsername,
-    });
-    console.log('Sauce Labs username is saved in the .env file.');
-  }
-
-  if (!sauceAccessKey) {
-    sauceAccessKey = await readline.question(
-      'What is your Sauce Labs API key?? ',
-      {
-        hideEchoBack: true,
-      }
-    );
-    await updateDotenv({
-      SAUCE_ACCESS_KEY: sauceAccessKey,
-    });
-    console.log('Sauce Labs API key is saved in the .env file.');
-  }
-
-  return { sauceUsername, sauceAccessKey };
-}
