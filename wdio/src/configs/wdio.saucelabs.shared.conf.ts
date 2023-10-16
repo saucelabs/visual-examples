@@ -23,6 +23,7 @@ export const config: Options.Testrunner = {
   // ============
   // Are not configured here, they can be found in:
   // - wdio.saucelabs.desktop.conf.ts
+  // - wdio.saucelabs.mobile.conf.ts
   //
   // ========
   // Services
@@ -48,12 +49,4 @@ export const config: Options.Testrunner = {
       },
     ],
   ]),
-  // =====
-  // Hooks
-  // =====
-  before: async (_capabilities, _specs) => {
-    // Set all browsers to the "same" viewport
-    // @ts-ignore
-    await browser.setWindowSize(1920, 1080);
-  },
 };
