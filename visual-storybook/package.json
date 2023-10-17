@@ -22,7 +22,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@saucelabs/visual-storybook": "0.3.87",
     "@storybook/addon-essentials": "7.4.6",
     "@storybook/addon-interactions": "7.4.6",
     "@storybook/addon-links": "7.4.6",
@@ -52,6 +54,7 @@
     "@storybook/preset-create-react-app": "7.4.6",
     "@storybook/react": "7.4.6",
     "@storybook/react-webpack5": "7.4.6",
+    "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "0.2.2",
     "babel-plugin-named-exports-order": "0.0.2",
     "eslint-plugin-storybook": "0.6.15",
