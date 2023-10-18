@@ -38,8 +38,8 @@ npm install
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
 
 ```sh { name=set-credentials }
-export SAUCE_USERNAME=pawel.tomaszewski.iris
-export SAUCE_ACCESS_KEY=bf186ff5-3907-465b-9c4d-95b91c6ef5f6
+export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
+export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 # to change the region you are testing in please change the `hostname property in the wdio.conf.ts file
 ```
 
