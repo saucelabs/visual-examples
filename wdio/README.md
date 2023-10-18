@@ -51,7 +51,7 @@ desktop
 npm run sauce-visual
 ```
 
-or mobile
+or mobile (it might take couple minutes to finish all tests)
 
 ```sh
 npm run sauce-visual-mobile
@@ -67,7 +67,7 @@ desktop
 npm run sauce-visual-check
 ```
 
-or mobile
+or mobile (it might take couple minutes to finish all tests)
 
 ```sh
 npm run sauce-visual-check-mobile
