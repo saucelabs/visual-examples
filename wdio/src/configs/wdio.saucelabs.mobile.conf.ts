@@ -27,7 +27,10 @@ export const config: Options.Testrunner = {
     },
     {
       'appium:deviceName': 'iPhone 11',
-      'appium:platformVersion': '15',
+      // Platform Version is not mandatory for Real Devices
+      // If you want to use a specific or a range of versions then check
+      // https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation
+      // 'appium:platformVersion': '15',
       'appium:automationName': 'XCUITest',
       browserName: 'Safari',
       platformName: 'iOS',
@@ -47,7 +50,6 @@ export const config: Options.Testrunner = {
     },
     {
       'appium:deviceName': 'Google Pixel 8',
-      'appium:platformVersion': '14',
       'appium:automationName': 'UiAutomator2',
       browserName: 'Chrome',
       platformName: 'Android',
