@@ -38,23 +38,39 @@ npm install
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
 
 ```sh { name=set-credentials }
-export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
-export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+export SAUCE_USERNAME=pawel.tomaszewski.iris
+export SAUCE_ACCESS_KEY=bf186ff5-3907-465b-9c4d-95b91c6ef5f6
 # to change the region you are testing in please change the `hostname property in the wdio.conf.ts file
 ```
 
 - Run the test
 
+desktop
+
 ```sh { name=npm-run }
 npm run sauce-visual
+```
+
+or mobile
+
+```sh
+npm run sauce-visual-mobile
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
+desktop
+
 ```sh { name=npm-run-modified }
 npm run sauce-visual-check
+```
+
+or mobile
+
+```sh
+npm run sauce-visual-check-mobile
 ```
 
 **NOTE:**
