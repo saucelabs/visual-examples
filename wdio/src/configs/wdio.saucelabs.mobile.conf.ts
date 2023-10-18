@@ -20,10 +20,14 @@ const iosCapabilities = ['15.5', '16.2'].map((iOSVersion) => ({
     ...(Math.floor(+iOSVersion) >= 16 ? { appiumVersion: '2.0.0' } : {}),
   },
 }));
-const iosRealCapabilities = ['15', '16'].map((iOSVersion) => ({
+const iosRealCapabilities = ['15'].map((iOSVersion) => ({
   ...iosCapabilitiesShared,
   'appium:platformVersion': iOSVersion,
-  'appium:deviceName': 'iPhone.*',
+  'appium:deviceName': 'iPhone X',
+  'sauce:options': {
+    appiumVersion: '2.0.0',
+    build,
+  },
 }));
 
 const androidCapabilitiesShared = {
@@ -41,11 +45,14 @@ const androidCapabilities = ['13.0', '14.0'].map(
     'appium:deviceName': 'Android GoogleAPI Emulator',
   })
 );
-const androidRealCapabilities = ['13', '14'].map(
+const androidRealCapabilities = ['13'].map(
   (androidVersion) => ({
     ...androidCapabilitiesShared,
     'appium:platformVersion': androidVersion,
-    'appium:deviceName': 'Google.*',
+    'appium:deviceName': 'Samsung Galaxy S22',
+    'sauce:options': {
+      build,
+    }
   })
 );
 
@@ -57,5 +64,7 @@ export const config: Options.Testrunner = {
   // For all capabilities please check
   // https://saucelabs.com/products/platform-configurator
   // and http://appium.io/docs/en/2.0/guides/caps/
-  capabilities: [...iosCapabilities, ...iosRealCapabilities, ...androidCapabilities, ...androidRealCapabilities],
+  // For available devices please check
+  // https://app.saucelabs.com/live/app-testing
+  capabilities: [ ...iosCapabilities, ...iosRealCapabilities, ...androidCapabilities, ...androidRealCapabilities],
 };
