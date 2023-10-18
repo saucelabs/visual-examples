@@ -17,5 +17,9 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   staticDirs: ["../public"],
+  env: (config) => ({
+    ...config,
+    REACT_APP_VISUAL_CHECK: process.env.VISUAL_CHECK ?? '',
+  }),
 };
 export default config;
