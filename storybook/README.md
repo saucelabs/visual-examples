@@ -7,10 +7,12 @@
 
 ## Run the demo
 
-- Install npm dependencies:
+- Install & setup npm dependencies:
 
 ```sh { name=npm-install }
 npm install
+# On your first run, you'll also need to do a one-time setup with Playwright:
+npx playwright install
 ```
 
 - Start Storybook locally in a separate terminal window and leave running in the background
