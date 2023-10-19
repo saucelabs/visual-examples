@@ -45,16 +45,32 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test
 
+desktop
+
 ```sh { name=npm-run }
 npm run sauce-visual
+```
+
+or mobile
+
+```sh
+npm run sauce-visual-mobile
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
+desktop
+
 ```sh { name=npm-run-modified }
 npm run sauce-visual-check
+```
+
+or mobile
+
+```sh
+npm run sauce-visual-check-mobile
 ```
 
 **NOTE:**
