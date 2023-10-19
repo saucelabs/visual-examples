@@ -30,6 +30,8 @@ export const config: Options.Testrunner = {
       // Platform Version is not mandatory for Real Devices
       // If you want to use a specific or a range of versions then check
       // https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation
+      // If you don't specify a specific version it will select an available iPhone, as requested in `'appium:deviceName'`,
+      // with the then available OS version 
       // 'appium:platformVersion': '15',
       'appium:automationName': 'XCUITest',
       browserName: 'Safari',
