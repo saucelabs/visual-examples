@@ -19,11 +19,14 @@ public class InventoryTest {
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
     private static VisualApi visual;
-    private static RemoteWebDriver driver;
+    private static RemoteWebDriver driver;  // use AndroidDriver for Android
 
     @BeforeSuite
     public static void init() throws MalformedURLException {
         driver = TestUtils.getWebDriver(username, accessKey);
+        /* for Android: TestUtils.getAndroidDriver(username, accessKey);
+           or for Android Emulator: TestUtils.getAndroidEmulatorDriver(username, accessKey);
+         */
         visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
     }
 

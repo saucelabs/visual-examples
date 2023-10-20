@@ -35,6 +35,9 @@
   ./mvnw clean test -Dtest=InventoryTest
   ```
 
+NOTE: By default, the test will run on desktop.
+If you'd like to run the test with a mobile device or emulator modify the test accordingly.
+
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 
