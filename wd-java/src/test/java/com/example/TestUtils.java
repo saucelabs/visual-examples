@@ -51,7 +51,7 @@ public class TestUtils {
         MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
-        caps.setCapability("appium:deviceName", "Google.*");
+        caps.setCapability("appium:deviceName", "Google Pixel 8");
         caps.setCapability("appium:automationName", "UiAutomator2");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
