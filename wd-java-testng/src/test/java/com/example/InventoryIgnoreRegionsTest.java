@@ -32,20 +32,20 @@ public class InventoryIgnoreRegionsTest {
 
     @Test
     void checkInventoryPageWithIgnoreRegions() {
-        LoginPage loginPage = new LoginPage(driver);
+        var loginPage = new LoginPage(driver);
         loginPage.open();
 
-        Options options = new Options();
-        IgnoreRegion ignoreRegion = new IgnoreRegion(200,200,100,100);
+        var options = new Options();
+        var ignoreRegion = new IgnoreRegion(200,200,100,100);
         options.setIgnoreRegions(List.of(ignoreRegion));
         visual.check("Before Login", options);
 
         loginPage.login("standard_user", "secret_sauce");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
+        var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
-        Options options2 = new Options();
+        var options2 = new Options();
         options2.setIgnoreElements(List.of(inventoryPage.getAddBackpackToCartButton()));
         visual.check("Inventory Page", options2);
     }

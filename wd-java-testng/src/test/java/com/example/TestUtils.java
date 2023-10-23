@@ -1,7 +1,6 @@
 package com.example;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -38,7 +37,7 @@ public class TestUtils {
     }
 
     private static MutableCapabilities getAndroidEmulatorCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
+        var caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
@@ -48,12 +47,12 @@ public class TestUtils {
     }
 
     private static MutableCapabilities getAndroidCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
+        var caps = new MutableCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("appium:deviceName", "Google Pixel 8");
         caps.setCapability("appium:automationName", "UiAutomator2");
-        MutableCapabilities sauceOptions = new MutableCapabilities();
+        var sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;

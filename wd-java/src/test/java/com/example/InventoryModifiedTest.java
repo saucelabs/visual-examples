@@ -29,14 +29,14 @@ public class InventoryModifiedTest {
 
     @Test
     void checkInventoryPageLooksTheSame() {
-        LoginPage loginPage = new LoginPage(driver);
+        var loginPage = new LoginPage(driver);
         loginPage.open();
 
         visual.check("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
+        var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
         inventoryPage.addBackpackToCart();
 
