@@ -13,18 +13,18 @@ public class TestUtils {
 
     static RemoteWebDriver getWebDriver(String username, String accessKey) throws MalformedURLException {
         // Set capabilities for WebDriver
-        DesiredCapabilities caps = new DesiredCapabilities();
+        var caps = new DesiredCapabilities();
         caps.setBrowserName("chrome");
         return new RemoteWebDriver(getDriverUrl(username,accessKey), caps);
     }
 
     static AndroidDriver getAndroidEmulatorDriver(String username, String accessKey) throws MalformedURLException {
-        MutableCapabilities caps = getAndroidEmulatorCapabilities();
+        var caps = getAndroidEmulatorCapabilities();
         return new AndroidDriver(getDriverUrl(username, accessKey), caps);
     }
 
     static AndroidDriver getAndroidDriver(String username, String accessKey) throws MalformedURLException {
-        MutableCapabilities caps = getAndroidCapabilities();
+        var caps = getAndroidCapabilities();
         return new AndroidDriver(getDriverUrl(username, accessKey), caps);
     }
 
