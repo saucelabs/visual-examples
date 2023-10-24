@@ -1,6 +1,5 @@
 package com.example;
 
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,20 +10,29 @@ import java.net.URL;
 public class TestUtils {
 
     static RemoteWebDriver getWebDriver(String username, String accessKey) throws MalformedURLException {
-        // Set capabilities for WebDriver
         var caps = new DesiredCapabilities();
         caps.setBrowserName("chrome");
         return new RemoteWebDriver(getDriverUrl(username,accessKey), caps);
     }
 
-    static AndroidDriver getAndroidEmulatorDriver(String username, String accessKey) throws MalformedURLException {
+    static RemoteWebDriver getAndroidEmulatorDriver(String username, String accessKey) throws MalformedURLException {
         var caps = getAndroidEmulatorCapabilities();
-        return new AndroidDriver(getDriverUrl(username, accessKey), caps);
+        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
     }
 
-    static AndroidDriver getAndroidDriver(String username, String accessKey) throws MalformedURLException {
+    static RemoteWebDriver getAndroidDriver(String username, String accessKey) throws MalformedURLException {
         var caps = getAndroidCapabilities();
-        return new AndroidDriver(getDriverUrl(username, accessKey), caps);
+        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
+    }
+
+    static RemoteWebDriver getIosSimulatorDriver(String username, String accessKey) throws MalformedURLException {
+        var caps = getIosSimulatorCapabilities();
+        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
+    }
+
+    static RemoteWebDriver getIosDriver(String username, String accessKey) throws MalformedURLException {
+        var caps = getIosCapabilities();
+        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
     }
 
     private static URL getDriverUrl(String username, String accessKey) throws MalformedURLException {
@@ -38,23 +46,42 @@ public class TestUtils {
 
     private static MutableCapabilities getAndroidEmulatorCapabilities() {
         var caps = new MutableCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("appium:deviceName", "Android GoogleAPI Emulator");
+        caps.setCapability("appium:deviceName", "Google Pixel 8 GoogleAPI Emulator");
         caps.setCapability("appium:platformVersion", "14.0");
         caps.setCapability("appium:automationName", "UiAutomator2");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("platformName", "Android");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 
     private static MutableCapabilities getAndroidCapabilities() {
-        var caps = new MutableCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("browserName", "Chrome");
+        MutableCapabilities caps = new MutableCapabilities();
         caps.setCapability("appium:deviceName", "Google Pixel 8");
         caps.setCapability("appium:automationName", "UiAutomator2");
-        var sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
-        caps.setCapability("sauce:options", sauceOptions);
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("platformName", "Android");
+        return caps;
+    }
+
+    private static MutableCapabilities getIosCapabilities() {
+        MutableCapabilities caps = new MutableCapabilities();
+        caps.setCapability("appium:deviceName", "iPhone 11");
+        caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("platformName", "iOS");
+        return caps;
+    }
+
+    private static MutableCapabilities getIosSimulatorCapabilities() {
+        MutableCapabilities caps = new MutableCapabilities();
+        caps.setCapability("appium:deviceName", "iPhone Simulator");
+        caps.setCapability("appium:platformVersion", "16.2");
+        caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("platformName", "iOS");
         return caps;
     }
 }
