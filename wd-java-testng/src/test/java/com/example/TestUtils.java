@@ -82,6 +82,9 @@ public class TestUtils {
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 }
