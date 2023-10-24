@@ -11,7 +11,7 @@ import java.net.URL;
 public class TestUtils {
 
     static RemoteWebDriver getDriver(String username, String accessKey) throws MalformedURLException {
-        var platform = Dotenv.load().get("PLATFORM_NAME");
+        var platform = Dotenv.load().get("PLATFORM_NAME", "");
         MutableCapabilities caps;
         switch (platform) {
             case "ANDROID": {
