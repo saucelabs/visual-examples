@@ -23,20 +23,20 @@ public class InventoryModifiedTest {
 
     @BeforeSuite
     public static void init() throws MalformedURLException {
-        driver = TestUtils.getWebDriver(username, accessKey);
+        driver = TestUtils.getDriver(username, accessKey);
         visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
     }
 
     @Test
     void checkInventoryPageLooksTheSame() {
-        LoginPage loginPage = new LoginPage(driver);
+        var loginPage = new LoginPage(driver);
         loginPage.open();
 
         visual.check("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
+        var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
         inventoryPage.addBackpackToCart();
 
