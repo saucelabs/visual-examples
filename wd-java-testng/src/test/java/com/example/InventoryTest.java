@@ -23,11 +23,7 @@ public class InventoryTest {
 
     @BeforeSuite
     public static void init() throws MalformedURLException {
-        driver = TestUtils.getWebDriver(username, accessKey);
-        // for Android: TestUtils.getAndroidDriver(username, accessKey);
-        // for Android Emulator: TestUtils.getAndroidEmulatorDriver(username, accessKey);
-        // for Ios: TestUtils.getIosDriver(username, accessKey);
-        // for Ios Simulator: TestUtils.getIosSimulatorDriver(username, accessKey);
+        driver = TestUtils.getDriver(username, accessKey);
         visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
     }
 

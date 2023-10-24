@@ -40,8 +40,14 @@ export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
 ./mvnw clean test -Dtest=InventoryTest
 ```
 
-NOTE: By default, the test will run on desktop.
-If you'd like to run the test with a mobile device or emulator modify the test accordingly.
+By default, the test will run on desktop with a Chrome browser.
+If you'd like to run the test with a mobile device or emulator,
+you can set the PLATFORM_NAME environment variable accordingly.
+Available options are ANDROID, ANDROID_EMULATOR, IOS and IOS_SIMULATOR.
+
+```sh { name=mvn-run-test-android-emulator }
+PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
+```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 

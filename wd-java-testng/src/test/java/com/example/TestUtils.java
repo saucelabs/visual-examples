@@ -1,5 +1,6 @@
 package com.example;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -9,29 +10,31 @@ import java.net.URL;
 
 public class TestUtils {
 
-    static RemoteWebDriver getWebDriver(String username, String accessKey) throws MalformedURLException {
-        var caps = new DesiredCapabilities();
-        caps.setBrowserName("chrome");
-        return new RemoteWebDriver(getDriverUrl(username,accessKey), caps);
-    }
-
-    static RemoteWebDriver getAndroidEmulatorDriver(String username, String accessKey) throws MalformedURLException {
-        var caps = getAndroidEmulatorCapabilities();
-        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
-    }
-
-    static RemoteWebDriver getAndroidDriver(String username, String accessKey) throws MalformedURLException {
-        var caps = getAndroidCapabilities();
-        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
-    }
-
-    static RemoteWebDriver getIosSimulatorDriver(String username, String accessKey) throws MalformedURLException {
-        var caps = getIosSimulatorCapabilities();
-        return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
-    }
-
-    static RemoteWebDriver getIosDriver(String username, String accessKey) throws MalformedURLException {
-        var caps = getIosCapabilities();
+    static RemoteWebDriver getDriver(String username, String accessKey) throws MalformedURLException {
+        var platform = Dotenv.load().get("PLATFORM_NAME");
+        MutableCapabilities caps;
+        switch (platform) {
+            case "ANDROID": {
+                caps = getAndroidCapabilities();
+                break;
+            }
+            case "ANDROID_EMULATOR": {
+                caps = getAndroidEmulatorCapabilities();
+                break;
+            }
+            case "IOS": {
+                caps = getIosCapabilities();
+                break;
+            }
+            case "IOS_SIMULATOR": {
+                caps = getIosSimulatorCapabilities();
+                break;
+            }
+            default: {
+                caps = getChromeDesktopCapabilities();
+                break;
+            }
+        }
         return new RemoteWebDriver(getDriverUrl(username, accessKey), caps);
     }
 
@@ -42,6 +45,12 @@ public class TestUtils {
         }
         // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
         return new URL("https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com:443/wd/hub");
+    }
+
+    private static MutableCapabilities getChromeDesktopCapabilities() {
+        var caps = new DesiredCapabilities();
+        caps.setBrowserName("chrome");
+        return caps;
     }
 
     private static MutableCapabilities getAndroidEmulatorCapabilities() {

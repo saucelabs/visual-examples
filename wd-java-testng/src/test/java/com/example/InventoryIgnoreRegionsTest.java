@@ -26,7 +26,7 @@ public class InventoryIgnoreRegionsTest {
 
     @BeforeSuite
     public static void init() throws MalformedURLException {
-        driver = TestUtils.getWebDriver(username, accessKey);
+        driver = TestUtils.getDriver(username, accessKey);
         visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
     }
 
