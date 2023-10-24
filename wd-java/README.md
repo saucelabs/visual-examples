@@ -9,93 +9,106 @@
 ## Run the demo
 
 - Install Eclipse Temurin JDK (for macOS Ventura):
-  ```sh { name=java }
-  brew install --cask temurin
-  ```
+
+```sh { name=java }
+brew install --cask temurin
+```
 
 - Clone the repository:
-  ```sh { name=clone }
-  git clone https://github.com/saucelabs/visual-examples
-  cd visual-examples/wd-java
-  ```
+
+```sh { name=clone }
+git clone https://github.com/saucelabs/visual-examples
+cd visual-examples/wd-java
+```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
-  ```sh { name=set-credentials }
-  export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
-  export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
-  ```
 
-  - Configure your build name
-  ```sh { name=set-credentials }
-  export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
-  ```
+```sh { name=set-credentials }
+export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
+export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+```
+
+- Configure your build name
+
+```sh { name=set-credentials }
+export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
+```
 
 - Run the test
-  ```sh { name=mvn-run-test }
-  ./mvnw clean test -Dtest=InventoryTest
-  ```
+
+```sh { name=mvn-run-test }
+./mvnw clean test -Dtest=InventoryTest
+```
 
 NOTE: By default, the test will run on desktop. 
 If you'd like to run the test with a mobile device or emulator modify the test accordingly.
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
+
 - Accept all diffs, so they become new baselines.
 
 - Re-run the tests
-  ```sh { name=mvn-run-test-modified }
-  ./mvnw clean test -Dtest=InventoryModifiedTest
-  ```
+
+```sh { name=mvn-run-test-modified }
+./mvnw clean test -Dtest=InventoryModifiedTest
+```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 
 ## How to add visual testing to your setup
 
 - Add [sauce visual](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client) dependency
-  to your pom.xml
-  ```xml
-  <dependency>
-    <groupId>com.saucelabs.visual</groupId>
-    <artifactId>java-client</artifactId>
-    <version>0.3.7</version>
-    <scope>test</scope>
-  </dependency>
-  ```
+to your pom.xml
+
+```xml
+<dependency>
+  <groupId>com.saucelabs.visual</groupId>
+  <artifactId>java-client</artifactId>
+  <version>0.3.97</version>
+  <scope>test</scope>
+</dependency>
+```
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
-  ```
-  private static VisualApi visual;
-  private static RemoteWebDriver driver;
-  ```
+
+```sh
+private static VisualApi visual;
+private static RemoteWebDriver driver;
+```
 
 - Initialize WebDriver and VisualApi in @BeforeAll section
-  ```
-  @BeforeAll
-  public static void init() {
-      driver = new RemoteWebDriver(webDriverUrl, capabilities);
-      visual = new VisualApi(driver, Region.US_WEST_1, sauceUsername, sauceAccessKey);
-  }
-  ```
+
+```java
+@BeforeAll
+public static void init() {
+    driver = new RemoteWebDriver(webDriverUrl, capabilities);
+    visual = new VisualApi(driver, Region.US_WEST_1, sauceUsername, sauceAccessKey);
+}
+```
 
 - Add a check to one of your tests:
-  ```
-  visual.check("My login page")
-  ```
+
+```sh
+visual.check("My login page")
+```
 
 - Don't forget to quit the WebDriver in @AfterAll section
-  ```
-  @AfterAll
-      public static void tearDown() {
-          if (driver != null) {
-              driver.quit();
-      }
-  }
-  ```
+
+```groovy
+@AfterAll
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+    }
+}
+```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
-  ```sh
-  export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
-  export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
-  ```
+
+```sh
+export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
+export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+```
 
 - Run the test the way you are used to.
 
@@ -108,6 +121,7 @@ If you'd like to run the test with a mobile device or emulator modify the test a
 It needs to be defined prior to running your tests.
 
 Example:
+
 ```sh
 export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
 ```
@@ -121,6 +135,7 @@ Those ignored regions are specified when requesting a new snapshot.
 #### User-specified ignored region
 
 A region is defined by four elements.
+
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
 - `height`: The heigh of the region to ignore
@@ -128,6 +143,7 @@ A region is defined by four elements.
 *Note: all values are pixels*
 
 Example:
+
 ```java
   Options options = new Options();
   IgnoreRegion ignoreRegion = new IgnoreRegion(
@@ -145,6 +161,7 @@ Example:
 Alternatively, an ignored region can be a specific element from the page.
 
 Example:
+
 ```java
   Options options = new Options();
   options.setIgnoreElements(List.of(
@@ -153,6 +170,5 @@ Example:
   ));
   visual.check("Inventory Page", options);
 ```
-
 
 [Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example
