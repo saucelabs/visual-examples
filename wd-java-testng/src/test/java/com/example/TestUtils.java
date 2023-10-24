@@ -41,7 +41,7 @@ public class TestUtils {
             throw new RuntimeException(err);
         }
         // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
-        return new URL("https://" + username + ":" + accessKey + "@ondemand.saucelabs.com:443/wd/hub");
+        return new URL("https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com:443/wd/hub");
     }
 
     private static MutableCapabilities getAndroidEmulatorCapabilities() {
@@ -51,9 +51,6 @@ public class TestUtils {
         caps.setCapability("appium:automationName", "UiAutomator2");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("platformName", "Android");
-        MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
-        caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 
@@ -63,15 +60,9 @@ public class TestUtils {
         caps.setCapability("appium:automationName", "UiAutomator2");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("platformName", "Android");
-        return caps;
-    }
-
-    private static MutableCapabilities getIosCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
-        caps.setCapability("appium:deviceName", "iPhone 11");
-        caps.setCapability("appium:automationName", "XCUITest");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("platformName", "iOS");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 
@@ -82,9 +73,19 @@ public class TestUtils {
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
+        return caps;
+    }
+
+    private static MutableCapabilities getIosCapabilities() {
+        MutableCapabilities caps = new MutableCapabilities();
+        caps.setCapability("appium:deviceName", "iPhone 11");
+        caps.setCapability("appium:automationName", "XCUITest");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("platformName", "iOS");
         MutableCapabilities sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
+
 }
