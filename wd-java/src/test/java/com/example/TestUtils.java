@@ -10,8 +10,10 @@ import java.net.URL;
 
 public class TestUtils {
 
+    static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+
     static RemoteWebDriver getDriver(String username, String accessKey) throws MalformedURLException {
-        var platform = Dotenv.load().get("PLATFORM_NAME", "");
+        var platform = dotenv.get("PLATFORM_NAME", "");
         MutableCapabilities caps;
         switch (platform) {
             case "ANDROID": {
@@ -64,19 +66,19 @@ public class TestUtils {
     }
 
     private static MutableCapabilities getAndroidCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
+        var caps = new MutableCapabilities();
         caps.setCapability("appium:deviceName", "Google Pixel 8");
         caps.setCapability("appium:automationName", "UiAutomator2");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("platformName", "Android");
-        MutableCapabilities sauceOptions = new MutableCapabilities();
+        var sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 
     private static MutableCapabilities getIosSimulatorCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
+        var caps = new MutableCapabilities();
         caps.setCapability("appium:deviceName", "iPhone Simulator");
         caps.setCapability("appium:platformVersion", "16.2");
         caps.setCapability("appium:automationName", "XCUITest");
@@ -86,12 +88,12 @@ public class TestUtils {
     }
 
     private static MutableCapabilities getIosCapabilities() {
-        MutableCapabilities caps = new MutableCapabilities();
+        var caps = new MutableCapabilities();
         caps.setCapability("appium:deviceName", "iPhone 11");
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
-        MutableCapabilities sauceOptions = new MutableCapabilities();
+        var sauceOptions = new MutableCapabilities();
         sauceOptions.setCapability("appiumVersion", "2.0.0");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
