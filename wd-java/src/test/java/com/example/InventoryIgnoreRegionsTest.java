@@ -6,7 +6,6 @@ import com.saucelabs.visual.Options;
 import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.model.IgnoreRegion;
-import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,9 +14,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import static com.example.TestUtils.dotenv;
+
 public class InventoryIgnoreRegionsTest {
 
-    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final String username = dotenv.get("SAUCE_USERNAME");
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
