@@ -2,8 +2,8 @@ package com.example;
 
 import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
+import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.Options;
-import com.saucelabs.visual.Region;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.model.IgnoreRegion;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -27,7 +27,7 @@ public class InventoryIgnoreRegionsTest {
     @BeforeSuite
     public static void init() throws MalformedURLException {
         driver = TestUtils.getDriver(username, accessKey);
-        visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
+        visual = new VisualApi(driver, DataCenter.US_WEST_1, username, accessKey);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class InventoryIgnoreRegionsTest {
         loginPage.open();
 
         var options = new Options();
-        var ignoreRegion = new IgnoreRegion(200,200,100,100);
+        var ignoreRegion = new IgnoreRegion(100,100,200,200);
         options.setIgnoreRegions(List.of(ignoreRegion));
         visual.check("Before Login", options);
 
