@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "ESNext",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
         "types": [
             "node",
             "@wdio/globals/types",
@@ -10,6 +10,8 @@
             "@wdio/sauce-service"
         ],
         "allowSyntheticDefaultImports": true,
-        "target": "es2022"
+        "target": "es2022",
+        "noEmit": true,
+        "allowImportingTsExtensions": true
     }
 }

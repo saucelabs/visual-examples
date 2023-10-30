@@ -2,9 +2,8 @@ package com.example;
 
 import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
-import com.saucelabs.visual.Region;
+import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.VisualApi;
-import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -12,9 +11,10 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
+import static com.example.TestUtils.dotenv;
+
 public class InventoryTest {
 
-    private static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
     private static final String username = dotenv.get("SAUCE_USERNAME");
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
@@ -23,20 +23,20 @@ public class InventoryTest {
 
     @BeforeSuite
     public static void init() throws MalformedURLException {
-        driver = TestUtils.getWebDriver(username, accessKey);
-        visual = new VisualApi(driver, Region.US_WEST_1, username, accessKey);
+        driver = TestUtils.getDriver(username, accessKey);
+        visual = new VisualApi(driver, DataCenter.US_WEST_1, username, accessKey);
     }
 
     @Test
     void checkInventoryPageLooksTheSame() {
-        LoginPage loginPage = new LoginPage(driver);
+        var loginPage = new LoginPage(driver);
         loginPage.open();
 
         visual.check("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
-        InventoryPage inventoryPage = new InventoryPage(driver);
+        var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
         visual.check("Inventory Page");
