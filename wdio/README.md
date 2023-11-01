@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - OSX Ventura with Git and Brew
-- Linux with bash wget and git
+- Linux with bash curl and git
 - Windows with NodeJS 18 (untested)
 - Sauce Labs Account
 
