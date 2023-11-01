@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - OSX Ventura with Git and Brew
-- Linux with bash curl and git
+- Linux with bash wget and git
 - Windows with NodeJS 18 (untested)
 - Sauce Labs Account
 
@@ -18,8 +18,10 @@ brew install node@18
 - Install Node.js 18 on Linux:
 
 ```sh { name=nodejs-linux }
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
+curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh
+chmod 500 nsolid_setup_deb.sh
+./nsolid_setup_deb.sh 18
+apt-get install nodejs -y
 ```
 
 - Clone the repo:
