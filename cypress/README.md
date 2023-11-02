@@ -18,8 +18,8 @@ brew install node@18
 - Install Node.js 18 + Dependencies on Linux:
 
 ```sh { name=nodejs-linux }
-curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh
-chmod 500 nsolid_setup_deb.sh
+curl -fsSLO https://deb.nodesource.com/nsolid_setup_deb.sh
+chmod +x nsolid_setup_deb.sh
 ./nsolid_setup_deb.sh 18
 apt-get install nodejs -y
 apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb

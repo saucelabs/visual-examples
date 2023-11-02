@@ -18,8 +18,8 @@ brew install node@18
 - Install Node.js 18 on Linux:
 
 ```sh { name=nodejs-linux }
-curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh
-chmod 500 nsolid_setup_deb.sh
+curl -fsSLO https://deb.nodesource.com/nsolid_setup_deb.sh
+chmod +x nsolid_setup_deb.sh
 ./nsolid_setup_deb.sh 18
 apt-get install nodejs -y
 ```
