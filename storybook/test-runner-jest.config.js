@@ -11,5 +11,6 @@ module.exports = {
   ...getVisualTestConfig(),
   /** Add your own overrides below
    * @see https://jestjs.io/docs/configuration
+   * @see https://github.com/playwright-community/jest-playwright#configuration
    */
 };
