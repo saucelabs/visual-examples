@@ -135,6 +135,26 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ## Advanced usage
 
+### Test results summary
+
+`browser.checkResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary in format: 
+```ts
+    {
+        QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+        EQUAL: number; // Diffs that have no changes detected
+        UNAPPROVED: number; // Diffs that have detected changes and waiting for action
+        APPROVED: number; // Diffs that have detected changes and have been approved
+        REJECTED: number; // Diffs that have detected changes and have been rejected
+    }
+```
+
+`browser.checkResults()` is particularly useful for composing assertions
+
+Example:
+```ts
+    expect((await browser.checkResult()).UNAPPROVED).toBe(2);
+```
+
 ### Build attributes
 
 `buildName`, `branch` and `project` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.

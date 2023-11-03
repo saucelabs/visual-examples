@@ -120,6 +120,22 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ## Advanced usage
 
+### Test results summary
+
+`VisualApi#checkResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary of `Map<DiffStatus, Integer>` where `DiffStatus` is one of the following:
+- `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+- `DiffStatus.EQUAL`: Diffs that have no changes detected
+- `DiffStatus.UNAPPROVED`: Diffs that have detected changes and waiting for action
+- `DiffStatus.APPROVED`: Diffs that have detected changes and have been approved
+- `DiffStatus.REJECTED`: Diffs that have detected changes and have been rejected  
+
+`VisualApi#checkResults()` is particularly useful for composing assertions
+
+Example:
+```java
+    assertEquals(2, visual.checkResults().get(DiffStatus.UNAPPROVED));
+```
+
 ### Build name
 
 `buildName` can be defined through the `SAUCE_VISUAL_BUILD_NAME` environment variable.
