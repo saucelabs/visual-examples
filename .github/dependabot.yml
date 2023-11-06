@@ -10,9 +10,15 @@ updates:
     schedule:
       interval: "daily"
     allow:
-      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
+      - dependency-name: "@saucelabs/cypress-visual-plugin"
   - package-ecosystem: "npm"
     directory: "/storybook"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/visual-storybook"
+  - package-ecosystem: "npm"
+    directory: "/wdio"
     schedule:
       interval: "daily"
     allow:
