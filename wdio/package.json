@@ -18,7 +18,7 @@
     "sauce-visual-check-mobile": "VISUAL_CHECK=true wdio run ./src/configs/wdio.saucelabs.mobile.conf.ts --spec src/inventory.spec.ts"
   },
   "dependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.116",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.119",
     "readline-sync": "^1.4.10",
     "update-dotenv": "^1.1.1"
   }
