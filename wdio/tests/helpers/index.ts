@@ -38,3 +38,27 @@ export async function getSauceCredentials(): Promise<{
 
   return { sauceUsername, sauceAccessKey };
 }
+
+/**
+ * Set the test context
+ */
+export async function setTestContext(data: {
+  path?: string;
+  products?: number[];
+  user?: { username: string; password: string };
+}) {
+  const { path, products = [], user } = data;
+  const { username } = user;
+  const userCookies = `document.cookie="session-username=${username}";`;
+  const productStorage =
+    products.length > 0
+      ? `localStorage.setItem("cart-contents", "[${products.toString()}]");`
+      : '';
+
+  // Go to the domain and set the storage
+  await browser.url('');
+  await browser.execute(`${userCookies} ${productStorage}`);
+
+  // Now got to the page
+  await browser.url(path);
+}

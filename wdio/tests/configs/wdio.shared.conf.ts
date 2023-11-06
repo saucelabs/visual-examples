@@ -1,3 +1,4 @@
+import { join } from 'path';
 import type { Options } from '@wdio/types';
 
 export const config: Options.Testrunner = {
@@ -41,7 +42,7 @@ export const config: Options.Testrunner = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ['src/*.spec.ts'],
+  specs: [join(process.cwd(), './tests/specs/*.spec.ts')],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'

@@ -1,8 +1,7 @@
 import type { Options } from '@wdio/types';
-import { browser } from '@wdio/globals';
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
 import { config as sharedConfig } from './wdio.shared.conf.ts';
-import { getSauceCredentials } from '../helpers.ts';
+import { getSauceCredentials } from '../helpers/index.ts';
 
 //
 // Get the Sauce Labs credentials
