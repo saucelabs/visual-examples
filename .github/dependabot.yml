@@ -6,13 +6,25 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/cypress"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
+  - package-ecosystem: "npm"
+    directory: "/storybook"
     schedule:
       interval: "daily"
     allow:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
   - package-ecosystem: "maven"
-    directory: "/"
+    directory: "/wd-java"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "com.saucelabs.visual:java-client"
+  - package-ecosystem: "maven"
+    directory: "/wd-java-testng"
     schedule:
       interval: "daily"
     allow:
