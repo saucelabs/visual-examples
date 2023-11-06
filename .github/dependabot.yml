@@ -1,0 +1,38 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/cypress"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/cypress-visual-plugin"
+  - package-ecosystem: "npm"
+    directory: "/storybook"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/visual-storybook"
+  - package-ecosystem: "npm"
+    directory: "/wdio"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
+  - package-ecosystem: "maven"
+    directory: "/wd-java"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "com.saucelabs.visual:java-client"
+  - package-ecosystem: "maven"
+    directory: "/wd-java-testng"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "com.saucelabs.visual:java-client"
+    
