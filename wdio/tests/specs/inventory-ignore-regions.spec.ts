@@ -9,7 +9,7 @@ describe('Check Inventory', () => {
   it('check that the inventory page looks the same with ignore regions', async () => {
     await LoginPage.open();
 
-    await browser.check('Before Login with static ignore', {
+    await browser.sauceVisualCheck('Before Login with static ignore', {
       ignore: [{ width: 200, height: 200, x: 100, y: 100 }],
     });
 
@@ -17,7 +17,7 @@ describe('Check Inventory', () => {
 
     await InventoryPage.open();
 
-    await browser.check('Inventory Page with element ignore', {
+    await browser.sauceVisualCheck('Inventory Page with element ignore', {
       ignore: [InventoryPage.addBackPackToCartButton],
     });
   });

@@ -10,6 +10,6 @@ describe('Checkout - Complete', () => {
     });
 
     await expect(await CheckoutCompletePage.waitForIsShown()).toBeTruthy();
-    await browser.check('Checkout Complete Page');
+    await browser.sauceVisualCheck('Checkout Complete Page');
   });
 });

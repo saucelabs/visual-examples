@@ -14,7 +14,7 @@ describe('Checkout - Personal info', () => {
   });
 
   it('should validate we get an error if we don not provide all personal information', async () => {
-    await browser.check('Checkout Empty Personal Info Page');
+    await browser.sauceVisualCheck('Checkout Empty Personal Info Page');
     // It doesn't matter which error we check here, all error states should have been tested in a UT
     // Reason for selecting this one is that it triggers multiple fields and thus triggers the state
     await CheckoutPersonalInfoPage.submitPersonalInfo(
@@ -26,7 +26,7 @@ describe('Checkout - Personal info', () => {
     await expect(await CheckoutPersonalInfoPage.getErrorMessage()).toEqual(
       'Error: Postal Code is required'
     );
-    await browser.check('Checkout Personal Info Page with postal code error');
+    await browser.sauceVisualCheck('Checkout Personal Info Page with postal code error');
   });
 
   it('should validate that we can cancel the first checkout', async () => {
@@ -35,17 +35,17 @@ describe('Checkout - Personal info', () => {
     await CheckoutPersonalInfoPage.cancelCheckout();
 
     await expect(await CartSummaryPage.waitForIsShown()).toBeTruthy();
-    await browser.check('Cart Summary Page after cancelling the checkout');
+    await browser.sauceVisualCheck('Cart Summary Page after cancelling the checkout');
   });
 
   it('should be able to continue the checkout', async () => {
     await CheckoutPersonalInfoPage.submitPersonalInfo(PERSONAL_INFO.STANDARD, false);
 
-    await browser.check('Checkout Personal Info Page with filled in info');
+    await browser.sauceVisualCheck('Checkout Personal Info Page with filled in info');
     
     await CheckoutPersonalInfoPage.continueCheckout();
 
     await expect(await CheckoutSummaryPage.waitForIsShown()).toBeTruthy();
-    await browser.check('Checkout Summary Page after submitting personal info');
+    await browser.sauceVisualCheck('Checkout Summary Page after submitting personal info');
   });
 });

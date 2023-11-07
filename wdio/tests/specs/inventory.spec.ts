@@ -16,7 +16,7 @@ describe('Swag items list', () => {
 
     await expect(await InventoryPage.getAmount()).toEqual(6);
 
-    await browser.check('Inventory overview');
+    await browser.sauceVisualCheck('Inventory overview');
   });
 
   it('should validate that the details of a product can be opened', async () => {
@@ -34,7 +34,7 @@ describe('Swag items list', () => {
 
     await expect(await InventoryDetailsPage.getText()).toContain(product);
 
-    await browser.check(`${product} Details Page`);
+    await browser.sauceVisualCheck(`${product} Details Page`);
   });
 
   it('should validate that a product can be added to the cart', async () => {
@@ -50,7 +50,7 @@ describe('Swag items list', () => {
 
     await expect(await AppHeaderPage.getCartAmount()).toEqual('1');
 
-    await browser.check('Cart with one item');
+    await browser.sauceVisualCheck('Cart with one item');
   });
 
   it('should validate that a product can be removed from the cart', async () => {
@@ -79,6 +79,6 @@ describe('Swag items list', () => {
 
     await expect(await CartSummaryPage.waitForIsShown()).toBeTruthy();
 
-    await browser.check('Empty Cart Summary Page');
+    await browser.sauceVisualCheck('Empty Cart Summary Page');
   });
 });
