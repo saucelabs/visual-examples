@@ -95,7 +95,7 @@ public static void init() {
 - Add a check to one of your tests:
 
 ```sh
-visual.check("My login page")
+visual.sauceVisualCheck("My login page")
 ```
 
 - Don't forget to quit the WebDriver in @AfterAll section
@@ -175,7 +175,7 @@ Example:
     100  // y
   );
   options.setIgnoreRegions(List.of(ignoreRegion));
-  visual.check("Before Login", options);
+  visual.sauceVisualCheck("Before Login", options);
 ```
 
 #### Component-based ignored region
@@ -190,7 +190,7 @@ Example:
     // AddBackpackToCartButton will be ignored
     inventoryPage.getAddBackpackToCartButton()
   ));
-  visual.check("Inventory Page", options);
+  visual.sauceVisualCheck("Inventory Page", options);
 ```
 
 [Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example

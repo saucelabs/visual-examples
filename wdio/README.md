@@ -118,7 +118,7 @@ export const config: Options.Testrunner = {
     describe('Login Flow', () => {
         it('should login with valid credentials', async () => {
             ...
-            await browser.check('My Login Page')
+            await browser.sauceVisualCheck('My Login Page')
             ...
         });
     })
@@ -188,7 +188,7 @@ A region is defined by four elements.
 Example:
 
 ```ts
-await browser.check('Before Login', {
+await browser.sauceVisualCheck('Before Login', {
     ignore: [
         {
             x: 100,
@@ -207,7 +207,7 @@ Alternatively, an ignored region can be a specific element from the page.
 Example:
 
 ```ts
-    await browser.check('Inventory Page', {
+    await browser.sauceVisualCheck('Inventory Page', {
         ignore: [
             // addBackPackToCartButton will be ignored
             InventoryPage.addBackPackToCartButton,
