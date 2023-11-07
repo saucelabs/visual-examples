@@ -32,14 +32,14 @@ public class InventoryTest {
         var loginPage = new LoginPage(driver);
         loginPage.open();
 
-        visual.check("Before Login");
+        visual.sauceVisualCheck("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
         var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
-        visual.check("Inventory Page");
+        visual.sauceVisualCheck("Inventory Page");
     }
 
     @AfterSuite

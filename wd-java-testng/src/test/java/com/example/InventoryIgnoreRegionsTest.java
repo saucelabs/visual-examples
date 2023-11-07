@@ -38,7 +38,7 @@ public class InventoryIgnoreRegionsTest {
         var options = new Options();
         var ignoreRegion = new IgnoreRegion(100,100,200,200);
         options.setIgnoreRegions(List.of(ignoreRegion));
-        visual.check("Before Login", options);
+        visual.sauceVisualCheck("Before Login", options);
 
         loginPage.login("standard_user", "secret_sauce");
 
@@ -47,7 +47,7 @@ public class InventoryIgnoreRegionsTest {
 
         var options2 = new Options();
         options2.setIgnoreElements(List.of(inventoryPage.getAddBackpackToCartButton()));
-        visual.check("Inventory Page", options2);
+        visual.sauceVisualCheck("Inventory Page", options2);
     }
 
     @AfterSuite
