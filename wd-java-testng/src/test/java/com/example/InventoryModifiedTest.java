@@ -32,7 +32,7 @@ public class InventoryModifiedTest {
         var loginPage = new LoginPage(driver);
         loginPage.open();
 
-        visual.check("Before Login");
+        visual.sauceVisualCheck("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
@@ -40,7 +40,7 @@ public class InventoryModifiedTest {
         inventoryPage.open();
         inventoryPage.addBackpackToCart();
 
-        visual.check("Inventory Page");
+        visual.sauceVisualCheck("Inventory Page");
     }
 
     @AfterSuite

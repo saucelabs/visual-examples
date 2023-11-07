@@ -14,11 +14,11 @@ describe('Swag Item Details', () => {
     await browser.url(`${PAGES.SWAG_DETAILS}?id=${PRODUCTS.BACKPACK}`);
 
     await InventoryDetailsPage.waitForIsShown();
-    await browser.check(`${product} Details Page`);
+    await browser.sauceVisualCheck(`${product} Details Page`);
     await InventoryDetailsPage.goBack();
 
     await expect(await InventoryDetailsPage.waitForIsShown(false)).toBeTruthy();
-    await browser.check('Inventory Page');
+    await browser.sauceVisualCheck('Inventory Page');
   });
 
   it('should validate that a product can be added to a cart', async () => {
@@ -34,7 +34,7 @@ describe('Swag Item Details', () => {
     await InventoryDetailsPage.addToCart();
 
     await expect(await AppHeaderPage.getCartAmount()).toEqual('1');
-    browser.check('Inventory Details Cart with one item');
+    browser.sauceVisualCheck('Inventory Details Cart with one item');
   });
 
   it('should validate that a product can be removed from the cart', async () => {
@@ -51,6 +51,6 @@ describe('Swag Item Details', () => {
     await InventoryDetailsPage.removeFromCart();
 
     await expect(await AppHeaderPage.getCartAmount()).toEqual('');
-    await browser.check('Inventory Details Cart with removed item');
+    await browser.sauceVisualCheck('Inventory Details Cart with removed item');
   });
 });

@@ -13,12 +13,12 @@ describe('Cart Summary page', () => {
         });
 
         await expect(await CartSummaryPage.waitForIsShown()).toBeTruthy();
-        await browser.check('Cart Summary Page');
+        await browser.sauceVisualCheck('Cart Summary Page');
 
         await CartSummaryPage.continueShopping();
 
         await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
-        await browser.check('Inventory Page after continuing shopping');
+        await browser.sauceVisualCheck('Inventory Page after continuing shopping');
     });
 
     it('should validate that we can go from the cart to the checkout page', async () => {
@@ -32,7 +32,7 @@ describe('Cart Summary page', () => {
         await CartSummaryPage.goToCheckout();
 
         await expect(await CheckoutPersonalInfoPage.waitForIsShown()).toBeTruthy();
-        await browser.check('Checkout Personal Info Page after going to checkout from cart');
+        await browser.sauceVisualCheck('Checkout Personal Info Page after going to checkout from cart');
     });
 
     it('should validate that a product can be removed from the cart', async () => {
@@ -45,13 +45,13 @@ describe('Cart Summary page', () => {
         await expect(await CartSummaryPage.waitForIsShown()).toBeTruthy();
 
         await expect(await AppHeaderPage.getCartAmount()).toEqual('1');
-        await browser.check('Cart Summary Page with 1 product');
+        await browser.sauceVisualCheck('Cart Summary Page with 1 product');
 
         await CartSummaryPage.removeSwag(0);
 
         await expect(await AppHeaderPage.getCartAmount()).toEqual('');
 
         await expect(await CartSummaryPage.getSwagAmount()).toEqual(0);
-        await browser.check('Cart Summary Page with 0 products');
+        await browser.sauceVisualCheck('Cart Summary Page with 0 products');
     });
 });

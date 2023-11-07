@@ -11,7 +11,7 @@ describe('LoginPage', () => {
 
   it('should be able to test loading of login page', async () => {
     await expect(await LoginPage.waitForIsShown()).toBeTruthy();
-    await browser.check('Before Login');
+    await browser.sauceVisualCheck('Before Login');
   });
 
   it('should be able to login with a standard user', async () => {
@@ -20,7 +20,7 @@ describe('LoginPage', () => {
     // Wait for the inventory screen and check it
     await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
 
-    await browser.check('Inventory Page');
+    await browser.sauceVisualCheck('Inventory Page');
   });
 
   it('should not be able to login with a locked user', async () => {
@@ -33,6 +33,6 @@ describe('LoginPage', () => {
       'Epic sadface: Sorry, this user has been locked out.'
     );
 
-    await browser.check('Locked User Error Message');
+    await browser.sauceVisualCheck('Locked User Error Message');
   });
 });

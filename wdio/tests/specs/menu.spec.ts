@@ -18,11 +18,11 @@ describe('Menu', () => {
 
   it('should be able to the swag items overview page', async () => {
     await MenuPage.open();
-    await browser.check('Open Menu');
+    await browser.sauceVisualCheck('Open Menu');
     await MenuPage.openInventoryList();
 
     await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
-    await browser.check('Inventory Page after opening the menu');
+    await browser.sauceVisualCheck('Inventory Page after opening the menu');
   });
 
   // Don't execute this test on the EU DC, the saucelabs.com url is not working there making this test fail
@@ -40,7 +40,7 @@ describe('Menu', () => {
     await MenuPage.logout();
 
     await expect(await LoginPage.waitForIsShown()).toBeTruthy();
-    await browser.check('Login Page after logout');
+    await browser.sauceVisualCheck('Login Page after logout');
   });
 
   it('should be able to clear the cart', async () => {
@@ -50,6 +50,6 @@ describe('Menu', () => {
     await MenuPage.restAppState();
 
     await expect(await AppHeaderPage.getCartAmount()).toEqual('');
-    await browser.check('Cart after clearing it through the menu');
+    await browser.sauceVisualCheck('Cart after clearing it through the menu');
   });
 });
