@@ -137,7 +137,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Test results summary
 
-`browser.checkResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary in format: 
+`browser.sauceVisualResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary in format:
 ```ts
     {
         QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
@@ -148,11 +148,11 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
     }
 ```
 
-`browser.checkResults()` is particularly useful for composing assertions
+`browser.sauceVisualResults()` is particularly useful for composing assertions
 
 Example:
 ```ts
-    expect((await browser.checkResult()).UNAPPROVED).toBe(2);
+    expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(2);
 ```
 
 ### Build attributes

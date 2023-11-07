@@ -133,7 +133,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 Example:
 ```java
-    assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), 2);
+    assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), 2);
 ```
 
 ### Build name
