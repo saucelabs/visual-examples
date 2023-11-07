@@ -4,7 +4,9 @@ const { CypressSauceVisual } = require('@saucelabs/cypress-visual-plugin');
 module.exports = defineConfig({
   e2e: {
     saucelabs: {
-      buildName: 'SauceDemo - Cypress',
+      project: process.env.GITHUB_REPOSITORY,
+      branch: process.env.GITHUB_REF_NAME,
+      buildName: `Cypress CI - ${process.env.GITHUB_RUN_NUMBER}`,
       region: 'us-west-1',
     },
     specPattern: 'cypress/e2e/**/*.cy.ts',

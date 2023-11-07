@@ -173,6 +173,40 @@ export default defineConfig({
 }
 ```
 
+### Project
+
+`project` can be defined in the `cypress.config.js` configuration file.
+
+Example
+```javascript
+export default defineConfig({
+  e2e: {
+    [...]
+    saucelabs: {
+      project: process.env.GITHUB_REPOSITORY,
+    },
+    [...]
+  }
+}
+```
+
+### Branch
+
+`branch` can be defined in the `cypress.config.js` configuration file.
+
+Example
+```javascript
+export default defineConfig({
+  e2e: {
+    [...]
+    saucelabs: {
+      branch: process.env.GITHUB_REF_NAME,
+    },
+    [...]
+  }
+}
+```
+
 ### Region
 
 By default, visual tests are uploaded to `us-west-1` region. \
