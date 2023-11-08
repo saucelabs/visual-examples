@@ -30,7 +30,7 @@ public class InventoryIgnoreRegionsTest {
         visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
                 .withBuild("Sauce Demo Test")
                 .withBranch("main")
-                .withProject("JUnit + WebDriver example")
+                .withProject("TestNG + WebDriver examples")
                 .build();
     }
 

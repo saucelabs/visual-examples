@@ -27,7 +27,7 @@ public class InventoryTest {
         visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
                 .withBuild("Sauce Demo Test")
                 .withBranch("main")
-                .withProject("JUnit + WebDriver example")
+                .withProject("JUnit + WebDriver examples")
                 .build();
     }
 

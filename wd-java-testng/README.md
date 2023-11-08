@@ -82,7 +82,7 @@ private static RemoteWebDriver driver;
     @BeforeSuite
     public static void init() {
         driver = new RemoteWebDriver(webDriverUrl, capabilities);
-        visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1).build();
+        visual = new VisualApi.Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
     }
 ```
 
@@ -143,10 +143,10 @@ Methods available:
 
 Example:
 ```java
-    visual = new Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+    visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1)
             .withBuild("Sauce Demo Test")
             .withBranch("main")
-            .withProject("Java examples")
+            .withProject("TestNG + WebDriver examples")
             .build();
 ```
 
