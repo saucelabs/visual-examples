@@ -175,7 +175,7 @@ Example:
 ```ts
     cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
-`EXPECTED_TOTAL_UNAPPROVED_DIFFS` is a constant number.
+where `EXPECTED_TOTAL_UNAPPROVED_DIFFS` is a constant number
 
 ### Build name
 
