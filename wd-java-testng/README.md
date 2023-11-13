@@ -92,6 +92,17 @@ public static void init() {
 }
 ```
 
+- Add the test meta info listener to your test classes
+```java
+import com.saucelabs.visual.testng.TestMetaInfoListener;
+import org.testng.annotations.Listeners;
+
+@Listeners({TestMetaInfoListener.class})
+public class MyTestNGTestClass {
+    ...
+}
+```
+
 - Add a check to one of your tests:
 
 ```sh

@@ -70,7 +70,7 @@ to your pom.xml
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.3.97</version>
+  <version>0.3.134</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -89,6 +89,17 @@ private static RemoteWebDriver driver;
 public static void init() {
     driver = new RemoteWebDriver(webDriverUrl, capabilities);
     visual = new VisualApi(driver, Region.US_WEST_1, sauceUsername, sauceAccessKey);
+}
+```
+
+- Add the test meta info extension to your test classes
+```java
+import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith({TestMetaInfoExtension.class})
+public class MyJunitTestClass {
+    ...
 }
 ```
 
