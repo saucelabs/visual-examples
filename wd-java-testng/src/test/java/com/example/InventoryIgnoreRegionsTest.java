@@ -3,12 +3,14 @@ package com.example;
 import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.DataCenter;
-import com.saucelabs.visual.Options;
+import com.saucelabs.visual.CheckOptions;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.model.IgnoreRegion;
+import com.saucelabs.visual.testng.TestMetaInfoListener;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -16,6 +18,7 @@ import java.util.List;
 
 import static com.example.TestUtils.dotenv;
 
+@Listeners({TestMetaInfoListener.class})
 public class InventoryIgnoreRegionsTest {
 
     private static final String username = dotenv.get("SAUCE_USERNAME");
@@ -35,7 +38,7 @@ public class InventoryIgnoreRegionsTest {
         var loginPage = new LoginPage(driver);
         loginPage.open();
 
-        var options = new Options();
+        var options = new CheckOptions();
         var ignoreRegion = new IgnoreRegion(100,100,200,200);
         options.setIgnoreRegions(List.of(ignoreRegion));
         visual.sauceVisualCheck("Before Login", options);
@@ -45,7 +48,7 @@ public class InventoryIgnoreRegionsTest {
         var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
-        var options2 = new Options();
+        var options2 = new CheckOptions();
         options2.setIgnoreElements(List.of(inventoryPage.getAddBackpackToCartButton()));
         visual.sauceVisualCheck("Inventory Page", options2);
     }
