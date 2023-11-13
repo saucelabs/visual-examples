@@ -173,7 +173,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 Example:
 ```ts
-    cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_UNAPPROVED_DIFFS);
+    cy.sauceVisualResults().its("UNAPPROVED").should("eq", 0);
 ```
 
 ### Build name
