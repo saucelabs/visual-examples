@@ -173,17 +173,32 @@ Example:
 
 ### Ignored regions
 
+#### Component-based ignored region
+
+Sauce Visual provides a way to ignore a list of components.
+
+An ignored component can be a specific element from the page.
+
+Those ignored components are specified when requesting a new snapshot.
+
+Example:
+
+```ts
+    await browser.sauceVisualCheck('Inventory Page', {
+        ignore: [
+            // addBackPackToCartButton will be ignored
+            InventoryPage.addBackPackToCartButton,
+        ],
+    });
+```
+
 #### User-specified ignored region
 
-In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
-
-Those ignored regions are specified when requesting a new snapshot.
-
-A region is defined by four elements.
+Alternatively, ignored regions can be user-specified areas. A region is defined by four elements.
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 *Note: all values are pixels*
 
@@ -200,22 +215,6 @@ await browser.sauceVisualCheck('Before Login', {
         },
     ],
 });
-```
-
-#### Component-based ignored region
-
-Alternatively, an ignored region can be a specific element from the page.
-
-Example:
-
-```ts
-    await browser.sauceVisualCheck('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
-
 ```
 
 [Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12-L18) to see complete working example
