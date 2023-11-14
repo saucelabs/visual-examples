@@ -169,13 +169,14 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
     }
 ```
 
-`cy.sauceVisualResults()` is particularly useful for composing assertions
+`cy.sauceVisualResults()` is particularly useful for composing assertions on the result of each visual test.
 
 Example:
 ```ts
+    const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
     cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
-where `EXPECTED_TOTAL_UNAPPROVED_DIFFS` is a constant number
 
 ### Build name
 

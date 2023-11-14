@@ -148,11 +148,13 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
     }
 ```
 
-`browser.sauceVisualResults()` is particularly useful for composing assertions
+`browser.sauceVisualResults()` is particularly useful for composing assertions on the result of each visual test.
 
 Example:
 ```ts
-    expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(2);
+    const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
+    expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build attributes

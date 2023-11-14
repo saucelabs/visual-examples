@@ -129,11 +129,13 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 - `DiffStatus.APPROVED`: Diffs that have detected changes and have been approved
 - `DiffStatus.REJECTED`: Diffs that have detected changes and have been rejected  
 
-`VisualApi#checkResults()` is particularly useful for composing assertions
+`VisualApi#checkResults()` is particularly useful for composing assertions on the result of each visual test.
 
 Example:
 ```java
-    assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), 2);
+    var EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
+    assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build name
