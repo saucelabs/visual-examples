@@ -28,12 +28,6 @@ export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
-- Configure your build name
-
-```sh { name=set-credentials }
-export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
-```
-
 - Run the test
 
 ```sh { name=mvn-run-test }
@@ -70,7 +64,7 @@ to your pom.xml
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.3.97</version>
+  <version>0.3.134</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -85,11 +79,11 @@ private static RemoteWebDriver driver;
 - Initialize WebDriver and VisualApi in @BeforeAll section
 
 ```java
-@BeforeAll
-public static void init() {
-    driver = new RemoteWebDriver(webDriverUrl, capabilities);
-    visual = new VisualApi(driver, Region.US_WEST_1, sauceUsername, sauceAccessKey);
-}
+    @BeforeAll
+    public static void init() {
+        driver = new RemoteWebDriver(webDriverUrl, capabilities);
+        visual = new VisualApi.Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
+    }
 ```
 
 - Add a check to one of your tests:
@@ -100,13 +94,13 @@ visual.sauceVisualCheck("My login page")
 
 - Don't forget to quit the WebDriver in @AfterAll section
 
-```groovy
-@AfterAll
+```java
+    @AfterAll
     public static void tearDown() {
         if (driver != null) {
             driver.quit();
+        }
     }
-}
 ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
@@ -122,77 +116,88 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Test results summary
 
-`VisualApi#checkResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary of `Map<DiffStatus, Integer>` where `DiffStatus` is one of the following:
+`VisualApi#sauceVisualResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary of `Map<DiffStatus, Integer>` where `DiffStatus` is one of the following:
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected
 - `DiffStatus.UNAPPROVED`: Diffs that have detected changes and waiting for action
 - `DiffStatus.APPROVED`: Diffs that have detected changes and have been approved
-- `DiffStatus.REJECTED`: Diffs that have detected changes and have been rejected  
+- `DiffStatus.REJECTED`: Diffs that have detected changes and have been rejected
 
-`VisualApi#checkResults()` is particularly useful for composing assertions
+`VisualApi#sauceVisualResults()` is particularly useful for composing assertions
 
 Example:
 ```java
+    import static org.junit.jupiter.api.Assertions.assertEquals;
+    [...]
+
     var EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0
 
     assertEquals(EXPECTED_TOTAL_UNAPPROVED_DIFFS, visual.sauceVisualResults().get(DiffStatus.UNAPPROVED));
 ```
 
-### Build name
+### Build attributes
 
-`buildName` can be defined through the `SAUCE_VISUAL_BUILD_NAME` environment variable.
+When creating the service in `VisualApi`, extra fields can be set to define the context.
 
-It needs to be defined prior to running your tests.
+It needs to be defined through the `VisualApi.Builder` object.
+
+Methods available:
+- `withBuild(String build)`: Sets the name of the build
+- `withProject(String project)`: Sets the name of the project
+- `withBranch(String branch)`: Sets the name of the branch
 
 Example:
-
-```sh
-export SAUCE_VISUAL_BUILD_NAME="Sauce Demo Test"
+```java
+    visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1)
+            .withBuild("Sauce Demo Test")
+            .withBranch("main")
+            .withProject("JUnit + WebDriver examples")
+            .build();
 ```
 
 ### Ignored regions
 
-In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
+#### Component-based ignored region
 
-Those ignored regions are specified when requesting a new snapshot.
+Sauce Visual provides a way to ignore a list of components.
+
+An ignored component can be a specific element from the page.
+
+Those ignored components are specified when requesting a new snapshot.
+
+Example:
+
+```java
+    Options options = new Options();
+    options.setIgnoreElements(List.of(
+        // AddBackpackToCartButton will be ignored
+        inventoryPage.getAddBackpackToCartButton()
+    ));
+    visual.sauceVisualCheck("Inventory Page", options);
+```
 
 #### User-specified ignored region
 
-A region is defined by four elements.
+Alternatively, ignored regions can be user-specified areas. A region is defined by four elements.
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 *Note: all values are pixels*
 
 Example:
 
 ```java
-  Options options = new Options();
-  IgnoreRegion ignoreRegion = new IgnoreRegion(
-    200, // width
-    200, // height
-    100, // x
-    100  // y
-  );
-  options.setIgnoreRegions(List.of(ignoreRegion));
-  visual.sauceVisualCheck("Before Login", options);
-```
-
-#### Component-based ignored region
-
-Alternatively, an ignored region can be a specific element from the page.
-
-Example:
-
-```java
-  Options options = new Options();
-  options.setIgnoreElements(List.of(
-    // AddBackpackToCartButton will be ignored
-    inventoryPage.getAddBackpackToCartButton()
-  ));
-  visual.sauceVisualCheck("Inventory Page", options);
+    Options options = new Options();
+    IgnoreRegion ignoreRegion = new IgnoreRegion(
+        100, // x
+        100, // y
+        200, // width
+        200  // height
+    );
+    options.setIgnoreRegions(List.of(ignoreRegion));
+    visual.sauceVisualCheck("Before Login", options);
 ```
 
 [Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example

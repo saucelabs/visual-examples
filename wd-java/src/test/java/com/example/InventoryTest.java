@@ -4,6 +4,7 @@ import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.VisualApi;
+import com.saucelabs.visual.graphql.type.DiffStatus;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,11 @@ public class InventoryTest {
     @BeforeAll
     public static void init() throws MalformedURLException {
         driver = TestUtils.getDriver(username, accessKey);
-        visual = new VisualApi(driver, DataCenter.US_WEST_1, username, accessKey);
+        visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+                .withBuild("Sauce Demo Test")
+                .withBranch("main")
+                .withProject("JUnit + WebDriver examples")
+                .build();
     }
 
     @Test

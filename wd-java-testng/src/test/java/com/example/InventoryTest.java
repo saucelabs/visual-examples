@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 
 import static com.example.TestUtils.dotenv;
+import static org.testng.Assert.assertEquals;
 
 public class InventoryTest {
 
@@ -24,7 +25,11 @@ public class InventoryTest {
     @BeforeSuite
     public static void init() throws MalformedURLException {
         driver = TestUtils.getDriver(username, accessKey);
-        visual = new VisualApi(driver, DataCenter.US_WEST_1, username, accessKey);
+        visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+                .withBuild("Sauce Demo Test")
+                .withBranch("main")
+                .withProject("TestNG + WebDriver examples")
+                .build();
     }
 
     @Test
