@@ -11,28 +11,38 @@ updates:
       interval: "daily"
     allow:
       - dependency-name: "@saucelabs/cypress-visual-plugin"
+    reviewers:
+      - "saucelabs/visual-team"
   - package-ecosystem: "npm"
     directory: "/storybook"
     schedule:
       interval: "daily"
     allow:
       - dependency-name: "@saucelabs/visual-storybook"
+    reviewers:
+      - "saucelabs/visual-team"
   - package-ecosystem: "npm"
     directory: "/wdio"
     schedule:
       interval: "daily"
     allow:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
+    reviewers:
+      - "saucelabs/visual-team"
   - package-ecosystem: "maven"
     directory: "/wd-java"
     schedule:
       interval: "daily"
     allow:
       - dependency-name: "com.saucelabs.visual:java-client"
+    reviewers:
+      - "saucelabs/visual-team"
   - package-ecosystem: "maven"
     directory: "/wd-java-testng"
     schedule:
       interval: "daily"
     allow:
       - dependency-name: "com.saucelabs.visual:java-client"
+    reviewers:
+      - "saucelabs/visual-team"
     
