@@ -4,15 +4,18 @@ import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.VisualApi;
+import com.saucelabs.visual.junit5.TestMetaInfoExtension;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 
 import static com.example.TestUtils.dotenv;
 
+@ExtendWith({TestMetaInfoExtension.class})
 public class InventoryModifiedTest {
 
     private static final String username = dotenv.get("SAUCE_USERNAME");

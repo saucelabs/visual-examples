@@ -4,9 +4,11 @@ import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.VisualApi;
+import com.saucelabs.visual.testng.TestMetaInfoListener;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -14,6 +16,7 @@ import java.net.MalformedURLException;
 import static com.example.TestUtils.dotenv;
 import static org.testng.Assert.assertEquals;
 
+@Listeners({TestMetaInfoListener.class})
 public class InventoryTest {
 
     private static final String username = dotenv.get("SAUCE_USERNAME");

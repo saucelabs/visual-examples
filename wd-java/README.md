@@ -86,6 +86,17 @@ private static RemoteWebDriver driver;
     }
 ```
 
+- Add the test meta info extension to your test classes
+```java
+import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith({TestMetaInfoExtension.class})
+public class MyJunitTestClass {
+    ...
+}
+```
+
 - Add a check to one of your tests:
 
 ```sh
