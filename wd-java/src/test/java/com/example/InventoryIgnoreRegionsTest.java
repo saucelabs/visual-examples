@@ -30,7 +30,11 @@ public class InventoryIgnoreRegionsTest {
     @BeforeAll
     public static void init() throws MalformedURLException {
         driver = TestUtils.getDriver(username, accessKey);
-        visual = new VisualApi(driver, DataCenter.US_WEST_1, username, accessKey);
+        visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+                .withBuild("Sauce Demo Test")
+                .withBranch("main")
+                .withProject("JUnit + WebDriver examples")
+                .build();
     }
 
     @Test
