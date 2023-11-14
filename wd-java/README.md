@@ -64,7 +64,7 @@ to your pom.xml
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.3.121</version>
+  <version>0.3.134</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -154,7 +154,7 @@ Example:
 
 #### Component-based ignored region
 
-In case you need to ignore some components when running your tests, Sauce Labs Visual provides a way to ignore a list of components.
+Sauce Visual provides a way to ignore a list of components.
 
 An ignored component can be a specific element from the page.
 
