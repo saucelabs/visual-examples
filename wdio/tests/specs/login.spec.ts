@@ -15,7 +15,11 @@ describe('LoginPage', () => {
   });
 
   it('should be able to login with a standard user', async () => {
-    await LoginPage.signIn(LOGIN_USERS.STANDARD);
+    const USER =
+      process.env.VISUAL_CHECK === 'true'
+        ? LOGIN_USERS.VISUAL
+        : LOGIN_USERS.STANDARD;
+    await LoginPage.signIn(USER);
 
     // Wait for the inventory screen and check it
     await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
