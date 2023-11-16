@@ -44,6 +44,10 @@ export const LOGIN_USERS = {
     username: USERNAME,
     password: PASSWORD,
   },
+  VISUAL: {
+    username: 'visual_user',
+    password: PASSWORD,
+  },
 };
 export const PERSONAL_INFO = {
   STANDARD: {

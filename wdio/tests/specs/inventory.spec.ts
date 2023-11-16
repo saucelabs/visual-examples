@@ -6,10 +6,13 @@ import CartSummaryPage from '../pages/cart.summary.page.ts';
 import { setTestContext } from '../helpers/index.ts';
 import { LOGIN_USERS, PAGES, PRODUCTS } from '../configs/e2e.constants.ts';
 
+const USER =
+  process.env.VISUAL_CHECK === 'true' ? LOGIN_USERS.VISUAL : LOGIN_USERS.STANDARD;
+
 describe('Swag items list', () => {
   it('should validate that all products are present', async () => {
     await setTestContext({
-      user: LOGIN_USERS.STANDARD,
+      user: USER,
       path: PAGES.SWAG_ITEMS,
     });
     await InventoryPage.waitForIsShown();
@@ -21,7 +24,7 @@ describe('Swag items list', () => {
 
   it('should validate that the details of a product can be opened', async () => {
     await setTestContext({
-      user: LOGIN_USERS.STANDARD,
+      user: USER,
       path: PAGES.SWAG_ITEMS,
     });
     await InventoryPage.waitForIsShown();
@@ -39,7 +42,7 @@ describe('Swag items list', () => {
 
   it('should validate that a product can be added to the cart', async () => {
     await setTestContext({
-      user: LOGIN_USERS.STANDARD,
+      user: USER,
       path: PAGES.SWAG_ITEMS,
     });
     await InventoryPage.waitForIsShown();
@@ -55,7 +58,7 @@ describe('Swag items list', () => {
 
   it('should validate that a product can be removed from the cart', async () => {
     await setTestContext({
-      user: LOGIN_USERS.STANDARD,
+      user: USER,
       path: PAGES.SWAG_ITEMS,
       products: [PRODUCTS.BACKPACK],
     });
@@ -70,7 +73,7 @@ describe('Swag items list', () => {
 
   it('should be able to open the cart summary page', async () => {
     await setTestContext({
-      user: LOGIN_USERS.STANDARD,
+      user: USER,
       path: PAGES.SWAG_ITEMS,
     });
     await InventoryPage.waitForIsShown();
