@@ -98,6 +98,21 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Storybook example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./storybook
+          file: ./storybook/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
   cypress-saucectl:
     runs-on: ubuntu-latest
     steps:
