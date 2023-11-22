@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 
 import static com.example.TestUtils.dotenv;
-import static org.testng.Assert.assertEquals;
 
 @Listeners({TestMetaInfoListener.class})
 public class InventoryTest {
@@ -46,6 +45,11 @@ public class InventoryTest {
 
         var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
+
+        // this is here to generate a diff to better demonstrate sauce visual
+        if(System.getProperty("modified") != null) {
+            inventoryPage.addBackpackToCart();
+        }
 
         visual.sauceVisualCheck("Inventory Page");
     }
