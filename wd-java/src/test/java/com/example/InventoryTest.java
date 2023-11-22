@@ -46,6 +46,10 @@ public class InventoryTest {
 
         var inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
+        // this is here to generate a diff to better demonstrate sauce visual
+        if(System.getProperty("modified") != null) {
+            inventoryPage.addBackpackToCart();
+        }
 
         visual.sauceVisualCheck("Inventory Page");
     }

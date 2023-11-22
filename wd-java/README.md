@@ -34,8 +34,8 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ./mvnw clean test -Dtest=InventoryTest
 ```
 
-By default, the test will run on desktop with a Chrome browser. 
-If you'd like to run the test with a mobile device or emulator, 
+By default, the test will run on desktop with a Chrome browser.
+If you'd like to run the test with a mobile device or emulator,
 you can set the PLATFORM_NAME environment variable accordingly.
 Available options are ANDROID, ANDROID_EMULATOR, IOS and IOS_SIMULATOR.
 
@@ -44,13 +44,11 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
-
 - Accept all diffs, so they become new baselines.
-
 - Re-run the tests
 
 ```sh { name=mvn-run-test-modified }
-./mvnw clean test -Dtest=InventoryModifiedTest
+./mvnw clean test -Dmodified=true -Dtest=InventoryTest
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
@@ -58,7 +56,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 ## How to add visual testing to your setup
 
 - Add [sauce visual](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client) dependency
-to your pom.xml
+   to your pom.xml
 
 ```xml
 <dependency>
@@ -87,6 +85,7 @@ private static RemoteWebDriver driver;
 ```
 
 - Add the test meta info extension to your test classes
+
 ```java
 import com.saucelabs.visual.junit5.TestMetaInfoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -128,6 +127,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ### Test results summary
 
 `VisualApi#sauceVisualResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary of `Map<DiffStatus, Integer>` where `DiffStatus` is one of the following:
+
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected
 - `DiffStatus.UNAPPROVED`: Diffs that have detected changes and waiting for action
@@ -137,6 +137,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 `VisualApi#sauceVisualResults()` is particularly useful for composing assertions on the result of each visual test.
 
 Example:
+
 ```java
     import static org.junit.jupiter.api.Assertions.assertEquals;
     [...]
@@ -153,11 +154,13 @@ When creating the service in `VisualApi`, extra fields can be set to define the 
 It needs to be defined through the `VisualApi.Builder` object.
 
 Methods available:
+
 - `withBuild(String build)`: Sets the name of the build
 - `withProject(String project)`: Sets the name of the project
 - `withBranch(String branch)`: Sets the name of the branch
 
 Example:
+
 ```java
     visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1)
             .withBuild("Sauce Demo Test")
