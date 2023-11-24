@@ -101,7 +101,9 @@ npm install --save @saucelabs/wdio-sauce-visual-service
 - Add the SauceVisualService to your `wdio.conf.(js|ts)`:  
    _Build name can be set through the `buildName` attribute._
 
-```ts When using CommonJS
+### When using CommonJS
+
+```ts
 ...
 export const config: Options.Testrunner = {
 ...
@@ -128,7 +130,9 @@ export const config: Options.Testrunner = {
 }
 ```
 
-```ts When using ESM Modules
+### When using ESM Modules
+
+```ts
 import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
 
 ...
