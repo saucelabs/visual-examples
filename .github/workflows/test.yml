@@ -25,6 +25,36 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
+  wdio-cucumber:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build wdio example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./wdio-cucumber
+          file: ./wdio/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  wdio-jasmine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build wdio example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./wdio-jasmine
+          file: ./wdio/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
   wd-java:
     runs-on: ubuntu-latest
     steps:
