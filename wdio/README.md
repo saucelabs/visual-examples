@@ -1,4 +1,4 @@
-# Getting started with WebdriverIO [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
+# Getting started with WebdriverIO Mocha [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
 
 ## Prerequisites
 
@@ -99,15 +99,60 @@ npm install --save @saucelabs/wdio-sauce-visual-service
 ```
 
 - Add the SauceVisualService to your `wdio.conf.(js|ts)`:  
-   *Build name can be set through the `buildName` attribute.*
+   _Build name can be set through the `buildName` attribute._
 
-```ts
+```ts When using CommonJS
 ...
 export const config: Options.Testrunner = {
 ...
-    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
-        buildName: 'Sauce Demo Test',
-    }]],
+    services: [
+        //
+        // This service is needed for WDIO to make sure it can connect to Sauce Labs to:
+        // - automatically update the names
+        // - automatically update the status (passed/failed)
+        // - automatically send the stacktrace in case of a failure
+        // Install it with `npm install --save-dev @wdio/sauce-service`
+        //
+        'sauce',
+        //
+        // This service is needed for the Sauce Visual service to work
+        //
+        [
+            '@saucelabs/wdio-sauce-visual-service',
+            {
+                buildName: 'Sauce Demo Test',
+            },
+        ],
+    ],
+...
+}
+```
+
+```ts When using ESM Modules
+import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
+
+...
+export const config: Options.Testrunner = {
+...
+    services: [
+        //
+        // This service is needed for WDIO to make sure it can connect to Sauce Labs to:
+        // - automatically update the names
+        // - automatically update the status (passed/failed)
+        // - automatically send the stacktrace in case of a failure
+        // Install it with `npm install --save-dev @wdio/sauce-service`
+        //
+        'sauce',
+        //
+        // This service is needed for the Sauce Visual service to work
+        //
+        [
+            SauceVisualService,
+            {
+                buildName: 'Sauce Demo Test',
+            },
+        ],
+    ],
 ...
 }
 ```
@@ -133,42 +178,52 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Run the test the way you are used to.
 
-## Advanced usage
+## Advanced Usage
 
 ### Test results summary
 
 `browser.sauceVisualResults()` can be used to obtain a summary of test results. The command will make the test wait until the results are calculated and return a summary in format:
+
 ```ts
-    {
-        QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
-        EQUAL: number; // Diffs that have no changes detected
-        UNAPPROVED: number; // Diffs that have detected changes and waiting for action
-        APPROVED: number; // Diffs that have detected changes and have been approved
-        REJECTED: number; // Diffs that have detected changes and have been rejected
-    }
+{
+  QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+  EQUAL: number; // Diffs that have no changes detected
+  UNAPPROVED: number; // Diffs that have detected changes and waiting for action
+  APPROVED: number; // Diffs that have detected changes and have been approved
+  REJECTED: number; // Diffs that have detected changes and have been rejected
+}
 ```
 
 `browser.sauceVisualResults()` is particularly useful for composing assertions on the result of each visual test.
 
 Example:
-```ts
-    const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
 
-    expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+```ts
+const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
+expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(
+  EXPECTED_TOTAL_UNAPPROVED_DIFFS
+);
 ```
 
 ### Build attributes
 
-`buildName`, `branch` and `project` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
+`buildName`, `branch` and `project` can be defined when adding `SauceVisualService` to your WebdriverIO project, through the `options` parameter.
 
 Example:
 
 ```ts
-    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
-        buildName: 'Sauce Demo Test',
-        branch: 'main',
-        project: 'WDIO examples'
-    }]],
+    services: [
+        'sauce',
+        [
+            '@saucelabs/wdio-sauce-visual-service',
+            {
+                buildName: 'Sauce Demo Test',
+                branch: 'main',
+                project: 'WDIO examples'
+            },
+        ],
+    ],
 ```
 
 ### Ignored regions
@@ -184,12 +239,12 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```ts
-    await browser.sauceVisualCheck('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
+await browser.sauceVisualCheck('Inventory Page', {
+  ignore: [
+    // addBackPackToCartButton will be ignored
+    InventoryPage.addBackPackToCartButton,
+  ],
+});
 ```
 
 #### User-specified ignored region
@@ -200,21 +255,21 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 - `width`: The width of the region to ignore
 - `height`: The height of the region to ignore
 
-*Note: all values are pixels*
+_Note: all values are pixels_
 
 Example:
 
 ```ts
 await browser.sauceVisualCheck('Before Login', {
-    ignore: [
-        {
-            x: 100,
-            y: 100,
-            width: 200,
-            height: 200,
-        },
-    ],
+  ignore: [
+    {
+      x: 100,
+      y: 100,
+      width: 200,
+      height: 200,
+    },
+  ],
 });
 ```
 
-[Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12-L18) to see complete working example
+[Follow me](/wdio/tests/specs/inventory-ignore-regions.spec.ts#L12-L18) to see a complete working example
