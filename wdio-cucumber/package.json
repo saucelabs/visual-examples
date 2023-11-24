@@ -1,5 +1,5 @@
 {
-  "name": "SauceLabsVisualExampleforWebdriverIOCucumber",
+  "name": "saucelabs-visual-example-webdriverio-cucumber",
   "type": "module",
   "scripts": {
     "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/features/inventory.feature",
