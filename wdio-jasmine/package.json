@@ -1,5 +1,5 @@
 {
-  "name": "SauceLabsVisualExampleforWebdriverIOJasmine",
+  "name": "saucelabs-visual-example-webdriverio-jasmine",
   "version": "1.0.0",
   "type": "module",
   "devDependencies": {
