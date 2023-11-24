@@ -101,8 +101,6 @@ npm install --save @saucelabs/wdio-sauce-visual-service
 - Add the SauceVisualService to your `wdio.conf.(js|ts)`:  
    _Build name can be set through the `buildName` attribute._
 
-### When using CommonJS
-
 ```ts
 ...
 export const config: Options.Testrunner = {
@@ -121,37 +119,6 @@ export const config: Options.Testrunner = {
         //
         [
             '@saucelabs/wdio-sauce-visual-service',
-            {
-                buildName: 'Sauce Demo Test',
-            },
-        ],
-    ],
-...
-}
-```
-
-### When using ESM Modules
-
-```ts
-import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
-
-...
-export const config: Options.Testrunner = {
-...
-    services: [
-        //
-        // This service is needed for WDIO to make sure it can connect to Sauce Labs to:
-        // - automatically update the names
-        // - automatically update the status (passed/failed)
-        // - automatically send the stacktrace in case of a failure
-        // Install it with `npm install --save-dev @wdio/sauce-service`
-        //
-        'sauce',
-        //
-        // This service is needed for the Sauce Visual service to work
-        //
-        [
-            SauceVisualService,
             {
                 buildName: 'Sauce Demo Test',
             },

@@ -1,5 +1,4 @@
 import type { Options } from '@wdio/types';
-import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
 import { config as sharedConfig } from './wdio.shared.conf.ts';
 import { getSauceCredentials } from '../helpers/index.ts';
 
@@ -39,7 +38,7 @@ export const config: Options.Testrunner = {
     // This service is needed for the Sauce Visual service to work
     //
     [
-      SauceVisualService,
+      '@saucelabs/wdio-sauce-visual-service',
       // The options for the Sauce Visual service
       {
         buildName: 'Sauce Demo Test',
