@@ -1,0 +1,23 @@
+{
+  "name": "saucelabs-visual-example-webdriverio-cucumber",
+  "type": "module",
+  "scripts": {
+    "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/features/inventory.feature",
+    "sauce-visual-mobile": "wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/features/inventory.feature",
+    "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/features/inventory.feature",
+    "sauce-visual-check-mobile": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/features/inventory.feature",
+    "wdio": "wdio run ./wdio.conf.ts"
+  },
+  "devDependencies": {
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.154",
+    "@wdio/cli": "8.24.1",
+    "@wdio/cucumber-framework": "^8.24.0",
+    "@wdio/local-runner": "^8.24.1",
+    "@wdio/sauce-service": "^8.24.1",
+    "@wdio/spec-reporter": "^8.24.0",
+    "readline-sync": "^1.4.10",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2",
+    "update-dotenv": "^1.1.1"
+  }
+}

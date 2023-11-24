@@ -1,4 +1,4 @@
-# Getting started with WebdriverIO + Mocha [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
+# Getting started with WebdriverIO + Jasmine [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
 
 ## Prerequisites
 
@@ -243,4 +243,4 @@ await browser.sauceVisualCheck('Before Login', {
 });
 ```
 
-[Follow me](/wdio/tests/specs/inventory-ignore-regions.spec.ts#L12-L18) to see a complete working example
+[Follow me](./tests/step-definitions/steps.ts#L30-L47) to see a complete working example
