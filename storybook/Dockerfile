@@ -32,5 +32,5 @@ COPY . .
 
 # The storybook test-runner will exit with a non-zero code on a failed test. This is intended, but
 # a positive response is required for docker builds
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) npm run test-storybook:ci || true
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) npm run test-storybook:ci
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) VISUAL_CHECK=1 npm run test-storybook:ci || true
