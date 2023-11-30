@@ -23,7 +23,10 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook -i",
+    "storybook-static": "npx http-server storybook-static --port 6006 --silent",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook && npm run storybook-static\" \"npx wait-on tcp:6006 && npm run test-storybook\"",
+    "test-storybook-modified:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook && npm run storybook-static\" \"npx wait-on tcp:6006 && npm run test-storybook\""
   },
   "eslintConfig": {
     "extends": [
@@ -57,9 +60,12 @@
     "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "0.2.2",
     "babel-plugin-named-exports-order": "0.0.2",
+    "concurrently": "8.2.2",
     "eslint-plugin-storybook": "0.6.15",
+    "http-server": "14.1.1",
     "prop-types": "15.8.1",
     "storybook": "7.4.6",
+    "wait-on": "7.2.0",
     "webpack": "5.89.0"
   }
 }
