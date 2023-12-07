@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx nightwatch"
+    "sauce-visual": "npx nightwatch",
+    "sauce-visual-check": "VISUAL_CHECK=true npx nightwatch"
   },
   "keywords": [],
   "author": "",
