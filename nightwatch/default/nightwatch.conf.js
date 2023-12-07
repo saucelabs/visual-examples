@@ -59,7 +59,7 @@ module.exports = {
       },
       sauceVisualService: {
         buildName: 'Nightwatch Visual Demo Default Testrunner',
-        project: 'Nightwatch Default Testrunner Project',
+        project: `Nightwatch Default Testrunner Project for ${process.env.SAUCE_USERNAME}`,
         branch: 'main',
         failOnFailures: false,
       },
