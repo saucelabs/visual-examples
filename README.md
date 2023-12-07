@@ -3,11 +3,14 @@
 This repository contains several examples that explain how to get started with Sauce Visual:
 
 - [Cypress](./cypress/README.md)
+- [Java - WebDriver + JUnit](./wd-java/README.md)
+- [Java - WebDriver + TestNG](./wd-java-testng/README.md)
+- [JS/TS - Nightwatch + Default](./nightwatch/default/README.md)
+- [JS/TS - Nightwatch + CucumberJS](./nightwatch/cucumberjs/README.md)
+- [JS/TS - Nightwatch + Mocha](./nightwatch/mocha/README.md)
 - [JS/TS - WebdriverIO + Mocha](./wdio/README.md)
 - [JS/TS - WebdriverIO + Jasmine](./wdio-jasmine/README.md)
 - [JS/TS - WebdriverIO + Cucumber](./wdio-cucumber/README.md)
-- [Java - WebDriver + JUnit](./wd-java/README.md)
-- [Java - WebDriver + TestNG](./wd-java-testng/README.md)
 - [Storybook - Playwright](./storybook/README.md)
 
 ## Documentation

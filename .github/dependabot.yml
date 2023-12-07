@@ -45,6 +45,30 @@ updates:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
     reviewers:
       - "saucelabs/visual-team"
+  - package-ecosystem: "npm"
+    directory: "/nightwatch/default"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
+    reviewers:
+      - "saucelabs/visual-team"
+  - package-ecosystem: "npm"
+    directory: "/nightwatch/mocha"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
+    reviewers:
+      - "saucelabs/visual-team"
+  - package-ecosystem: "npm"
+    directory: "/nightwatch/cucumberjs"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
+    reviewers:
+      - "saucelabs/visual-team"
   - package-ecosystem: "maven"
     directory: "/wd-java"
     schedule:

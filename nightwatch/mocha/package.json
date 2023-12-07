@@ -1,0 +1,17 @@
+{
+  "name": "js-mocha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sauce-visual": "npx nightwatch",
+    "sauce-visual-check": "VISUAL_CHECK=true npx nightwatch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.200",
+    "nightwatch": "^3.3.2"
+  }
+}
