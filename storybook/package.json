@@ -23,7 +23,8 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook -i",
+    "echo": "HELLO=$SAUCE_USERNAME; echo $HELLO",
+    "test-storybook": "SAUCE_PROJECT_NAME=\"Storybook Example for $SAUCE_USERNAME\" test-storybook -i",
     "storybook-static": "npx http-server storybook-static --port 6006 --silent",
     "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook && npm run storybook-static\" \"npx wait-on tcp:6006 && npm run test-storybook\"",
     "test-storybook-modified:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook && npm run storybook-static\" \"npx wait-on tcp:6006 && npm run test-storybook\""

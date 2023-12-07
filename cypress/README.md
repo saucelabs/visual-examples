@@ -260,7 +260,7 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```javascript
-    cy.visualCheck('login-page', { ignoredRegions: [
+    cy.visualCheck('login-page 350p', { ignoredRegions: [
       cy.get('[data-test="username"]'),
     ] });
 ```
@@ -278,7 +278,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 Example:
 
 ```javascript
-    cy.visualCheck('login-page', { ignoredRegions: [
+    cy.visualCheck('login-page 350p', { ignoredRegions: [
       {
         x: 240,
         y: 800,
