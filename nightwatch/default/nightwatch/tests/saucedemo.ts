@@ -15,10 +15,12 @@ const home: NightwatchTests = {
       .sauceVisualCheck('Inventory Page')
       .click('[data-test="add-to-cart-sauce-labs-backpack"]')
       .sauceVisualCheck('Added backpack to cart')
+      // We expect 2 visual diffs, one for the Inventory Page and one for the Added backpack to cart
+      // They are unapproved because we haven't approved them yet
       .assert.sauceVisualResults(DiffStatus.Unapproved, 2);
   },
   'Check Home Page with ignore regions': () => {
-    var login = browser.page.login();
+    const login = browser.page.login();
     login
       .navigate()
       .waitForElementVisible('@username')
@@ -39,6 +41,8 @@ const home: NightwatchTests = {
           [login.elements.username.selector, 'input[data-test="login-button"]'],
         ],
       })
+      // We expect 1 visual diff, one for the Home Page
+      // They are unapproved because we haven't approved them yet
       .assert.sauceVisualResults(DiffStatus.Unapproved, 1);
   },
 };
