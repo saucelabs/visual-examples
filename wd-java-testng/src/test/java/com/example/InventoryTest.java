@@ -30,7 +30,7 @@ public class InventoryTest {
         visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
                 .withBuild("Sauce Demo Test")
                 .withBranch("main")
-                .withProject("TestNG + WebDriver examples")
+                .withProject("TestNG + WebDriver examples for " + System.getenv("SAUCE_USERNAME"))
                 .build();
     }
 

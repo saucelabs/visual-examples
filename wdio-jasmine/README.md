@@ -191,7 +191,7 @@ Example:
             {
                 buildName: 'Sauce Demo Test',
                 branch: 'main',
-                project: 'WDIO examples'
+                project: 'WDIO Jasmine examples'
             },
         ],
     ],

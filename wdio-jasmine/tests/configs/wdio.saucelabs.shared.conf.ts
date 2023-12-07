@@ -43,7 +43,7 @@ export const config: Options.Testrunner = {
       {
         buildName: 'Sauce Demo Test',
         branch: 'main',
-        project: 'WDIO Jasmine examples',
+        project: 'WDIO Jasmine examples for ' + process.env.SAUCE_USERNAME,
       },
     ],
   ]),
