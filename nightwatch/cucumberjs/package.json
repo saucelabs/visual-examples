@@ -1,0 +1,18 @@
+{
+  "name": "js-cucumberjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nightwatch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.200",
+    "@saucelabs/visual": "^0.3.196",
+    "nightwatch": "^3.3.2"
+  }
+}
