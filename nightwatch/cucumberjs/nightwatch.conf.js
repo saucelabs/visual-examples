@@ -57,7 +57,7 @@ module.exports = {
         },
       },
       sauceVisualService: {
-        buildName: 'Nightwatch Visual Demo Mocha Testrunner',
+        buildName: 'Nightwatch Visual Demo CucumberJS Testrunner',
         project: `Nightwatch CucumberJS Testrunner Project for ${process.env.SAUCE_USERNAME}`,
         branch: 'main',
         failOnFailures: false,
