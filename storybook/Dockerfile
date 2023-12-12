@@ -26,7 +26,7 @@ RUN curl -SLO https://deb.nodesource.com/nsolid_setup_deb.sh \
 
 COPY package*.json .
 
-RUN npm install && npx playwright install --with-deps chromium
+RUN npm install && npx playwright install --with-deps
 
 COPY . .
 
