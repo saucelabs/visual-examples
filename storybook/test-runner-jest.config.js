@@ -12,6 +12,8 @@ module.exports = {
 
   testEnvironmentOptions: {
     'jest-playwright': {
+      useDefaultBrowserType: true,
+      browsers: ['chromium', 'webkit', 'firefox'],
       devices: [ 'Desktop Edge', 'Desktop Firefox', 'Desktop Chrome', 'Desktop Safari', 'Pixel 5', 'iPhone 14 Pro Max'],
     },
   },
