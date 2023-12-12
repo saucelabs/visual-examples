@@ -9,6 +9,13 @@ module.exports = {
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
   ...getVisualTestConfig(),
+
+  testEnvironmentOptions: {
+    'jest-playwright': {
+      devices: [ 'Desktop Edge', 'Desktop Firefox', 'Desktop Chrome', 'Desktop Safari', 'Pixel 5', 'iPhone 14 Pro Max'],
+    },
+  },
+
   /** Add your own overrides below
    * @see https://jestjs.io/docs/configuration
    * @see https://github.com/playwright-community/jest-playwright#configuration
