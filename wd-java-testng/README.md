@@ -1,36 +1,42 @@
+---
+runme:
+  id: 01HHQ3F23DXXD7K4KP7GZ22YH8
+  version: v2.0
+---
+
 # Getting started with Sauce Labs Visual in Java WebDriver [![](https://badgen.net/badge/Run%20this%20/README/5B3ADF?icon=https://runme.dev/img/logo.svg)](https://runme.dev/api/runme?repository=git%40github.com%3Asaucelabs%2Fvisual-examples.git)
 
 ## Prerequisites
 
 - For macOS Ventura: Git and Homebrew
-- For Linux: Git and Eclipse Temurin JDK 11+ (https://adoptium.net/temurin/releases/)
+- For Linux: Git and Eclipse Temurin JDK 8+ (https://adoptium.net/temurin/releases/)
 - Sauce Labs Account
 
 ## Run the demo
 
 - Install Eclipse Temurin JDK (for macOS Ventura):
 
-```sh { name=java }
+```sh {"id":"01HHQ3F23DXXD7K4KP6DSE2KTC","name":"java"}
 brew install --cask temurin
 ```
 
 - Clone the repository:
 
-```sh { name=clone }
+```sh {"id":"01HHQ3F23DXXD7K4KP6GV3P936","name":"clone"}
 git clone https://github.com/saucelabs/visual-examples
 cd visual-examples/wd-java-testng
 ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
 
-```sh { name=set-credentials }
+```sh {"id":"01HHQ3F23DXXD7K4KP6M1Z8Y3A","name":"set-credentials"}
 export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
 - Run the test
 
-```sh { name=mvn-run-test }
+```sh {"id":"01HHQ3F23DXXD7K4KP6NW3XF0Y","name":"mvn-run-test"}
 ./mvnw clean test -Dtest=InventoryTest
 ```
 
@@ -39,7 +45,7 @@ If you'd like to run the test with a mobile device or emulator,
 you can set the PLATFORM_NAME environment variable accordingly.
 Available options are ANDROID, ANDROID_EMULATOR, IOS and IOS_SIMULATOR.
 
-```sh { name=mvn-run-test-android-emulator }
+```sh {"id":"01HHQ3F23DXXD7K4KP6QWD7HYG","name":"mvn-run-test-android-emulator"}
 PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 ```
 
@@ -47,7 +53,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
-```sh { name=mvn-run-test-modified }
+```sh {"id":"01HHQ3F23DXXD7K4KP6RQTQ72G","name":"mvn-run-test-modified"}
 ./mvnw clean test -Dmodified=true -Dtest=InventoryTest
 ```
 
@@ -58,7 +64,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 - Add [sauce visual](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client) dependency
    to your pom.xml
 
-```xml
+```xml {"id":"01HHQ3F23DXXD7K4KP6VJ4Z5G4"}
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
@@ -69,14 +75,14 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
 
-```sh
+```sh {"id":"01HHQ3F23DXXD7K4KP6WQM2PR0"}
 private static VisualApi visual;
 private static RemoteWebDriver driver;
 ```
 
 - Initialize WebDriver and VisualApi in @BeforeSuite section
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP6YG44X4D"}
     @BeforeSuite
     public static void init() {
         driver = new RemoteWebDriver(webDriverUrl, capabilities);
@@ -86,7 +92,7 @@ private static RemoteWebDriver driver;
 
 - Add the test meta info listener to your test classes
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP6YK3595X"}
 import com.saucelabs.visual.testng.TestMetaInfoListener;
 import org.testng.annotations.Listeners;
 
@@ -98,13 +104,13 @@ public class MyTestNGTestClass {
 
 - Add a check to one of your tests:
 
-```sh
+```sh {"id":"01HHQ3F23DXXD7K4KP71EZ6YBA"}
 visual.sauceVisualCheck("My login page")
 ```
 
 - Don't forget to quit the WebDriver in @AfterSuite section
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP71STN3PF"}
     @AfterSuite
     public static void tearDown() {
         if (driver != null) {
@@ -115,7 +121,7 @@ visual.sauceVisualCheck("My login page")
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
 
-```sh
+```sh {"id":"01HHQ3F23DXXD7K4KP756WJ21R"}
 export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
@@ -138,7 +144,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 Example:
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP76DQRFMY"}
     import static org.testng.Assert.assertEquals;
     [...]
     
@@ -161,7 +167,7 @@ Methods available:
 
 Example:
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP787YF7NF"}
     visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1)
             .withBuild("Sauce Demo Test")
             .withBranch("main")
@@ -181,7 +187,7 @@ Those ignored components are specified when requesting a new snapshot.
 
 Example:
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP7B8GA05P"}
     Options options = new Options();
     options.setIgnoreElements(List.of(
         // AddBackpackToCartButton will be ignored
@@ -202,7 +208,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 Example:
 
-```java
+```java {"id":"01HHQ3F23DXXD7K4KP7F5Y6STP"}
     Options options = new Options();
     IgnoreRegion ignoreRegion = new IgnoreRegion(
         100, // x
