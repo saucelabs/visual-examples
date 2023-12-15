@@ -75,7 +75,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
 
-```sh {"id":"01HHQ3FQDWBD7ZSD2PQQ2E5HSZ"}
+```java {"id":"01HHQ3FQDWBD7ZSD2PQQ2E5HSZ"}
 private static VisualApi visual;
 private static RemoteWebDriver driver;
 ```
@@ -104,7 +104,7 @@ public class MyJunitTestClass {
 
 - Add a check to one of your tests:
 
-```sh {"id":"01HHQ3FQDWBD7ZSD2PQZQMJRH1"}
+```java {"id":"01HHQ3FQDWBD7ZSD2PQZQMJRH1"}
 visual.sauceVisualCheck("My login page")
 ```
 
