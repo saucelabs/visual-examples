@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11-jdk-alpine as runner
+FROM eclipse-temurin:8-jdk-alpine as runner
 
 # Install curl
 RUN apk add --no-cache curl
