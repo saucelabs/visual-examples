@@ -3,7 +3,7 @@ FROM eclipse-temurin:8-jdk-alpine as runner
 # Install curl
 RUN apk add --no-cache curl
 # Install runme
-RUN curl -sSL https://download.stateful.com/runme/1.2.6/runme_linux_x86_64.tar.gz  | tar -xz -C /usr/local/bin runme
+RUN curl -sSL https://download.stateful.com/runme/2.0.6/runme_darwin_x86_64.tar.gz  | tar -xz -C /usr/local/bin runme
 
 FROM runner
 RUN mkdir -p /workspace
