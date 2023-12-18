@@ -14,6 +14,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
+import java.util.Collections;
 import java.util.List;
 
 import static com.example.TestUtils.dotenv;
@@ -39,21 +40,21 @@ public class InventoryIgnoreRegionsTest {
 
     @Test
     void checkInventoryPageWithIgnoreRegions() {
-        var loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
 
-        var options = new CheckOptions();
-        var ignoreRegion = new IgnoreRegion(100,100,200,200);
-        options.setIgnoreRegions(List.of(ignoreRegion));
+        CheckOptions options = new CheckOptions();
+        IgnoreRegion ignoreRegion = new IgnoreRegion(100,100,200,200);
+        options.setIgnoreRegions(Collections.singletonList(ignoreRegion));
         visual.sauceVisualCheck("Before Login", options);
 
         loginPage.login("standard_user", "secret_sauce");
 
-        var inventoryPage = new InventoryPage(driver);
+        InventoryPage inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
-        var options2 = new CheckOptions();
-        options2.setIgnoreElements(List.of(inventoryPage.getAddBackpackToCartButton()));
+        CheckOptions options2 = new CheckOptions();
+        options2.setIgnoreElements(Collections.singletonList(inventoryPage.getAddBackpackToCartButton()));
         visual.sauceVisualCheck("Inventory Page", options2);
     }
 

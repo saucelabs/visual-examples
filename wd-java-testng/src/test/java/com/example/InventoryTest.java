@@ -36,14 +36,14 @@ public class InventoryTest {
 
     @Test
     void checkInventoryPageLooksTheSame() {
-        var loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
 
         visual.sauceVisualCheck("Before Login");
 
         loginPage.login("standard_user", "secret_sauce");
 
-        var inventoryPage = new InventoryPage(driver);
+        InventoryPage inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
         // this is here to generate a diff to better demonstrate sauce visual
