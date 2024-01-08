@@ -1,9 +1,9 @@
-FROM eclipse-temurin:11-jdk-alpine as runner
+FROM eclipse-temurin:8u392-b08-jdk-jammy as runner
 
 # Install curl
-RUN apk add --no-cache curl
+RUN apt-get update && apt-get install -y curl
 # Install runme
-RUN curl -sSL https://download.stateful.com/runme/1.2.6/runme_linux_x86_64.tar.gz  | tar -xz -C /usr/local/bin runme
+RUN curl -sSL https://download.stateful.com/runme/2.0.6/runme_linux_x86_64.tar.gz  | tar -xz -C /usr/local/bin runme
 
 FROM runner
 RUN mkdir -p /workspace
