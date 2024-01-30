@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "devDependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.247",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.252",
     "@types/jasmine": "^5.1.4",
     "@wdio/cli": "8.24.1",
     "@wdio/jasmine-framework": "^8.24.1",
