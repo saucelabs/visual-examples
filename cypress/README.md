@@ -4,23 +4,23 @@
 
 - OSX Ventura with Git and Brew
 - Linux with bash curl and git
-- Windows with NodeJS 18 (untested)
+- Windows with NodeJS 16 (untested)
 - Sauce Labs Account
 
 ## Run the demo
 
-- Install Node.js 18 on Mac:
+- Install Node.js 16 on Mac:
 
 ```sh { name=nodejs-mac }
-brew install node@18
+brew install node@16
 ```
 
-- Install Node.js 18 + Dependencies on Linux:
+- Install Node.js 16 + Dependencies on Linux:
 
 ```sh { name=nodejs-linux }
 curl -fsSLO https://deb.nodesource.com/nsolid_setup_deb.sh
 chmod +x nsolid_setup_deb.sh
-./nsolid_setup_deb.sh 18
+./nsolid_setup_deb.sh 16
 apt-get install nodejs -y
 apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
 ```
