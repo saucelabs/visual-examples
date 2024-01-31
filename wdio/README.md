@@ -9,7 +9,7 @@
 
 ## Run the demo
 
-- Install Node.js 18 on Mac:
+- Install Node.js 16 on Mac:
 
 ```sh { name=nodejs-mac }
 brew install node@16
