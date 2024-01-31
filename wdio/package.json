@@ -19,7 +19,7 @@
     "sauce-visual-check-mobile": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/login.spec.ts"
   },
   "dependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.247",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.252",
     "readline-sync": "^1.4.10",
     "update-dotenv": "^1.1.1"
   }
