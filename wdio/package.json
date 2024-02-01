@@ -1,6 +1,9 @@
 {
   "name": "SauceLabsVisualExampleforWebdriverIO",
   "type": "module",
+  "engines": {
+    "node": "^16.13 || >=18"
+  },
   "devDependencies": {
     "@wdio/cli": "^8.23.0",
     "@wdio/local-runner": "^8.23.0",

@@ -2,6 +2,9 @@
   "name": "saucelabs-visual-example-webdriverio-jasmine",
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": "^16.13 || >=18"
+  },
   "devDependencies": {
     "@saucelabs/wdio-sauce-visual-service": "^0.3.252",
     "@types/jasmine": "^5.1.4",

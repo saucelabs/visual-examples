@@ -2,6 +2,9 @@
   "name": "visual-nightwatch",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": "^16.13 || >=18"
+  },
   "main": "index.js",
   "scripts": {
     "sauce-visual": "npx nightwatch",
