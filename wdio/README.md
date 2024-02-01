@@ -9,10 +9,10 @@
 
 ## Run the demo
 
-- Install Node.js 16 on Mac:
+- Install Node.js 18 on Mac:
 
 ```sh { name=nodejs-mac }
-brew install node@16
+brew install node@18
 ```
 
 - Install Node.js 18 on Linux:
@@ -20,7 +20,7 @@ brew install node@16
 ```sh { name=nodejs-linux }
 curl -fsSLO https://deb.nodesource.com/nsolid_setup_deb.sh
 chmod +x nsolid_setup_deb.sh
-./nsolid_setup_deb.sh 16
+./nsolid_setup_deb.sh 18
 apt-get install nodejs -y
 ```
 
