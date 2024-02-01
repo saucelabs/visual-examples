@@ -2,7 +2,7 @@
   "name": "@saucelabs/cypress-visual-plugin-example",
   "description": "Sauce Labs Visual Example for Cypress",
   "engines": {
-    "node": "18"
+    "node": "^16.13 || >=18"
   },
   "scripts": {
     "copy-standard": "cp ./cypress/e2e/saucedemo.standard.ts ./cypress/e2e/saucedemo.cy.ts",
