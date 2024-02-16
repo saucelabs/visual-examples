@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.265",
+    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.280",
     "nightwatch": "^3.3.3"
   }
 }
