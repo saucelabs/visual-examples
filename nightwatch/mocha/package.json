@@ -2,6 +2,9 @@
   "name": "js-mocha",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "^16.13 || >=18"
+  },
   "main": "index.js",
   "scripts": {
     "sauce-visual": "npx nightwatch",
