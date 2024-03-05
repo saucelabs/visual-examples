@@ -32,6 +32,7 @@ public class InventoryTest {
                 .withBuild("Sauce Demo Test")
                 .withBranch("main")
                 .withProject("JUnit + WebDriver examples for " + System.getenv("SAUCE_USERNAME"))
+                .withCaptureDom(true)
                 .build();
     }
 
