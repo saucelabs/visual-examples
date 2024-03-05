@@ -7,7 +7,8 @@
             "@wdio/globals/types",
             "expect-webdriverio",
             "@wdio/cucumber-framework",
-            "@wdio/sauce-service"
+            "@wdio/sauce-service",
+            "@saucelabs/wdio-sauce-visual-service",
         ],
         "allowSyntheticDefaultImports": true,
         "target": "es2022",
