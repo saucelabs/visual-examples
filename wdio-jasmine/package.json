@@ -6,7 +6,7 @@
     "node": "^16.13 || >=18"
   },
   "devDependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.307",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.313",
     "@types/jasmine": "^5.1.4",
     "@wdio/cli": "8.24.1",
     "@wdio/jasmine-framework": "^8.24.1",
