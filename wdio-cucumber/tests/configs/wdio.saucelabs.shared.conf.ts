@@ -44,6 +44,7 @@ export const config: Options.Testrunner = {
         buildName: 'Sauce Demo Test',
         branch: 'main',
         project: 'WDIO CucumberJS examples for ' + process.env.SAUCE_USERNAME,
+        captureDom: true,
       },
     ],
   ]),
