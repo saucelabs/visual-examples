@@ -10,7 +10,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace xunit_example
+namespace SauceLabs.Visual.Example
 {
     public class SauceDemo : IAsyncLifetime
     {
@@ -34,7 +34,7 @@ namespace xunit_example
             var sauceUrl = Utils.GetOnDemandURL();
             Driver = new RemoteWebDriver(sauceUrl, browserOptions);
             VisualClient = await VisualClient.Create(Driver, DataCenter.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey());
-            VisualBuild = await VisualClient.CreateBuild(name: "C# BUILD", project:"my-c#-project", branch:"my-c#-branch");
+            VisualBuild = await VisualClient.CreateBuild(name: "C# BUILD", project: "my-c#-project", branch: "my-c#-branch");
         }
 
 
@@ -60,7 +60,7 @@ namespace xunit_example
 
             Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
             var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
-            
+
             await VisualClient.VisualCheck(VisualBuild,
                 "C# capture",
                 ignoreElements: new[]
@@ -72,7 +72,6 @@ namespace xunit_example
                     new IgnoreRegion(10, 10, 100, 100)
                 });
 
-            await VisualClient.VisualCheck(VisualBuild, "Home Page");
             var results = await VisualClient.VisualResults(VisualBuild.Id);
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }

@@ -5,7 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Safari;
 
-namespace xunit_example
+namespace SauceLabs.Visual.Example
 {
     internal static class Utils
     {
@@ -55,7 +55,7 @@ namespace xunit_example
         {
             var regionName = GetSauceRegion();
             var tld = regionName == "staging" ? "net" : "com";
-            return new Uri("https://ondemand." + regionName + ".saucelabs."+tld+"/wd/hub");
+            return new Uri("https://ondemand." + regionName + ".saucelabs." + tld + "/wd/hub");
         }
 
         public static DriverOptions GetBrowserOptions()
