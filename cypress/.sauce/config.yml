@@ -27,6 +27,7 @@ suites:
       env:
         SAUCE_USERNAME: $SAUCE_USERNAME
         SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
+        CYPRESS_VISUAL_CHECK: $VISUAL_CHECK
 
 artifacts:
   download:
