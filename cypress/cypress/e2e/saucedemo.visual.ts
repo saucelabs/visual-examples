@@ -26,7 +26,7 @@ describe('Sauce Visual Demo', () => {
     cy.get('[data-test="password"]').type('secret_sauce').should('have.value', 'secret_sauce');
     cy.get('input[data-test="login-button"]').click();
     cy.url().should('eq', 'https://www.saucedemo.com/');
-    cy.get('.error-message-container', {timeout: 10000}).should('be.visible');
+    cy.get('.error-message-container').should('be.visible');
     cy.sauceVisualCheck('Locked User Error Message', {
       captureDom: true
     });
