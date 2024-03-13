@@ -5,9 +5,8 @@
     "node": "^16.13 || >=18"
   },
   "scripts": {
-    "copy-visual": "cp ./cypress/e2e/saucedemo.visual.ts ./cypress/e2e/saucedemo.cy.ts",
-    "sauce-visual": "npm run copy-visual && cypress run",
-    "sauce-visual-check": "npm run copy-visual && cypress run --env VISUAL_CHECK=true"
+    "sauce-visual": "cypress run",
+    "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
   },
   "dependencies": {
     "@saucelabs/cypress-visual-plugin": "^0.3.325",
