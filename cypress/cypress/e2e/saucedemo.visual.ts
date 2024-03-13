@@ -33,9 +33,9 @@ describe('Sauce Visual Demo', () => {
   })
 
   function openSauceDemoPage() {
-    cy.visit('https://www.saucedemo.com/');
-    // service workers can break Cypress (https://github.com/cypress-io/cypress/issues/16192)
+    // service workers on sauce demo can break Cypress (https://github.com/cypress-io/cypress/issues/16192)
     cy.intercept('/service-worker.js', {body: undefined});
+    cy.visit('https://www.saucedemo.com/');
   }
 
 });
