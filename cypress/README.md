@@ -56,7 +56,7 @@ npm run sauce-visual
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
-```sh { name=npm-run-modified }
+```sh { name=npm-run-visual-check }
 npm run sauce-visual-check
 ```
 
@@ -91,7 +91,7 @@ npx saucectl run
 - Accept all diffs, so they become new baselines.
 
 - Run saucectl (with a modified screen)
-```sh { name=saucectl-run-modified }
+```sh { name=saucectl-run-visual-check }
 VISUAL_CHECK=true npx saucectl run
 ```
 
