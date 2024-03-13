@@ -18,7 +18,7 @@ npm:
 
 rootDir: ./
 suites:
-  - name: "Chrome on Windows"
+  - name: "Sauce Demo Cypress"
     browser: "chrome"
     platformName: "Windows 11"
     screenResolution: "1920x1080"  # (optional)
