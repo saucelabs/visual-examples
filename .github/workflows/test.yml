@@ -150,6 +150,8 @@ jobs:
         working-directory: xunit
       - name: Test
         run: |
-          echo "${{ secrets.DOTENV }}" > .env
+          @"
+          ${{ secrets.DOTENV }}
+          "@ | Out-File -FilePath .\.env
           dotnet test --verbosity normal
         working-directory: xunit
