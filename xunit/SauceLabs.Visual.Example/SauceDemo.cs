@@ -56,15 +56,17 @@ namespace SauceLabs.Visual.Example
             var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
             await VisualClient.VisualCheck("C# capture",
-                new VisualCheckOptions() {
-                IgnoreElements = new[]
+                new VisualCheckOptions()
+                {
+                    IgnoreElements = new[]
                 {
                     btnAction
                 },
-                IgnoreRegions= new[]
+                    IgnoreRegions = new[]
                 {
                     new IgnoreRegion(10, 10, 100, 100)
-                }});
+                }
+                });
 
             var results = await VisualClient.VisualResults();
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
