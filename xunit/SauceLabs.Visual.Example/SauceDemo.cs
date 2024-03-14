@@ -2,7 +2,6 @@ using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using dotenv.net;
 using SauceLabs.Visual;
 using SauceLabs.Visual.Models;
 using Xunit;
@@ -19,7 +18,6 @@ namespace SauceLabs.Visual.Example
 
         public SauceDemo(ITestOutputHelper outputHelper)
         {
-            DotEnv.Load();
             OutputHelper = outputHelper;
 
             var browserOptions = Utils.GetBrowserOptions();

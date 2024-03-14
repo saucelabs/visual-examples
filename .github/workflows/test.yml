@@ -149,9 +149,8 @@ jobs:
         run: dotnet build .\SauceLabs.Visual.Example\SauceLabs.Visual.Example.csproj --no-restore
         working-directory: xunit
       - name: Test
-        run: |
-          @"
-          ${{ secrets.DOTENV }}
-          "@ | Out-File -FilePath .\SauceLabs.Visual.Example\.env
-          dotnet test --verbosity normal
+        run: dotnet test --verbosity normal
         working-directory: xunit
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
