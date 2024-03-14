@@ -152,6 +152,6 @@ jobs:
         run: |
           @"
           ${{ secrets.DOTENV }}
-          "@ | Out-File -FilePath .\.env
+          "@ | Out-File -FilePath .\SauceLabs.Visual.Example\.env
           dotnet test --verbosity normal
         working-directory: xunit
