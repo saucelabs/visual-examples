@@ -1,6 +1,4 @@
 using System;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
@@ -12,29 +10,25 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace SauceLabs.Visual.Example
 {
-    public class SauceDemo : IAsyncLifetime
+    public class SauceDemo : IDisposable
     {
         private RemoteWebDriver Driver { get; set; }
         private VisualClient VisualClient { get; set; }
-        private VisualBuild VisualBuild { get; set; }
-
         private ITestOutputHelper OutputHelper { get; }
 
         public SauceDemo(ITestOutputHelper outputHelper)
         {
             OutputHelper = outputHelper;
-        }
 
-        public async Task InitializeAsync()
-        {
             var browserOptions = Utils.GetBrowserOptions();
             var sauceOptions = Utils.GetSauceOptions();
             browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
             var sauceUrl = Utils.GetOnDemandURL();
             Driver = new RemoteWebDriver(sauceUrl, browserOptions);
-            VisualClient = await VisualClient.Create(Driver, DataCenter.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey());
-            VisualBuild = await VisualClient.CreateBuild(name: "C# BUILD", project: "my-c#-project", branch: "my-c#-branch");
+            VisualClient = new VisualClient(Driver, Region.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey(),
+                new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+            VisualClient.CaptureDom = true;
         }
 
 
@@ -61,28 +55,26 @@ namespace SauceLabs.Visual.Example
             Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
             var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-            await VisualClient.VisualCheck(VisualBuild,
-                "C# capture",
-                ignoreElements: new[]
+            await VisualClient.VisualCheck("C# capture",
+                new VisualCheckOptions() {
+                IgnoreElements = new[]
                 {
                     btnAction
                 },
-                ignoreRegions: new[]
+                IgnoreRegions= new[]
                 {
                     new IgnoreRegion(10, 10, 100, 100)
-                });
+                }});
 
-            var results = await VisualClient.VisualResults(VisualBuild.Id);
+            var results = await VisualClient.VisualResults();
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }
 
-        [TestCleanup]
-        public async Task DisposeAsync()
+        public void Dispose()
         {
-            const string script = "sauce:job-result=passed";
-            Driver.ExecuteScript(script);
             Driver?.Quit();
-            await VisualClient.FinishBuild(VisualBuild);
+            VisualClient.Cleanup().Wait();
+            VisualClient.Dispose();
         }
     }
 }

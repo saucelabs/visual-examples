@@ -45,7 +45,7 @@ namespace SauceLabs.Visual.Example
             var region = Environment.GetEnvironmentVariable("SAUCE_REGION");
             if (region == null)
             {
-                throw new Exception("No SAUCE_REGION found");
+                return "us-west-1";
             }
 
             return region;
