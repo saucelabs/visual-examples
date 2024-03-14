@@ -45,6 +45,7 @@ export const config: Options.Testrunner = {
         branch: 'main',
         project: 'WDIO examples',
         captureDom: true,
+        region: 'eu-central-1',
       },
     ],
   ]),

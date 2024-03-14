@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build wd-java example
         uses: docker/build-push-action@v4
         with:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build wd-java-testng example
         uses: docker/build-push-action@v4
         with:
@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Cypress example
         uses: docker/build-push-action@v4
@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Cypress example
         uses: docker/build-push-action@v4
@@ -129,22 +129,25 @@ jobs:
             "dotenv=${{ secrets.DOTENV }}"
   xunit:
     runs-on: windows-latest
+
     steps:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Install dotnet-format tool
         run: dotnet tool install -g dotnet-format
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: .\xunit
+        working-directory: xunit
       - name: Run dotnet format
         run: dotnet format '.' --verify-no-changes
-        working-directory: .\xunit
+        working-directory: xunit
       - name: Build
         run: dotnet build .\SauceLabs.Visual.Example\SauceLabs.Visual.Example.csproj --no-restore
         working-directory: xunit
       - name: Test
         run: dotnet test --verbosity normal
-        working-directory: .\xunit
+        working-directory: xunit
