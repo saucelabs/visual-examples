@@ -149,5 +149,7 @@ jobs:
         run: dotnet build .\SauceLabs.Visual.Example\SauceLabs.Visual.Example.csproj --no-restore
         working-directory: xunit
       - name: Test
-        run: dotnet test --verbosity normal
+        run: |
+          echo {{ secrets.DOTENV }} > .env
+          dotnet test --verbosity normal
         working-directory: xunit
