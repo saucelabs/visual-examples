@@ -58,16 +58,11 @@ namespace SauceLabs.Visual.Example
             await VisualClient.VisualCheck("C# capture",
                 new VisualCheckOptions()
                 {
-                    IgnoreElements = new[]
-                    {
-                        btnAction
-                    },
-                    IgnoreRegions = new[]
-                    {
-                        new IgnoreRegion(10, 10, 100, 100)
-                    }
+                    IgnoreElements = new[] { btnAction },
+                    IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
                 });
 
+            OutputHelper.WriteLine($"Visual Build Url: {VisualClient.Build.Url} ");
             var results = await VisualClient.VisualResults();
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }
