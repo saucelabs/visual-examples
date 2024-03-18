@@ -127,6 +127,7 @@ jobs:
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
+
   xunit:
     runs-on: windows-latest
 
@@ -137,20 +138,44 @@ jobs:
           dotnet-version: 6.0.x
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install dotnet-format tool
-        run: dotnet tool install -g dotnet-format
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: xunit
+      - name: Restore tools
+        run: dotnet tool restore
+        working-directory: xunit-example
       - name: Run dotnet format
         run: dotnet format '.' --verify-no-changes
-        working-directory: xunit
-      - name: Build
-        run: dotnet build .\SauceLabs.Visual.Example\SauceLabs.Visual.Example.csproj --no-restore
-        working-directory: xunit
+        working-directory: xunit-example
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: xunit-example
       - name: Test
         run: dotnet test --verbosity normal
-        working-directory: xunit
+        working-directory: xunit-example
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+
+  nunit:
+    runs-on: windows-latest
+
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Restore tools
+        run: dotnet tool restore
+        working-directory: nunit-example
+      - name: Run dotnet format
+        run: dotnet format '.' --verify-no-changes
+        working-directory: nunit-example
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: nunit-example
+      - name: Test
+        run: dotnet test --verbosity normal
+        working-directory: nunit-example
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}

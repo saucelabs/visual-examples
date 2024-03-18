@@ -26,6 +26,8 @@ namespace SauceLabs.Visual.Example
 
             var sauceUrl = Utils.GetOnDemandURL();
             Driver = new RemoteWebDriver(sauceUrl, browserOptions);
+            Driver.ExecuteScript("sauce:job-name=xUnit C#/.Net Visual Session");
+
             VisualClient = new VisualClient(Driver, Region.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey(),
                 new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
             VisualClient.CaptureDom = true;
@@ -62,7 +64,6 @@ namespace SauceLabs.Visual.Example
                     IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
                 });
 
-            OutputHelper.WriteLine($"Visual Build Url: {VisualClient.Build.Url} ");
             var results = await VisualClient.VisualResults();
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }

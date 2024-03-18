@@ -10,8 +10,8 @@ namespace SauceLabs.Visual.Example;
 
 public class SauceDemo
 {
-    private RemoteWebDriver Driver { get; set; }
-    private VisualClient VisualClient { get; set; }
+    private RemoteWebDriver? Driver { get; set; }
+    private VisualClient? VisualClient { get; set; }
 
     [SetUp]
     public void Setup()
@@ -32,7 +32,6 @@ public class SauceDemo
     [Test]
     public async Task Test1()
     {
-        
         Driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
         var usernameLocator = By.CssSelector("#user-name");
