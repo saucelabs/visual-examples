@@ -21,7 +21,7 @@ namespace SauceLabs.Visual.Example
         public static string GetSauceUsername()
         {
             var username = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
-            if (username == null)
+            if (string.IsNullOrEmpty(username))
             {
                 throw new Exception("No SAUCE_USERNAME found");
             }
@@ -32,7 +32,7 @@ namespace SauceLabs.Visual.Example
         public static string GetSauceAccessKey()
         {
             var accessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
-            if (accessKey == null)
+            if (string.IsNullOrEmpty(accessKey))
             {
                 throw new Exception("No SAUCE_ACCESS_KEY found");
             }
@@ -43,7 +43,7 @@ namespace SauceLabs.Visual.Example
         public static string GetSauceRegion()
         {
             var region = Environment.GetEnvironmentVariable("SAUCE_REGION");
-            if (region == null)
+            if (string.IsNullOrEmpty(region))
             {
                 return "us-west-1";
             }
