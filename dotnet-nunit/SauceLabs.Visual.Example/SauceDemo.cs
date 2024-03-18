@@ -13,7 +13,7 @@ public class SauceDemo
     private RemoteWebDriver? Driver { get; set; }
     private VisualClient? VisualClient { get; set; }
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         var browserOptions = Utils.GetBrowserOptions();
@@ -63,7 +63,41 @@ public class SauceDemo
         Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
     }
 
-    [TearDown]
+    [Test]
+    public async Task Test2()
+    {
+        Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+
+        var usernameLocator = By.CssSelector("#user-name");
+        var passwordLocator = By.CssSelector("#password");
+        var submitLocator = By.CssSelector(".btn_action");
+
+        var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
+        wait.Until(drv => drv.FindElement(usernameLocator));
+
+        var usernameElement = Driver.FindElement(usernameLocator);
+        var passwordElement = Driver.FindElement(passwordLocator);
+        var submitElement = Driver.FindElement(submitLocator);
+
+        usernameElement.SendKeys("standard_user");
+        passwordElement.SendKeys("secret_sauce");
+        submitElement.Click();
+
+        Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
+        var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
+
+        await VisualClient.VisualCheck("C# capture #2",
+            new VisualCheckOptions()
+            {
+                IgnoreElements = new[] { btnAction },
+                IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
+            });
+
+        var results = await VisualClient.VisualResults();
+        Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
+    }
+
+    [OneTimeTearDown]
     public void Teardown()
     {
         Driver?.Quit();
