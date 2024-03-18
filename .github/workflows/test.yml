@@ -140,16 +140,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Restore tools
         run: dotnet tool restore
-        working-directory: xunit-example
+        working-directory: dotnet-xunit
       - name: Run dotnet format
         run: dotnet format '.' --verify-no-changes
-        working-directory: xunit-example
+        working-directory: dotnet-xunit
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: xunit-example
+        working-directory: dotnet-xunit
       - name: Test
         run: dotnet test --verbosity normal
-        working-directory: xunit-example
+        working-directory: dotnet-xunit
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
@@ -166,16 +166,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Restore tools
         run: dotnet tool restore
-        working-directory: nunit-example
+        working-directory: dotnet-nunit
       - name: Run dotnet format
         run: dotnet format '.' --verify-no-changes
-        working-directory: nunit-example
+        working-directory: dotnet-nunit
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: nunit-example
+        working-directory: dotnet-nunit
       - name: Test
         run: dotnet test --verbosity normal
-        working-directory: nunit-example
+        working-directory: dotnet-nunit
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
