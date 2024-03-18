@@ -24,8 +24,12 @@ public class SauceDemo
         Driver = new RemoteWebDriver(sauceUrl, browserOptions);
         Driver.ExecuteScript("sauce:job-name=NUnit C#/.Net Visual Session");
 
-        VisualClient = new VisualClient(Driver, Region.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey(),
-            new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+        VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+        {
+            Name = "My Visual Build",
+            Project = "csharp-project",
+            Branch = "csharp-branch"
+        });
         VisualClient.CaptureDom = true;
     }
 
@@ -98,10 +102,10 @@ public class SauceDemo
     }
 
     [OneTimeTearDown]
-    public void Teardown()
+    public async Task Teardown()
     {
         Driver?.Quit();
-        VisualClient.Cleanup().Wait();
+        await VisualClient.Cleanup();
         VisualClient.Dispose();
     }
 }

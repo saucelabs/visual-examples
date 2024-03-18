@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
@@ -10,7 +11,7 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace SauceLabs.Visual.Example
 {
-    public class SauceDemo : IDisposable
+    public class SauceDemo : IAsyncLifetime
     {
         private RemoteWebDriver Driver { get; set; }
         private VisualClient VisualClient { get; set; }
@@ -28,8 +29,12 @@ namespace SauceLabs.Visual.Example
             Driver = new RemoteWebDriver(sauceUrl, browserOptions);
             Driver.ExecuteScript("sauce:job-name=xUnit C#/.Net Visual Session");
 
-            VisualClient = new VisualClient(Driver, Region.UsWest1, Utils.GetSauceUsername(), Utils.GetSauceAccessKey(),
-                new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+            VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+            {
+                Name = "My Visual Build",
+                Project = "csharp-project",
+                Branch = "csharp-branch"
+            });
             VisualClient.CaptureDom = true;
         }
 
@@ -68,10 +73,14 @@ namespace SauceLabs.Visual.Example
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }
 
-        public void Dispose()
+        public async Task InitializeAsync()
+        {
+        }
+
+        public async Task DisposeAsync()
         {
             Driver?.Quit();
-            VisualClient.Cleanup().Wait();
+            await VisualClient.Cleanup();
             VisualClient.Dispose();
         }
     }

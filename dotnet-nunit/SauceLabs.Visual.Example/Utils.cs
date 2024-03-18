@@ -9,9 +9,9 @@ namespace SauceLabs.Visual.Example
 {
     internal static class Utils
     {
-        public static Dictionary<string, object> GetSauceOptions()
+        public static Dictionary<string, string> GetSauceOptions()
         {
-            return new Dictionary<string, object>
+            return new Dictionary<string, string>
             {
                 { "username", GetSauceUsername() },
                 { "accessKey", GetSauceAccessKey() }
