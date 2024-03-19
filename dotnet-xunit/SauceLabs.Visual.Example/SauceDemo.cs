@@ -14,7 +14,7 @@ namespace SauceLabs.Visual.Example
     public class SauceDemo : IAsyncLifetime
     {
         private RemoteWebDriver Driver { get; set; }
-        private VisualClient SauceVisualClient { get; set; }
+        private VisualClient VisualClient { get; set; }
         private ITestOutputHelper OutputHelper { get; }
 
         public SauceDemo(ITestOutputHelper outputHelper)
@@ -32,13 +32,13 @@ namespace SauceLabs.Visual.Example
             Driver = new RemoteWebDriver(sauceUrl, browserOptions);
             Driver.ExecuteScript("sauce:job-name=xUnit C#/.Net Visual Session");
 
-            SauceVisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
+            VisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
             {
                 Name = "My Visual Build",
                 Project = "csharp-project",
                 Branch = "csharp-branch"
             });
-            SauceVisualClient.CaptureDom = true;
+            VisualClient.CaptureDom = true;
         }
 
         [Fact]
@@ -64,22 +64,22 @@ namespace SauceLabs.Visual.Example
             Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
             var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-            await SauceVisualClient.VisualCheck("C# capture",
+            await VisualClient.VisualCheck("C# capture",
                 new VisualCheckOptions()
                 {
                     IgnoreElements = new[] { btnAction },
                     IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
                 });
 
-            var results = await SauceVisualClient.VisualResults();
+            var results = await VisualClient.VisualResults();
             Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
         }
 
         public async Task DisposeAsync()
         {
             Driver?.Quit();
-            await SauceVisualClient.Cleanup();
-            SauceVisualClient.Dispose();
+            await VisualClient.Cleanup();
+            VisualClient.Dispose();
         }
     }
 }

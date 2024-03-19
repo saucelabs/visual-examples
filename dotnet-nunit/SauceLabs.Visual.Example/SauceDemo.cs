@@ -4,15 +4,15 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using SauceLabs.Visual;
 using SauceLabs.Visual.Models;
+using SauceLabs.Visual;
 
 namespace SauceLabs.Visual.Example;
 
 public class SauceDemo
 {
     private RemoteWebDriver? Driver { get; set; }
-    private VisualClient? SauceVisualClient { get; set; }
+    private VisualClient? VisualClient { get; set; }
 
     [OneTimeSetUp]
     public async Task Setup()
@@ -25,13 +25,13 @@ public class SauceDemo
         Driver = new RemoteWebDriver(sauceUrl, browserOptions);
         Driver.ExecuteScript("sauce:job-name=NUnit C#/.Net Visual Session");
 
-        SauceVisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
+        VisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
         {
             Name = "My Visual Build",
             Project = "csharp-project",
             Branch = "csharp-branch"
         });
-        SauceVisualClient.CaptureDom = true;
+        VisualClient.CaptureDom = true;
     }
 
     [Test]
@@ -57,14 +57,14 @@ public class SauceDemo
         Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
         var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-        await SauceVisualClient.VisualCheck("C# capture",
+        await VisualClient.VisualCheck("C# capture",
             new VisualCheckOptions()
             {
                 IgnoreElements = new[] { btnAction },
                 IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
             });
 
-        var results = await SauceVisualClient.VisualResults();
+        var results = await VisualClient.VisualResults();
         Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
     }
 
@@ -91,14 +91,14 @@ public class SauceDemo
         Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
         var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-        await SauceVisualClient.VisualCheck("C# capture #2",
+        await VisualClient.VisualCheck("C# capture #2",
             new VisualCheckOptions()
             {
                 IgnoreElements = new[] { btnAction },
                 IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
             });
 
-        var results = await SauceVisualClient.VisualResults();
+        var results = await VisualClient.VisualResults();
         Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
     }
 
@@ -106,7 +106,7 @@ public class SauceDemo
     public async Task Teardown()
     {
         Driver?.Quit();
-        await SauceVisualClient.Cleanup();
-        SauceVisualClient.Dispose();
+        await VisualClient.Cleanup();
+        VisualClient.Dispose();
     }
 }
