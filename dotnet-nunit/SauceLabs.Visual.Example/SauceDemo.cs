@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
+using SauceLabs.Visual;
 using SauceLabs.Visual.Models;
 
 namespace SauceLabs.Visual.Example;
@@ -11,10 +12,10 @@ namespace SauceLabs.Visual.Example;
 public class SauceDemo
 {
     private RemoteWebDriver? Driver { get; set; }
-    private VisualClient? VisualClient { get; set; }
+    private VisualClient? SauceVisualClient { get; set; }
 
     [OneTimeSetUp]
-    public void Setup()
+    public async Task Setup()
     {
         var browserOptions = Utils.GetBrowserOptions();
         var sauceOptions = Utils.GetSauceOptions();
@@ -24,13 +25,13 @@ public class SauceDemo
         Driver = new RemoteWebDriver(sauceUrl, browserOptions);
         Driver.ExecuteScript("sauce:job-name=NUnit C#/.Net Visual Session");
 
-        VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+        SauceVisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
         {
             Name = "My Visual Build",
             Project = "csharp-project",
             Branch = "csharp-branch"
         });
-        VisualClient.CaptureDom = true;
+        SauceVisualClient.CaptureDom = true;
     }
 
     [Test]
@@ -56,14 +57,14 @@ public class SauceDemo
         Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
         var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-        await VisualClient.VisualCheck("C# capture",
+        await SauceVisualClient.VisualCheck("C# capture",
             new VisualCheckOptions()
             {
                 IgnoreElements = new[] { btnAction },
                 IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
             });
 
-        var results = await VisualClient.VisualResults();
+        var results = await SauceVisualClient.VisualResults();
         Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
     }
 
@@ -90,14 +91,14 @@ public class SauceDemo
         Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
         var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
-        await VisualClient.VisualCheck("C# capture #2",
+        await SauceVisualClient.VisualCheck("C# capture #2",
             new VisualCheckOptions()
             {
                 IgnoreElements = new[] { btnAction },
                 IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
             });
 
-        var results = await VisualClient.VisualResults();
+        var results = await SauceVisualClient.VisualResults();
         Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
     }
 
@@ -105,7 +106,7 @@ public class SauceDemo
     public async Task Teardown()
     {
         Driver?.Quit();
-        await VisualClient.Cleanup();
-        VisualClient.Dispose();
+        await SauceVisualClient.Cleanup();
+        SauceVisualClient.Dispose();
     }
 }
