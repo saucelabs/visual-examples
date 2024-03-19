@@ -42,7 +42,7 @@ namespace SauceLabs.Visual.Example
         }
 
         [Fact]
-        public async void VisualSauceDemo()
+        public async Task VisualSauceDemo()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
