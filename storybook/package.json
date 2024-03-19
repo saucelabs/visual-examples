@@ -60,7 +60,7 @@
     "@storybook/preset-create-react-app": "7.4.6",
     "@storybook/react": "7.4.6",
     "@storybook/react-webpack5": "7.4.6",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/test-runner": "^0.17.0",
     "@storybook/testing-library": "0.2.2",
     "babel-plugin-named-exports-order": "0.0.2",
     "concurrently": "8.2.2",
