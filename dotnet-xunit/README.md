@@ -41,7 +41,7 @@ MODIFIED=true dotnet test
 
 - Add [sauce visual](https://www.nuget.org/packages/SauceLabs.Visual/) dependency
 ```powershell {"id":"01HHQ3FQDWBD7ZSD2PQKG2AKDZ"}
-Install-Package SauceLabs.Visual
+dotnet add package SauceLabs.Visual
 ```
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
