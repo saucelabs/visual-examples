@@ -158,24 +158,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.0.x
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Restore tools
-        run: dotnet tool restore
-        working-directory: dotnet-nunit
-      - name: Run dotnet format
-        run: dotnet format '.' --verify-no-changes
-        working-directory: dotnet-nunit
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: dotnet-nunit
-      - name: Test
-        run: dotnet test --verbosity normal
-        working-directory: dotnet-nunit
-        env:
-          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+
+      - name: Build NUnit example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./dotnet-nunit
+          file: ./dotnet-nunit/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
