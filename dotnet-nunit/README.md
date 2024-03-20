@@ -10,7 +10,7 @@
 - Install .NET SDK (for Ubuntu):
 
 ```sh { name=dotnet-install }
-apt-get install -y dotnet6
+apt-get install -y dotnet7
 ```
 
 - Clone the repository:
