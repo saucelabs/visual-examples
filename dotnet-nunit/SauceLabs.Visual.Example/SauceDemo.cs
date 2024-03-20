@@ -32,6 +32,7 @@ public class SauceDemo
             Branch = "csharp-branch"
         });
         VisualClient.CaptureDom = true;
+        TestContext.Progress.WriteLine($"BuildId: {SauceVisualClient.Build.Url}");
     }
 
     [Test]
