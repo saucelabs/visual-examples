@@ -22,7 +22,5 @@ WORKDIR /workspace
 COPY . .
 
 RUN runme run dotnet-install
-ENV SAUCE_USERNAME=FelixP
-ENV SAUCE_ACCESS_KEY=605d2cd0-0806-4be8-889b-7f023fe86204
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run dotnet-test
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run-modified
