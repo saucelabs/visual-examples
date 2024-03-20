@@ -52,27 +52,28 @@ namespace SauceLabs.Visual.Example
 
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             wait.Until(drv => drv.FindElement(usernameLocator));
+            
+            await VisualClient.VisualCheck("Login Page");
 
             var usernameElement = Driver.FindElement(usernameLocator);
             var passwordElement = Driver.FindElement(passwordLocator);
             var submitElement = Driver.FindElement(submitLocator);
 
-            usernameElement.SendKeys("standard_user");
-            passwordElement.SendKeys("secret_sauce");
+            usernameElement.SendKeys(Utils.GetDemoUsername());
+            passwordElement.SendKeys(Utils.GetDemoPassword());
             submitElement.Click();
 
             Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
-            var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
+            var addToBackpack = Driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
 
-            await VisualClient.VisualCheck("C# capture",
+            await VisualClient.VisualCheck("Inventory Page",
                 new VisualCheckOptions()
                 {
-                    IgnoreElements = new[] { btnAction },
-                    IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
+                    IgnoreElements = new[] { addToBackpack },
                 });
 
             var results = await VisualClient.VisualResults();
-            Assert.AreEqual(1, results?[DiffStatus.Unapproved]);
+            Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
         }
 
         public async Task DisposeAsync()

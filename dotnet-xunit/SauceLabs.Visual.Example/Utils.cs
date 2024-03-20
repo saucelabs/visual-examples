@@ -79,5 +79,20 @@ namespace SauceLabs.Visual.Example
                 Environment.GetEnvironmentVariable("BROWSER_VERSION") ?? "latest";
             return browserOptions;
         }
+
+        public static string GetDemoUsername()
+        {
+            var modified = Environment.GetEnvironmentVariable("MODIFIED");
+            if (!string.IsNullOrEmpty(modified))
+            {
+                return "visual_user";
+            }
+            return "standard_user";
+        }
+
+        public static string GetDemoPassword()
+        {
+            return "secret_sauce";
+        }
     }
 }

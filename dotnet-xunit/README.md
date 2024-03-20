@@ -11,7 +11,7 @@
 
 ```sh
 git clone https://github.com/saucelabs/visual-examples
-cd visual-examples/dotnet-nunit
+cd visual-examples/dotnet-xunit
 ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
@@ -57,15 +57,24 @@ private VisualClient VisualClient { get; set; }
 - Initialize WebDriver and VisualApi in `[OneTimeSetUp]` method
 
 ```csharp {"id":"01HHQ3FQDWBD7ZSD2PQTRQSGV3"}
-    [OneTimeSetUp]
-    public async Task Setup()
+    public async Task InitializeAsync()
     {
-      var capabilities = GetCapabilities();
+        var browserOptions = Utils.GetBrowserOptions();
+        var sauceOptions = Utils.GetSauceOptions();
+        browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
-      Driver = new RemoteWebDriver(sauceUrl, capabilities);
-      VisualClient = await VisualClient.Create(Driver, Region.UsWest1);
-      // Enable Dom Capture
-      VisualClient.CaptureDom = true;
+        var sauceUrl = Utils.GetOnDemandURL();
+        Driver = new RemoteWebDriver(sauceUrl, browserOptions);
+        Driver.ExecuteScript("sauce:job-name=xUnit C#/.Net Visual Session");
+
+        VisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
+        {
+            Name = "My Visual Build",
+            Project = "csharp-project",
+            Branch = "csharp-branch"
+        });
+        // Enable Dom Capture
+        VisualClient.CaptureDom = true;
     }
 ```
 
@@ -78,8 +87,7 @@ await VisualClient.VisualCheck("My login page")
 - Don't forget to quit the WebDriver in @AfterAll section
 
 ```csharp {"id":"01HHQ3FQDWBD7ZSD2PR1PW1V54"}
-    [OneTimeTearDown]
-    public async Task Teardown()
+    public async Task DisposeAsync()
     {
         Driver?.Quit();
         await VisualClient.Cleanup();
