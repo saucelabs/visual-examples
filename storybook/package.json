@@ -5,6 +5,7 @@
     "node": "^16.13 || >=18"
   },
   "dependencies": {
+    "@storybook/test": "8.0.2",
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "13.5.0",
@@ -51,23 +52,22 @@
     ]
   },
   "devDependencies": {
-    "@saucelabs/visual-storybook": "0.3.342",
-    "@storybook/addon-essentials": "7.4.6",
-    "@storybook/addon-interactions": "7.4.6",
-    "@storybook/addon-links": "7.4.6",
-    "@storybook/addon-onboarding": "1.0.8",
-    "@storybook/blocks": "7.4.6",
-    "@storybook/preset-create-react-app": "7.4.6",
-    "@storybook/react": "7.4.6",
-    "@storybook/react-webpack5": "7.4.6",
-    "@storybook/test-runner": "^0.13.0",
-    "@storybook/testing-library": "0.2.2",
+    "@saucelabs/visual-storybook": "0.3.358",
+    "@storybook/addon-essentials": "^8.0.2",
+    "@storybook/addon-interactions": "^8.0.2",
+    "@storybook/addon-links": "^8.0.2",
+    "@storybook/addon-onboarding": "^8.0.2",
+    "@storybook/blocks": "^8.0.2",
+    "@storybook/preset-create-react-app": "^8.0.2",
+    "@storybook/react": "^8.0.2",
+    "@storybook/react-webpack5": "^8.0.2",
+    "@storybook/test-runner": "^0.17.0",
     "babel-plugin-named-exports-order": "0.0.2",
     "concurrently": "8.2.2",
-    "eslint-plugin-storybook": "0.6.15",
+    "eslint-plugin-storybook": "^0.8.0",
     "http-server": "14.1.1",
     "prop-types": "15.8.1",
-    "storybook": "7.4.6",
+    "storybook": "^8.0.2",
     "wait-on": "7.2.0",
     "webpack": "5.89.0"
   }
