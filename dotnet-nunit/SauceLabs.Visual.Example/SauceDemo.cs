@@ -74,7 +74,7 @@ public class SauceDemo
     [OneTimeTearDown]
     public async Task Teardown()
     {
-        Driver?.Quit();
+        Driver.Quit();
         await VisualClient.Cleanup();
         VisualClient.Dispose();
     }

@@ -78,7 +78,7 @@ namespace SauceLabs.Visual.Example
 
         public async Task DisposeAsync()
         {
-            Driver?.Quit();
+            Driver.Quit();
             await VisualClient.Cleanup();
             VisualClient.Dispose();
         }
