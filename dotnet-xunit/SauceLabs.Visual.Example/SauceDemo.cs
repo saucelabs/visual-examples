@@ -42,7 +42,7 @@ namespace SauceLabs.Visual.Example
         }
 
         [Fact]
-        public async Task VisualSauceDemo()
+        public async Task SauceDemo_CheckInventory_ShouldAddBackpackToCart()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
 

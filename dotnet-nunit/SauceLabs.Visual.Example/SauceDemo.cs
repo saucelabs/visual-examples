@@ -36,7 +36,7 @@ public class SauceDemo
     }
 
     [Test]
-    public async Task SauceDemo_CheckInventory()
+    public async Task SauceDemo_CheckInventory_ShouldAddBackpackToCart()
     {
         Driver.Navigate().GoToUrl("https://www.saucedemo.com");
 

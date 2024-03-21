@@ -60,19 +60,13 @@ namespace SauceLabs.Visual.Example
 
         public static DriverOptions GetBrowserOptions()
         {
-            DriverOptions browserOptions;
-            if (Environment.GetEnvironmentVariable("BROWSER_NAME") == "Firefox")
+            var browser = Environment.GetEnvironmentVariable("BROWSER_NAME");
+            DriverOptions browserOptions = browser switch
             {
-                browserOptions = new FirefoxOptions();
-            }
-            else if (Environment.GetEnvironmentVariable("BROWSER_NAME") == "Safari")
-            {
-                browserOptions = new SafariOptions();
-            }
-            else
-            {
-                browserOptions = new ChromeOptions();
-            }
+                "Firefox" => new FirefoxOptions(),
+                "Safari" => new SafariOptions(),
+                _ => new ChromeOptions(),
+            };
 
             browserOptions.PlatformName =
                 Environment.GetEnvironmentVariable("PLATFORM_NAME") ?? "Windows 11";
