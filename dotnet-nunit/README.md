@@ -64,7 +64,7 @@ private VisualClient VisualClient { get; set; }
 
       Driver = new RemoteWebDriver(sauceUrl, capabilities);
       VisualClient = await VisualClient.Create(Driver, Region.UsWest1);
-      // Enable Dom Capture
+      // Enable other options
       VisualClient.CaptureDom = true;
     }
 ```
