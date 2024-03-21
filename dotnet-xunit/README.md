@@ -73,7 +73,7 @@ private VisualClient VisualClient { get; set; }
             Project = "csharp-project",
             Branch = "csharp-branch"
         });
-        // Enable Dom Capture
+        // Enable other options
         VisualClient.CaptureDom = true;
     }
 ```
