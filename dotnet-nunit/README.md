@@ -119,7 +119,7 @@ Assert.AreEqual(expectedTotalUnapprovedDiffs, results[DiffStatus.Unapproved]);
 
 ### Build attributes
 
-When creating the service in `VisualClient`, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching))
+When creating the `VisualClient` client, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching))
 
 It needs to be defined through a `CreateBuildOptions` object.
 
