@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build wd-java example
         uses: docker/build-push-action@v4
         with:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Build wd-java-testng example
         uses: docker/build-push-action@v4
         with:
@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Cypress example
         uses: docker/build-push-action@v4
@@ -117,13 +117,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Cypress example
         uses: docker/build-push-action@v4
         with:
           context: ./cypress
           file: ./cypress/Dockerfile.saucectl
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  xunit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build NUnit example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./dotnet-xunit
+          file: ./dotnet-xunit/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  nunit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build NUnit example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./dotnet-nunit
+          file: ./dotnet-nunit/Dockerfile
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
