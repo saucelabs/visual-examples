@@ -49,25 +49,18 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 - Run the test
 
 ```sh { name=npm-run }
-npm run cypress
+npm run sauce-visual
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
-```sh { name=npm-run-modified }
-npm run cypress-modified
+```sh { name=npm-run-visual-check }
+npm run sauce-visual-check
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
-- It should detect changes. Reject diffs.
-- Run modified test with ignore regions.
-```sh { name=npm-run-ignored }
-npm run cypress-ignored
-```
-- Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
-- Build should passed with "No changes" status.
 
 ## Running with `saucectl`
 
@@ -98,9 +91,8 @@ npx saucectl run
 - Accept all diffs, so they become new baselines.
 
 - Run saucectl (with a modified screen)
-```sh { name=saucectl-run-modified }
-npm run copy-locked
-npx saucectl run
+```sh { name=saucectl-run-visual-check }
+VISUAL_CHECK=true npx saucectl run
 ```
 
 - Go to https://app.saucelabs.com/visual/builds to review changes.

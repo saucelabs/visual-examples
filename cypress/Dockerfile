@@ -24,4 +24,4 @@ COPY . .
 RUN runme run nodejs-linux
 RUN runme run npm-install
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run-modified
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run npm-run-visual-check
