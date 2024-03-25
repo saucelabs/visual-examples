@@ -8,9 +8,7 @@ module.exports = {
   // The default configuration comes from @storybook/test-runner
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
-  ...getVisualTestConfig({
-    captureDom: true,
-  }),
+  ...getVisualTestConfig(),
 
   testEnvironmentOptions: {
     'jest-playwright': {
