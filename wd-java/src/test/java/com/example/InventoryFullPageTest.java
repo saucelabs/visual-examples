@@ -53,9 +53,7 @@ public class InventoryFullPageTest {
         InventoryLongPage inventoryPage = new InventoryLongPage(driver);
         inventoryPage.open();
         CheckOptions options = new CheckOptions();
-        FullPageScreenshotConfig config =
-                new FullPageScreenshotConfig.Builder().build();
-        options.enableFullPageScreenshots(config);
+        options.enableFullPageScreenshots();
         visual.sauceVisualCheck("Inventory Page (full page)", options);
     }
 
