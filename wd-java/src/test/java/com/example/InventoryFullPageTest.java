@@ -45,7 +45,7 @@ public class InventoryFullPageTest {
 
         visual.sauceVisualCheck("Before Login");
         String user = "standard_user";
-        if (System.getProperty("modified") != null || dotenv.get("VISUAL_CHECK") != null) {
+        if (System.getProperty("modified") != null) {
             user = "visual_user";
         }
         loginPage.login(user, "secret_sauce");
