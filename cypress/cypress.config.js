@@ -6,7 +6,7 @@ module.exports = defineConfig({
     saucelabs: {
       project: process.env.GITHUB_REPOSITORY || `Cypress Visual Testing Example for ${process.env.SAUCE_USERNAME}`,
       branch: process.env.GITHUB_REF_NAME,
-      buildName: `Cypress CI - ${process.env.GITHUB_RUN_NUMBER}`,
+      buildName: `Cypress - Sauce Demo Test`,
       region: 'us-west-1',
     },
     specPattern: 'cypress/e2e/**/*.cy.ts',

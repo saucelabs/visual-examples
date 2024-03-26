@@ -5,15 +5,11 @@
     "node": "^16.13 || >=18"
   },
   "scripts": {
-    "copy-standard": "cp ./cypress/e2e/saucedemo.standard.ts ./cypress/e2e/saucedemo.cy.ts",
-    "copy-locked": "cp ./cypress/e2e/saucedemo.locked.ts ./cypress/e2e/saucedemo.cy.ts",
-    "copy-ignored": "cp ./cypress/e2e/saucedemo.ignored.ts ./cypress/e2e/saucedemo.cy.ts",
-    "cypress": "npm run copy-standard && cypress run",
-    "cypress-modified": "npm run copy-locked && cypress run",
-    "cypress-ignored": "npm run copy-ignored && cypress run"
+    "sauce-visual": "cypress run",
+    "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.3.353",
+    "@saucelabs/cypress-visual-plugin": "^0.3.366",
     "@tsconfig/node18": "^18.2.2",
     "cypress": "^13.4.0",
     "ts-node": "^10.9.1",
