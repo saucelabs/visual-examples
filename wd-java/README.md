@@ -220,4 +220,36 @@ Example:
     visual.sauceVisualCheck("Before Login", options);
 ```
 
-[Follow me](/wd-java/src/test/java/com/example/InventoryIgnoreRegionsTest.java#L38-L50) to see complete working example
+[Follow me](./src/test/java/com/example/InventoryIgnoreRegionsTest.java) to see complete working example
+
+#### Full page screenshots
+
+If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+
+Options:
+- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
+- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
+Examples:
+
+```java {"id":"01HHQ3FQDXM30MYSM6ZG0N2GHW"}
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
+options.enableFullPageScreenshots();
+visual.sauceVisualCheck("Long content page", options);
+```
+
+```java {"id":"01HHQ3FQDXM30MYSM6ZG0N2GHW"}
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
+
+CheckOptions options = new CheckOptions();
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
+        .withDelayAfterScrollMs(500)
+        .withHideAfterFirstScroll("#header")
+        .build();
+options.enableFullPageScreenshots(config);
+visual.sauceVisualCheck("Long content page", options);
+```
+[Follow me](./src/test/java/com/example/InventoryFullPageTest.java) to see complete working example
