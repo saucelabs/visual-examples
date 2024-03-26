@@ -52,7 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@saucelabs/visual-storybook": "0.3.366",
+    "@saucelabs/visual-storybook": "0.3.368",
     "@storybook/addon-essentials": "^8.0.2",
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.2",
