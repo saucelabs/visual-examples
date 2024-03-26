@@ -10,6 +10,7 @@ export const PAGES = {
   LOGIN: '/',
   SWAG_DETAILS: '/inventory-item.html',
   SWAG_ITEMS: '/inventory.html',
+  SWAG_ITEMS_LONG: '/inventory-long.html',
 };
 export const PRODUCTS = {
   BIKE_LIGHT: 0,

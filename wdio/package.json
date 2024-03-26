@@ -16,6 +16,8 @@
   },
   "scripts": {
     "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/specs/login.spec.ts",
+    "sauce-visual-fullpage": "wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/specs/inventory-long.spec.ts",
+    "sauce-visual-check-fullpage": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/specs/inventory-long.spec.ts",
     "sauce-visual-suite": "wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts",
     "sauce-visual-mobile": "wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/login.spec.ts",
     "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.desktop.conf.ts --spec tests/specs/login.spec.ts",
