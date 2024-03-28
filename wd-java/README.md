@@ -72,7 +72,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
   <scope>test</scope>
 </dependency>
 ```
-***Latest available version can be found [here](https://search.maven.org/search?q=g:com.saucelabs.visual%20AND%20a:java-client)***
+*Latest available version can be found [here](https://search.maven.org/search?q=g:com.saucelabs.visual%20AND%20a:java-client)*
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
 
