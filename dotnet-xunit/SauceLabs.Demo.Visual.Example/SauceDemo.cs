@@ -23,7 +23,6 @@ namespace SauceLabs.Demo.Visual.Example
             OutputHelper = outputHelper;
         }
 
-
         public async Task InitializeAsync()
         {
             var browserOptions = Utils.GetBrowserOptions();
