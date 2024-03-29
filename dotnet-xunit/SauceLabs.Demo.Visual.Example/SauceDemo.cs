@@ -9,8 +9,9 @@ using Xunit;
 using Xunit.Abstractions;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace SauceLabs.Visual.Example
+namespace SauceLabs.Demo.Visual.Example
 {
+    [Collection("HasVisualScreenshot")]
     public class SauceDemo : IAsyncLifetime
     {
         private RemoteWebDriver Driver { get; set; }
@@ -21,6 +22,7 @@ namespace SauceLabs.Visual.Example
         {
             OutputHelper = outputHelper;
         }
+
 
         public async Task InitializeAsync()
         {
@@ -52,7 +54,7 @@ namespace SauceLabs.Visual.Example
 
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             wait.Until(drv => drv.FindElement(usernameLocator));
-            
+
             await VisualClient.VisualCheck("Login Page");
 
             var usernameElement = Driver.FindElement(usernameLocator);
@@ -79,7 +81,6 @@ namespace SauceLabs.Visual.Example
         public async Task DisposeAsync()
         {
             Driver.Quit();
-            await VisualClient.Cleanup();
             VisualClient.Dispose();
         }
     }

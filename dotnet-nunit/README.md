@@ -99,6 +99,7 @@ await VisualClient.VisualCheck("My login page")
         }
     }
 ```
+
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
 
 ```sh {"id":"01HHQ3FQDWBD7ZSD2PR4Y27KEQ"}
