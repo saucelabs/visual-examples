@@ -82,11 +82,23 @@ await VisualClient.VisualCheck("My login page")
     public async Task Teardown()
     {
         Driver?.Quit();
-        await VisualClient.Cleanup();
         VisualClient.Dispose();
     }
 ```
 
+- Create a `SetUpFixture` class that will take care of closing your Visual build:
+
+```csharp {"id":"01HHQ3FQDWBD7ZSD2PR1PW1V54"}
+    [SetUpFixture]
+    public class SetupFixture
+    {
+        [OneTimeTearDown]
+        public async Task RunAfterAnyTests()
+        {
+            await VisualClient.Finish();
+        }
+    }
+```
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
 
 ```sh {"id":"01HHQ3FQDWBD7ZSD2PR4Y27KEQ"}

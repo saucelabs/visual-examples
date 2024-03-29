@@ -5,7 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Safari;
 
-namespace SauceLabs.Visual.Example
+namespace SauceLabs.Demo.Visual.Example
 {
     internal static class Utils
     {
