@@ -61,7 +61,11 @@ public class SauceDemo
         Assert.AreEqual("https://www.saucedemo.com/inventory.html", Driver.Url);
         var addToBackpack = Driver.FindElement(By.Id("add-to-cart-sauce-labs-backpack"));
 
-        await VisualClient.VisualCheck("Inventory Page");
+        await VisualClient.VisualCheck("Inventory Page",
+            new VisualCheckOptions()
+            {
+                IgnoreElements = new[] { addToBackpack },
+            });
 
         var results = await VisualClient.VisualResults();
         Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
