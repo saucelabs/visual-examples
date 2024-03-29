@@ -68,10 +68,11 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.3.134</version>
+  <version>LATEST VERSION</version>
   <scope>test</scope>
 </dependency>
 ```
+*Latest available version can be found [here](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client)*
 
 - Declare a RemoteWebDriver and a VisualApi instance as class variables
 
