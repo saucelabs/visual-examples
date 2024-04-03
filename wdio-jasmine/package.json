@@ -12,7 +12,7 @@
     "@wdio/jasmine-framework": "^8.35.1",
     "@wdio/local-runner": "^8.35.1",
     "@wdio/sauce-service": "^8.35.1",
-    "@wdio/spec-reporter": "^8.24.0",
+    "@wdio/spec-reporter": "^8.32.4",
     "readline-sync": "^1.4.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3",
