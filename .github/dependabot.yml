@@ -211,6 +211,9 @@ updates:
       - dependency-name: "org.seleniumhq.selenium:selenium-java"
         versions:
           - ">=4.14.0"
+      - dependency-name: "io.github.cdimascio:dotenv-java"
+        versions:
+          - ">=3.0.0"
     groups:
       saucelabs:
         patterns:
@@ -242,6 +245,9 @@ updates:
       - dependency-name: "org.testng:testng"
         versions:
           - ">=7.6.0"
+      - dependency-name: "io.github.cdimascio:dotenv-java"
+        versions:
+          - ">=3.0.0"
     groups:
       saucelabs:
         patterns:
