@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using SauceLabs.Visual;
 
-namespace SauceLabs.Demo.Visual.Example;
+namespace SauceLabs.Visual.Example;
 
 [SetUpFixture]
 public class SetupFixture

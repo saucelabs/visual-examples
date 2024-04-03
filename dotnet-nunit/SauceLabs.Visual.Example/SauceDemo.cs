@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.UI;
 using SauceLabs.Visual;
 using SauceLabs.Visual.Models;
 
-namespace SauceLabs.Demo.Visual.Example;
+namespace SauceLabs.Visual.Example;
 
 public class SauceDemo
 {
