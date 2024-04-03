@@ -3,86 +3,54 @@
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
+default: &default
+  schedule:
+    interval: daily
+  reviewers:
+    - saucelabs/visual-team
+
+npm: &npm
+  <<: *default
+  package-ecosystem: npm
+  allow:
+    - dependency-name: "@saucelabs/cypress-visual-plugin"
+
+maven: &maven
+  <<: *default
+  package-ecosystem: maven
+  allow:
+    - dependency-name: "com.saucelabs.visual:java-client"
+
+nuget: &nuget
+  <<: *default
+  package-ecosystem: nuget
+  allow:
+    - dependency-name: "SauceLabs.Visual"
+
 version: 2
 updates:
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/cypress"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/cypress-visual-plugin"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/storybook"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/visual-storybook"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/wdio"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/wdio-cucumber"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/wdio-jasmine"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/wdio-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/nightwatch/default"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/nightwatch/mocha"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "npm"
+  - <<: *npm
     directory: "/nightwatch/cucumberjs"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "maven"
+  - <<: *maven
     directory: "/wd-java"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "com.saucelabs.visual:java-client"
-    reviewers:
-      - "saucelabs/visual-team"
-  - package-ecosystem: "maven"
+  - <<: *maven
     directory: "/wd-java-testng"
-    schedule:
-      interval: "daily"
-    allow:
-      - dependency-name: "com.saucelabs.visual:java-client"
-    reviewers:
-      - "saucelabs/visual-team"
+  - <<: *nuget
+    directory: "/dotnet-xunit"
+  - <<: *nuget
+    directory: "/dotnet-nunit"
     
