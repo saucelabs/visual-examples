@@ -39,9 +39,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -66,9 +63,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -93,9 +87,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -120,9 +111,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -147,9 +135,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -174,9 +159,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -201,9 +183,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -228,9 +207,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -255,9 +231,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -282,9 +255,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
@@ -309,9 +279,6 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    ignore:
-      - update-types:
-          - version-update:semver-major
     groups:
       saucelabs:
         patterns:
