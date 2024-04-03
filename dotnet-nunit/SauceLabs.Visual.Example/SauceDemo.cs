@@ -4,8 +4,8 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using SauceLabs.Visual.Models;
 using SauceLabs.Visual;
+using SauceLabs.Visual.Models;
 
 namespace SauceLabs.Visual.Example;
 
@@ -32,7 +32,7 @@ public class SauceDemo
             Branch = "csharp-branch"
         });
         VisualClient.CaptureDom = true;
-        TestContext.Progress.WriteLine($"BuildId: {VisualClient.Build.Url}");
+        TestContext.Progress.WriteLine($"Build: {VisualClient.Build.Url}");
     }
 
     [Test]
@@ -75,7 +75,6 @@ public class SauceDemo
     public async Task Teardown()
     {
         Driver.Quit();
-        await VisualClient.Cleanup();
         VisualClient.Dispose();
     }
 }

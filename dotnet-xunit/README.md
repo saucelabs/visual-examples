@@ -84,14 +84,42 @@ private VisualClient VisualClient { get; set; }
 await VisualClient.VisualCheck("My login page")
 ```
 
-- Don't forget to quit the WebDriver in @AfterAll section
+- Don't forget to quit the WebDriver in the `DisposeAsync` method
 
 ```csharp {"id":"01HHQ3FQDWBD7ZSD2PR1PW1V54"}
     public async Task DisposeAsync()
     {
         Driver?.Quit();
-        await VisualClient.Cleanup();
         VisualClient.Dispose();
+    }
+```
+
+- To ensure all builds are closed after all your tests were run, a xUnit collection fixture has to be created.
+```csharp {"id":"01HHQ3FQDWBD7ZSD2PR1PW1V54"}
+    public class HasVisualScreenshot : IAsyncLifetime
+    {
+        public Task InitializeAsync()
+        {
+            return Task.CompletedTask;
+        }
+    
+        public async Task DisposeAsync()
+        {
+            await VisualClient.Finish();
+        }
+    }
+    
+    [CollectionDefinition("HasVisualScreenshot")]
+    public class HasVisualScreenshotCollection : ICollectionFixture<HasVisualScreenshot>
+    {
+    }
+```
+Then, your test classes needs attached to that collection:
+```csharp {"id":"01HHQ3FQDWBD7ZSD2PR1PW1V54"}
+    [Collection("HasVisualScreenshot")]
+    public class SauceDemo : IAsyncLifetime
+    {
+        [...]
     }
 ```
 
