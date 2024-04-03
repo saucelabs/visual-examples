@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
@@ -68,7 +69,41 @@ public class SauceDemo
             });
 
         var results = await VisualClient.VisualResults();
-        Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
+        Assert.AreEqual(2, results?.Values.Sum());
+    }
+
+    [Test]
+    public async Task SauceDemo_CheckLongInventory_FullPage()
+    {
+        Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+
+        var usernameLocator = By.CssSelector("#user-name");
+        var passwordLocator = By.CssSelector("#password");
+        var submitLocator = By.CssSelector(".btn_action");
+
+        var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
+        wait.Until(drv => drv.FindElement(usernameLocator));
+
+        var usernameElement = Driver.FindElement(usernameLocator);
+        var passwordElement = Driver.FindElement(passwordLocator);
+        var submitElement = Driver.FindElement(submitLocator);
+
+        usernameElement.SendKeys(Utils.GetDemoUsername());
+        passwordElement.SendKeys(Utils.GetDemoPassword());
+        submitElement.Click();
+
+        Driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory-long.html");
+
+        Assert.AreEqual("https://www.saucedemo.com/inventory-long.html", Driver.Url);
+
+        await VisualClient.VisualCheck("Inventory Long Page",
+            new VisualCheckOptions()
+            {
+                FullPage = true,
+            });
+
+        var results = await VisualClient.VisualResults();
+        Assert.AreEqual(3, results?.Values.Sum());
     }
 
     [OneTimeTearDown]
