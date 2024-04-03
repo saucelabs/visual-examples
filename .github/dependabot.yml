@@ -15,6 +15,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /storybook
     schedule:
@@ -25,6 +39,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /wdio
     schedule:
@@ -35,6 +63,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /wdio-cucumber
     schedule:
@@ -45,6 +87,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /wdio-jasmine
     schedule:
@@ -55,6 +111,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /nightwatch/default
     schedule:
@@ -65,6 +135,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /nightwatch/mocha
     schedule:
@@ -75,6 +159,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: npm
     directory: /nightwatch/cucumberjs
     schedule:
@@ -85,6 +183,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: maven
     directory: /wd-java
     schedule:
@@ -95,6 +207,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "com.saucelabs.visual:*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "com.saucelabs.visual:*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: maven
     directory: /wd-java-testng
     schedule:
@@ -105,6 +231,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "com.saucelabs.visual:*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "com.saucelabs.visual:*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: nuget
     directory: /dotnet-nunit
     schedule:
@@ -115,6 +255,20 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "SauceLabs.*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "SauceLabs.*"
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: nuget
     directory: /dotnet-xunit
     schedule:
@@ -125,3 +279,17 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "SauceLabs.*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "SauceLabs.*"
+        update-types:
+          - minor
+          - patch
