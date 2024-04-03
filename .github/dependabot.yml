@@ -5,10 +5,18 @@
 
 version: 2
 updates:
+  ############################################
+  ### Daily updates for SauceLabs packages ###
+  ############################################
   - package-ecosystem: npm
     directory: /cypress
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/cypress-visual-plugin"
     reviewers:
@@ -17,6 +25,11 @@ updates:
     directory: /storybook
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/visual-storybook"
     reviewers:
@@ -25,6 +38,11 @@ updates:
     directory: /wdio
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
     reviewers:
@@ -33,6 +51,11 @@ updates:
     directory: /wdio-cucumber
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
     reviewers:
@@ -41,6 +64,11 @@ updates:
     directory: /wdio-jasmine
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/wdio-sauce-visual-service"
     reviewers:
@@ -49,6 +77,11 @@ updates:
     directory: /nightwatch/default
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
     reviewers:
@@ -57,6 +90,11 @@ updates:
     directory: /nightwatch/mocha
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
     reviewers:
@@ -65,6 +103,11 @@ updates:
     directory: /nightwatch/cucumberjs
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "@saucelabs/nightwatch-sauce-visual-service"
     reviewers:
@@ -73,6 +116,11 @@ updates:
     directory: /wd-java
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "com.saucelabs.visual:java-client"
     reviewers:
@@ -81,6 +129,11 @@ updates:
     directory: /wd-java-testng
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: "com.saucelabs.visual:java-client"
     reviewers:
@@ -89,6 +142,11 @@ updates:
     directory: /dotnet-nunit
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: SauceLabs.Visual
     reviewers:
@@ -97,8 +155,149 @@ updates:
     directory: /dotnet-xunit
     schedule:
       interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+      - "visual-sdk"
     allow:
       - dependency-name: SauceLabs.Visual
     reviewers:
       - saucelabs/visual-team
-    
+
+  ############################################
+  ###   Weekly updates for other packages  ###
+  ############################################
+
+  - package-ecosystem: npm
+    directory: /cypress
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /storybook
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /wdio
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /wdio-cucumber
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /wdio-jasmine
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /nightwatch/default
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /nightwatch/mocha
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: npm
+    directory: /nightwatch/cucumberjs
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: maven
+    directory: /wd-java
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: maven
+    directory: /wd-java-testng
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: nuget
+    directory: /dotnet-nunit
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+  - package-ecosystem: nuget
+    directory: /dotnet-xunit
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
