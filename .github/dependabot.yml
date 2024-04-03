@@ -210,14 +210,14 @@ updates:
     groups:
       saucelabs:
         patterns:
-          - "@saucelabs/*"
+          - "com.saucelabs.visual:*"
         update-types:
           - minor
           - patch
       others:
         applies-to: security-updates
         exclude-patterns:
-          - "@saucelabs/*"
+          - "com.saucelabs.visual:*"
         update-types:
           - minor
           - patch
@@ -234,14 +234,14 @@ updates:
     groups:
       saucelabs:
         patterns:
-          - "@saucelabs/*"
+          - "com.saucelabs.visual:*"
         update-types:
           - minor
           - patch
       others:
         applies-to: security-updates
         exclude-patterns:
-          - "@saucelabs/*"
+          - "com.saucelabs.visual:*"
         update-types:
           - minor
           - patch
@@ -258,14 +258,14 @@ updates:
     groups:
       saucelabs:
         patterns:
-          - "@saucelabs/*"
+          - "SauceLabs.*"
         update-types:
           - minor
           - patch
       others:
         applies-to: security-updates
         exclude-patterns:
-          - "@saucelabs/*"
+          - "SauceLabs.*"
         update-types:
           - minor
           - patch
@@ -282,14 +282,14 @@ updates:
     groups:
       saucelabs:
         patterns:
-          - "@saucelabs/*"
+          - "SauceLabs.*"
         update-types:
           - minor
           - patch
       others:
         applies-to: security-updates
         exclude-patterns:
-          - "@saucelabs/*"
+          - "SauceLabs.*"
         update-types:
           - minor
           - patch
