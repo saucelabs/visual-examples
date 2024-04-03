@@ -16,6 +16,6 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "@saucelabs/nightwatch-sauce-visual-service": "^0.3.377",
-    "nightwatch": "^3.3.3"
+    "nightwatch": "^3.5.0"
   }
 }
