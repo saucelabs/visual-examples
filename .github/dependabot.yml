@@ -207,6 +207,10 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    ignore:
+      - dependency-name: "org.seleniumhq.selenium:selenium-java"
+        versions:
+          - ">=4.14.0"
     groups:
       saucelabs:
         patterns:
@@ -231,6 +235,13 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    ignore:
+      - dependency-name: "org.seleniumhq.selenium:selenium-java"
+        versions:
+          - ">=4.14.0"
+      - dependency-name: "org.testng:testng"
+        versions:
+          - ">=7.6.0"
     groups:
       saucelabs:
         patterns:
