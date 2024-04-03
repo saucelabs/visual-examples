@@ -15,6 +15,17 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
+    groups:
+      saucelabs:
+        patterns:
+          - "@saucelabs/*"
+        update-types:
+          - minor
+          - patch
+      others:
+        applies-to: security-updates
+        exclude-patterns:
+          - "@saucelabs/*"
   - package-ecosystem: npm
     directory: /storybook
     schedule:
