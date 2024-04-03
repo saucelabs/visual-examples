@@ -10,7 +10,7 @@
     "@wdio/mocha-framework": "^8.23.0",
     "@wdio/sauce-service": "^8.23.0",
     "@wdio/spec-reporter": "^8.32.4",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
   },
