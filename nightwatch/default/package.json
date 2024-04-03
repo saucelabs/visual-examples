@@ -19,6 +19,6 @@
     "chalk": "^5.3.0",
     "nightwatch": "^3.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   }
 }
