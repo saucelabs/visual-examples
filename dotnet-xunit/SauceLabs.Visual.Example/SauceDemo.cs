@@ -9,7 +9,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-namespace SauceLabs.Demo.Visual.Example
+namespace SauceLabs.Visual.Example
 {
     [Collection("HasVisualScreenshot")]
     public class SauceDemo : IAsyncLifetime

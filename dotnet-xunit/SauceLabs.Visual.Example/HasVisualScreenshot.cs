@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using SauceLabs.Visual;
 using Xunit;
 
-namespace SauceLabs.Demo.Visual.Example;
+namespace SauceLabs.Visual.Example;
 
 public class HasVisualScreenshot : IAsyncLifetime
 {
