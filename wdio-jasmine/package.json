@@ -14,8 +14,8 @@
     "@wdio/sauce-service": "^8.24.1",
     "@wdio/spec-reporter": "^8.24.0",
     "readline-sync": "^1.4.10",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3",
     "update-dotenv": "^1.1.1"
   },
   "scripts": {

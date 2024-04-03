@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@saucelabs/cypress-visual-plugin": "^0.3.377",
-    "@tsconfig/node18": "^18.2.2",
-    "cypress": "^13.4.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "@tsconfig/node18": "^18.2.4",
+    "cypress": "^13.7.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
+    "@types/node": "^20.12.3",
     "chalk": "^5.3.0"
   }
 }
