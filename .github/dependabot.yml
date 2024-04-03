@@ -15,12 +15,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /storybook
     schedule:
@@ -31,12 +27,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /wdio
     schedule:
@@ -47,12 +39,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /wdio-cucumber
     schedule:
@@ -63,12 +51,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /wdio-jasmine
     schedule:
@@ -79,12 +63,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /nightwatch/default
     schedule:
@@ -95,12 +75,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /nightwatch/mocha
     schedule:
@@ -111,12 +87,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: npm
     directory: /nightwatch/cucumberjs
     schedule:
@@ -127,12 +99,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "@saucelabs/*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: maven
     directory: /wd-java
     schedule:
@@ -143,12 +111,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "com.saucelabs.visual:*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: maven
     directory: /wd-java-testng
     schedule:
@@ -159,12 +123,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "com.saucelabs.visual:*"
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: nuget
     directory: /dotnet-nunit
     schedule:
@@ -175,12 +135,8 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "SauceLabs."
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
   - package-ecosystem: nuget
     directory: /dotnet-xunit
     schedule:
@@ -191,9 +147,5 @@ updates:
       - "dependabot"
     reviewers:
       - saucelabs/visual-team
-    groups:
-      saucelabs:
-        patterns:
-          - "SauceLabs."
-      others:
-        dependency-type: production
+    versioning-strategy: auto
+    rebase-strategy: auto
