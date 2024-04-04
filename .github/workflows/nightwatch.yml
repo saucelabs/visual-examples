@@ -7,13 +7,13 @@ on:
   push:
     paths:
       - 'nigthwatch*/**'
-      - '.github/workflows/nigthwatch.yml'
+      - '.github/workflows/nightwatch.yml'
     branches:
       - main
   pull_request:
     paths:
       - 'nigthwatch*/**'
-      - '.github/workflows/nigthwatch.yml'
+      - '.github/workflows/nightwatch.yml'
     branches:
       - main
 
