@@ -7,11 +7,13 @@ on:
   push:
     paths:
       - 'wd-java*/**'
+      - '.github/workflows/java.yml'
     branches:
       - main
   pull_request:
     paths:
       - 'wd-java*/**'
+      - '.github/workflows/java.yml'
     branches:
       - main
 
