@@ -1,0 +1,23 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: validate dependabot config
+
+on:
+  pull_request:
+    paths:
+      - '.github/dependabot.yml'
+      - '.github/workflows/dependabot-validate.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: marocchino/validate-dependabot@v3
+        id: validate
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: always()
+        with:
+          header: validate-dependabot
+          message: ${{ steps.validate.outputs.markdown }}
