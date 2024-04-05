@@ -4,7 +4,7 @@ This is an example for [Robot Framework](https://robotframework.org/) and [Selen
 
 ## Prerequisites
 
-- A device with Python 3+ Support (guide written for unix / macOS)
+- A device with Python 3+ Support
 - Sauce Labs Account
 
 ## Run the demo
@@ -15,7 +15,9 @@ This is an example for [Robot Framework](https://robotframework.org/) and [Selen
 # Create the virtual environment for this project if you haven't already
 python -m venv .venv
 
-# Activate the venv in your shell
+# Activate the venv in your shell (bash/zsh)
+# See here for Windows / other dist instructions:
+# https://docs.python.org/3/library/venv.html#how-venvs-work
 source .venv/bin/activate
 
 # Install dependencies
