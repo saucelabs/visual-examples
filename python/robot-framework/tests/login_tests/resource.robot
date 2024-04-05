@@ -12,6 +12,12 @@ ${BROWSER}        Chrome
 ${DELAY}          0
 ${LOGIN URL}      https://www.saucedemo.com/
 ${INVENTORY PAGE}    https://www.saucedemo.com/inventory.html
+# NOTE: If using an ondemand Sauce region other than us-west-1, you need to supply the matching
+# region to the `SAUCE_REGION` ENV before visual build creation to have it utilize the same
+# datacenter.
+# Ex:
+# REMOTE URL=https://ondemand.eu-central-1.saucelabs.com/wd/hub
+# SAUCE_REGION=eu-central-1
 ${REMOTE URL}    https://ondemand.us-west-1.saucelabs.com:443/wd/hub
 ${DESIRED CAPABILITIES}    {"username": "%{SAUCE_USERNAME}", "accessKey": "%{SAUCE_ACCESS_KEY}", "sauce:options": {"browser_version": "latest", "platform_name": "Windows 11", "browser": "chrome"}}
 

@@ -29,8 +29,6 @@ pip install -r requirements.txt
 ```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
-# You can change the region to upload to via the SAUCE_REGION env variable.
-# !NOTE! This does NOT change the region the WDIO session is ran against.
 ```
 
 - Run the test
