@@ -1,0 +1,35 @@
+name: Python Tests
+
+on:
+  push:
+    paths:
+      - 'python/**'
+      - '.github/workflows/python.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'python/**'
+      - '.github/workflows/python.yml'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python-robot-framework:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build python example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./python/robot-framework
+          file: ./python/robot-framework/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
