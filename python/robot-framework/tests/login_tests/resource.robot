@@ -23,7 +23,7 @@ ${DESIRED CAPABILITIES}    {"username": "%{SAUCE_USERNAME}", "accessKey": "%{SAU
 
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser    url=${LOGIN URL}    browser=${BROWSER}    remote_url=${REMOTE URL}    options=set_capability('sauce:options', ${DESIRED CAPABILITIES})
+    Go To    ${LOGIN URL}
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open
