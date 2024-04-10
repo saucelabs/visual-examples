@@ -101,8 +101,6 @@ public class SauceDemo
             {
                 FullPage = true,
             });
-
-        var results = await VisualClient.VisualResults();
     }
 
     [OneTimeTearDown]

@@ -106,8 +106,6 @@ namespace SauceLabs.Visual.Example
                 {
                     FullPage = true,
                 });
-
-            var results = await VisualClient.VisualResults();
         }
 
         public async Task DisposeAsync()
