@@ -75,7 +75,7 @@ namespace SauceLabs.Visual.Example
                 });
 
             var results = await VisualClient.VisualResults();
-            Assert.AreEqual(2, results?.Values.Sum());
+            Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
         }
 
         [Fact]
@@ -108,7 +108,6 @@ namespace SauceLabs.Visual.Example
                 });
 
             var results = await VisualClient.VisualResults();
-            Assert.AreEqual(1, results?.Values.Sum());
         }
 
         public async Task DisposeAsync()

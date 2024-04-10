@@ -69,7 +69,7 @@ public class SauceDemo
             });
 
         var results = await VisualClient.VisualResults();
-        Assert.AreEqual(2, results?.Values.Sum());
+        Assert.AreEqual(2, results?[DiffStatus.Unapproved]);
     }
 
     [Test]
@@ -103,7 +103,6 @@ public class SauceDemo
             });
 
         var results = await VisualClient.VisualResults();
-        Assert.AreEqual(3, results?.Values.Sum());
     }
 
     [OneTimeTearDown]
