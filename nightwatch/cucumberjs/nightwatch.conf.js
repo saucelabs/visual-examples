@@ -10,6 +10,7 @@
 // \_| \_/|_| \__, ||_| |_| \__|  \_/\_/   \__,_| \__| \___||_| |_|
 //             __/ |
 //            |___/
+require('dotenv').config();
 
 module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;

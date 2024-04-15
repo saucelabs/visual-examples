@@ -7,11 +7,13 @@ on:
   push:
     paths:
       - 'cypress/**'
+      - '.github/workflows/cypress.yml'
     branches:
       - main
   pull_request:
     paths:
       - 'cypress/**'
+      - '.github/workflows/cypress.yml'
     branches:
       - main
 
