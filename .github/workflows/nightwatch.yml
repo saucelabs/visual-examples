@@ -6,13 +6,13 @@ name: Nigthwatch Tests
 on:
   push:
     paths:
-      - 'nigthwatch*/**'
+      - 'nigthwatch/**'
       - '.github/workflows/nightwatch.yml'
     branches:
       - main
   pull_request:
     paths:
-      - 'nigthwatch*/**'
+      - 'nigthwatch/**'
       - '.github/workflows/nightwatch.yml'
     branches:
       - main
