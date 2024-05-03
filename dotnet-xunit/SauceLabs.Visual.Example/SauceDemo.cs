@@ -71,14 +71,11 @@ namespace SauceLabs.Visual.Example
             await VisualClient.VisualCheck("Inventory Page",
                 new VisualCheckOptions()
                 {
-                    DisableOnly = new [] { DiffingOption.Position },
+                    DisableOnly = DiffingOption.Visual,
                     Regions = new []
                     {
-                        new SelectiveRegion()
-                        {
-                            Element = addToBackpack,
-                            EnableOnly = new [] { DiffingOption.Content },
-                        },
+                        SelectiveRegion.EnabledRegion(addToBackpack),
+                        SelectiveRegion.EnabledRegion(addToBackpack, DiffingOption.Dimensions | DiffingOption.Visual),
                     },
                 });
 
