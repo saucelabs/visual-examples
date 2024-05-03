@@ -68,7 +68,7 @@ public class SauceDemo
                 DisableOnly = DiffingOption.Visual,
                 Regions = new []
                 {
-                    SelectiveRegion.EnabledRegion(addToBackpack, DiffingOption.Content | DiffingOption.Dimensions),
+                    SelectiveRegion.EnabledFor(addToBackpack, DiffingOption.Content | DiffingOption.Dimensions),
                 },
             });
 
