@@ -65,7 +65,14 @@ public class SauceDemo
         await VisualClient.VisualCheck("Inventory Page",
             new VisualCheckOptions()
             {
-                IgnoreElements = new[] { addToBackpack },
+                Regions = new []
+                {
+                    new SelectiveRegion()
+                    {
+                        Element = addToBackpack,
+                        EnableOnly = new [] { DiffingOption.Content },
+                    },
+                },
             });
 
         var results = await VisualClient.VisualResults();
