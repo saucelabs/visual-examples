@@ -65,6 +65,7 @@ public class SauceDemo
         await VisualClient.VisualCheck("Inventory Page",
             new VisualCheckOptions()
             {
+                DisableOnly = new [] { DiffingOption.Position },
                 Regions = new []
                 {
                     new SelectiveRegion()

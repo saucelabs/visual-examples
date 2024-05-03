@@ -71,7 +71,15 @@ namespace SauceLabs.Visual.Example
             await VisualClient.VisualCheck("Inventory Page",
                 new VisualCheckOptions()
                 {
-                    IgnoreElements = new[] { addToBackpack },
+                    DisableOnly = new [] { DiffingOption.Position },
+                    Regions = new []
+                    {
+                        new SelectiveRegion()
+                        {
+                            Element = addToBackpack,
+                            EnableOnly = new [] { DiffingOption.Content },
+                        },
+                    },
                 });
 
             var results = await VisualClient.VisualResults();
