@@ -71,7 +71,7 @@ namespace SauceLabs.Visual.Example
             await VisualClient.VisualCheck("Inventory Page",
                 new VisualCheckOptions()
                 {
-                    DisableOnly = DiffingOption.Visual,
+                    DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Visual),
                     Regions = new []
                     {
                         SelectiveRegion.EnabledFor(addToBackpack, DiffingOption.Content | DiffingOption.Dimensions),
