@@ -12,7 +12,7 @@
     "wdio": "wdio run ./wdio.conf.ts"
   },
   "devDependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.3.446",
+    "@saucelabs/wdio-sauce-visual-service": "^0.3.449",
     "@wdio/cli": "8.35.1",
     "@wdio/cucumber-framework": "^8.35.0",
     "@wdio/local-runner": "^8.35.1",
