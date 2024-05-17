@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@cucumber/cucumber": "^10.3.2",
-    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.449",
+    "@saucelabs/nightwatch-sauce-visual-service": "^0.3.455",
     "nightwatch": "^3.6.0"
   }
 }
