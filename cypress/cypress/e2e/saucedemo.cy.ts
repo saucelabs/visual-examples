@@ -13,6 +13,13 @@ describe('Sauce Visual Demo', () => {
     const USER = Cypress.env('VISUAL_CHECK') ? 'visual_user' : 'standard_user';
     cy.get('[data-test="username"]').type(USER).should('have.value', USER);
     cy.get('[data-test="password"]').type('secret_sauce').should('have.value', 'secret_sauce');
+    cy.sauceVisualCheck('Before Login', {
+      captureDom: true,
+      regions: [
+        {element: cy.get('[data-test="username"]'), enableOnly: []},
+        {element: cy.get('[data-test="password"]'), enableOnly: ['style']},
+      ],
+    })
     cy.get('input[data-test="login-button"]').click();
     cy.get('.inventory_list').should('be.visible');
     cy.sauceVisualCheck('Inventory Page', {
