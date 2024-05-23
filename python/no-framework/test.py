@@ -51,6 +51,12 @@ def main():
     visual_client.create_snapshot_from_webdriver(
         "Before Login",
         session_id=session_id,
+        # Both of these fields are optional, but if your test framework supports them,
+        # or you identify your tests in a meaningful way we recommend setting them as they
+        # provide additional ways for you to group and manage your tests in the Sauce Visual UI.
+        #
+        # test_name="Your Test Name",
+        # suite_name="Your Suite Name",
     )
     log_step("Before Login Snapshot Taken")
 
