@@ -1,0 +1,112 @@
+import os
+
+from saucelabs_visual.client import SauceLabsVisual
+from saucelabs_visual.typing import FullPageConfig, IgnoreRegion
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
+build_name = 'Sauce Visual Examples -- No Framework'
+test_name = 'Sample  Test Name'
+sauce_ondemand_url = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub"
+
+
+def get_driver():
+    # Not sure what to choose? Use our Platform Configurator to build platform / browser options:
+    # https://saucelabs.com/products/platform-configurator
+    options = ChromeOptions()
+    options.browser_version = 'latest'
+    options.platform_name = 'Windows 11'
+    sauce_options = {
+        'username': os.getenv('SAUCE_USERNAME'),
+        'accessKey': os.getenv('SAUCE_ACCESS_KEY'),
+        'build': build_name,
+        'name': test_name,
+    }
+    options.set_capability('sauce:options', sauce_options)
+    return webdriver.Remote(command_executor=sauce_ondemand_url, options=options)
+
+
+def log_step(text: str):
+    print(text)
+
+
+def main():
+    driver = get_driver()
+    log_step("Starting Test")
+
+    # Session ID is required for various calls when taking snapshots of running sessions
+    session_id = driver.session_id
+    visual_client = SauceLabsVisual()
+
+    # Create the visual build.
+    # This needs to be done before creating any snapshots using the client.
+    visual_client.create_build(build_name, project="visual-examples/python/no-framework")
+    log_step("Visual Build Created")
+
+    driver.get("https://www.saucedemo.com")
+    assert "Swag Labs" in driver.title
+    visual_client.create_snapshot_from_webdriver(
+        "Before Login",
+        session_id=session_id,
+    )
+    log_step("Before Login Snapshot Taken")
+
+    username_elem = driver.find_element(By.NAME, "user-name")
+    password_elem = driver.find_element(By.NAME, "password")
+    submit_elem = driver.find_element(By.NAME, 'login-button')
+
+    username = "visual_user" if os.getenv('VISUAL_CHECK') else "standard_user"
+    username_elem.send_keys(username)
+    password_elem.send_keys("secret_sauce")
+    submit_elem.click()
+    log_step("Logged In")
+
+    # Wait until the inventory page is visible
+    WebDriverWait(driver, 5).until(
+        expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, '#inventory_container'))
+    )
+
+    visual_client.create_snapshot_from_webdriver(
+        "Inventory Page",
+        session_id=session_id,
+        # Enable DOM capture, False by default.
+        capture_dom=True,
+        full_page_config=FullPageConfig(
+            # Can customize full page behavior by customizing values here. Or omit completely to
+            # disable full page screenshots:
+            # ex:
+            # scrollLimit=10,
+            # hideAfterFirstScroll=['.fixed-header', '#cookie-banner']
+        ),
+        # ignore_regions=[
+        #     # Ignore regions can be supplied to ignore certain areas of a page.
+        #     # In the future we'll expose methods to pass elements here instead to streamline the
+        #     # process.
+        #     IgnoreRegion(x=100, y=100, width=100, height=100)
+        # ],
+    )
+    log_step("Inventory Page Snapshot Taken")
+
+    visual_client.create_snapshot_from_webdriver(
+        "Inventory Page (Clipped)",
+        session_id=session_id,
+        # Clip the screenshot (and DOM capture) to a single element on the page
+        clip_selector='#inventory_container',
+        capture_dom=True,
+        full_page_config=FullPageConfig(),
+    )
+    log_step("Inventory Page (Clipped) Snapshot Taken")
+
+    # Finish the Visual build, so we can update the results UI and finish calculation.
+    visual_client.finish_build()
+    log_step("Visual Build Finished")
+
+    driver.close()
+    log_step("Finished Test")
+
+
+if __name__ == '__main__':
+    main()
