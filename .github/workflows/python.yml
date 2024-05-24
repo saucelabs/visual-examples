@@ -19,6 +19,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  python-no-framework:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build python example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./python/no-framework
+          file: ./python/no-framework/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
   python-robot-framework:
     runs-on: ubuntu-latest
     steps:
