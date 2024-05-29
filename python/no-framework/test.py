@@ -1,7 +1,7 @@
 import os
 
 from saucelabs_visual.client import SauceLabsVisual
-from saucelabs_visual.typing import FullPageConfig, IgnoreRegion
+from saucelabs_visual.typing import FullPageConfig, IgnoreRegion, IgnoreElementRegion, DiffingMethod
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
@@ -75,6 +75,7 @@ def main():
         expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, '#inventory_container'))
     )
 
+    add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
     visual_client.create_snapshot_from_webdriver(
         "Inventory Page",
         session_id=session_id,
@@ -93,6 +94,25 @@ def main():
         #     # process.
         #     IgnoreRegion(x=100, y=100, width=100, height=100)
         # ],
+        ignore_elements=[
+            IgnoreElementRegion(
+                # Ignore one or more elements returned by find_elements/find_element.
+                element=driver.find_elements(By.CSS_SELECTOR, '.inventory_item_img'),
+                # Disable changes detected only for 'content' changes. Can also be controlled via
+                # `enable_only`, or completely via `diffingOptions`. NOTE - The 'BALANCED' diffing
+                # method is required for this feature. See the selective diffing docs for more info:
+                # https://docs.saucelabs.com/visual-testing/selective-diffing/
+                disable_only=['content'],
+            ),
+            IgnoreElementRegion(
+                # Can also pass an element that has been previously found via the driver
+                element=add_to_cart_button,
+            ),
+        ],
+        # Currently defaults to 'SIMPLE'. NOTE: The BALANCED diffing method is required for
+        # selective regions. See the link for more information:
+        # https://docs.saucelabs.com/visual-testing/selective-diffing/
+        diffing_method=DiffingMethod.BALANCED,
     )
     log_step("Inventory Page Snapshot Taken")
 
