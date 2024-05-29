@@ -9,7 +9,7 @@
     "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.5.0",
+    "@saucelabs/cypress-visual-plugin": "^0.5.2",
     "@tsconfig/node18": "^18.2.4",
     "cypress": "^13.7.2",
     "ts-node": "^10.9.2",
