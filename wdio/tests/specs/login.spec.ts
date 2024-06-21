@@ -2,6 +2,8 @@ import { browser } from '@wdio/globals';
 import { LOGIN_USERS } from '../configs/e2e.constants.ts';
 import LoginPage from '../pages/login.page.ts';
 import InventoryPage from '../pages/inventory.page.ts';
+import { DiffingMethod } from '@saucelabs/wdio-sauce-visual-service';
+
 
 describe('LoginPage', () => {
   beforeEach(async () => {
@@ -24,7 +26,19 @@ describe('LoginPage', () => {
     // Wait for the inventory screen and check it
     await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
 
-    await browser.sauceVisualCheck('Inventory Page');
+    await browser.sauceVisualCheck('Inventory Page', {
+      disable: ['content'],
+      regions: [
+        {
+          element: InventoryPage.addBackPackToCartButton,
+          enableOnly: ['content'],
+        },
+        {
+          element: { x: 0, y: 0, width: 1000, height: 1000 },
+          disableOnly: ['structure'],
+        },
+      ],
+    });
   });
 
   it('should not be able to login with a locked user', async () => {
