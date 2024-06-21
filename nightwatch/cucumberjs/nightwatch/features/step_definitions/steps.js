@@ -1,5 +1,5 @@
 const { Given, Then, When } = require('@cucumber/cucumber');
-const { DiffStatus } = require('@saucelabs/nightwatch-sauce-visual-service');
+const { DiffStatus, DiffingMethod } = require('@saucelabs/nightwatch-sauce-visual-service');
 const USERNAME =
   process.env.VISUAL_CHECK === 'true' ? 'visual_user' : 'standard_user';
 const PASSWORD = 'secret_sauce';
@@ -42,6 +42,7 @@ Then(
     return (
       login
         .sauceVisualCheck('Home Page', {
+          diffingMethod: DiffingMethod.Balanced,
           regions: [
             {
               element: login.elements.username.selector,

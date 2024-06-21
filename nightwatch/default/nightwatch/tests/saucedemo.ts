@@ -1,5 +1,5 @@
 import { NightwatchTests } from 'nightwatch';
-import { DiffStatus } from '@saucelabs/nightwatch-sauce-visual-service';
+import { DiffingMethod, DiffStatus } from '@saucelabs/nightwatch-sauce-visual-service';
 const USERNAME =
   process.env.VISUAL_CHECK === 'true' ? 'visual_user' : 'standard_user';
 const PASSWORD = 'secret_sauce';
@@ -36,6 +36,7 @@ const home: NightwatchTests = {
       .navigate()
       .waitForElementVisible('@username')
       .sauceVisualCheck('Home Page', {
+        diffingMethod: DiffingMethod.Balanced,
         regions: [
           {
             element: login.elements.username.selector,
