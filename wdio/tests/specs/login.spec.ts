@@ -34,12 +34,7 @@ describe('LoginPage', () => {
           enableOnly: ['content'],
         },
         {
-          element: {
-            x: 0,
-            y: 0,
-            width: 1000,
-            height: 1000,
-          },
+          element: { x: 0, y: 0, width: 1000, height: 1000 },
           disableOnly: ['structure'],
         },
       ],
