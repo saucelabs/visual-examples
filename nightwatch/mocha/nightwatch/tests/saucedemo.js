@@ -1,4 +1,4 @@
-const { DiffStatus } = require('@saucelabs/nightwatch-sauce-visual-service');
+const { DiffingMethod } = require('@saucelabs/nightwatch-sauce-visual-service');
 const USERNAME =
   process.env.VISUAL_CHECK === 'true' ? 'visual_user' : 'standard_user';
 const PASSWORD = 'secret_sauce';
@@ -31,23 +31,20 @@ describe('Saucedemo example', function () {
       .sauceVisualCheck(
         'Home Page',
         {
-          ignore: [
+          diffingMethod: DiffingMethod.Balanced,
+          regions: [
             {
-              x: 100,
-              y: 100,
-              width: 200,
-              height: 200,
+              element: login.elements.username.selector,
+              disableOnly: ['content'],
             },
-            //
-            // NOTE: You can't use the normal page object syntax, like '@username' here.
-            // If you do use the normal syntax, then the service will filter out the property, not use it and log a warning like
-            //  "Ignoring page object reference: '@username'. Please use the 'pageObjectName.elements.username.selector' annotation.
-            //
-            login.elements.password.selector,
-            [
-              login.elements.username.selector,
-              'input[data-test="login-button"]',
-            ],
+            {
+              element: login.elements.password.selector,
+              enableOnly: [],
+            },
+            {
+              element: { x: 100, y: 100, width: 200, height: 200 },
+              enableOnly: [],
+            },
           ],
         },
         // NOTE: adding the `this` context is required for the service
