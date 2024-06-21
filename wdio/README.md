@@ -212,8 +212,11 @@ Example:
 ```ts
 await browser.sauceVisualCheck('Inventory Page', {
   regions: [
-    // All kind of changes will be ignored for addBackPackToCartButton
-    { element: InventoryPage.addBackPackToCartButton, enableOnly: [] },
+    // All changes will be ignored for addBackPackToCartButton
+    {
+      element: InventoryPage.addBackPackToCartButton,
+      enableOnly: [],
+    },
   ],
 });
 ```
@@ -232,12 +235,10 @@ Example:
 
 ```ts
 await browser.sauceVisualCheck('Before Login', {
-  ignore: [
+  regions: [
     {
-      x: 100,
-      y: 100,
-      width: 200,
-      height: 200,
+      element: { x: 100, y: 100, width: 200, height: 200 },
+      enableOnly: [],
     },
   ],
 });
