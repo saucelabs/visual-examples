@@ -18,16 +18,9 @@ describe('Check Inventory', () => {
     await InventoryPage.open();
 
     await browser.sauceVisualCheck('Inventory Page with element ignore', {
-      ignore: [
-        // An element can be passed in
-        InventoryPage.addBackPackToCartButton,
-        // or an object with x, y, width, height can be passed in
-        {
-          x: 100,
-          y: 100,
-          width: 200,
-          height: 200,
-        },
+      regions: [
+        // Only checks for positions changes on InventoryPage.addBackPackToCartButton
+        { element: InventoryPage.addBackPackToCartButton, enableOnly: ['position'] },
       ],
     });
   });

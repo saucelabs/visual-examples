@@ -211,9 +211,9 @@ Example:
 
 ```ts
 await browser.sauceVisualCheck('Inventory Page', {
-  ignore: [
-    // addBackPackToCartButton will be ignored
-    InventoryPage.addBackPackToCartButton,
+  regions: [
+    // All kind of changes will be ignored for addBackPackToCartButton
+    { element: InventoryPage.addBackPackToCartButton, enableOnly: [] },
   ],
 });
 ```
