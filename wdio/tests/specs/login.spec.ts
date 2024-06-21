@@ -13,7 +13,7 @@ describe('LoginPage', () => {
 
   it('should be able to test loading of login page', async () => {
     await expect(await LoginPage.waitForIsShown()).toBeTruthy();
-    await browser.sauceVisualCheck('Before Login', {diffingMethod: DiffingMethod.Balanced});
+    await browser.sauceVisualCheck('Before Login');
   });
 
   it('should be able to login with a standard user', async () => {
@@ -27,7 +27,6 @@ describe('LoginPage', () => {
     await expect(await InventoryPage.waitForIsShown()).toBeTruthy();
 
     await browser.sauceVisualCheck('Inventory Page', {
-      diffingMethod: DiffingMethod.Balanced,
       disable: ['content'],
       regions: [
         {

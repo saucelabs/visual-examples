@@ -1,6 +1,7 @@
 import type { Options } from '@wdio/types';
 import { config as sharedConfig } from './wdio.shared.conf.ts';
 import { getSauceCredentials } from '../helpers/index.ts';
+import { DiffingMethod } from '@saucelabs/wdio-sauce-visual-service';
 
 //
 // Get the Sauce Labs credentials
@@ -45,6 +46,7 @@ export const config: Options.Testrunner = {
         branch: 'main',
         project: 'WDIO examples',
         captureDom: true,
+        diffingMethod: DiffingMethod.Balanced,
       },
     ],
   ]),
