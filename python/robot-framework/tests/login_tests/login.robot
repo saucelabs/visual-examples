@@ -13,6 +13,17 @@ Valid Login
     ${username} =     Setup User
     Input Username    ${username}
     Input Password    secret_sauce
+
+    # Capture snapshot with selective regions
+    ${username_element}     Get Webelements     id:user-name
+    ${password_element}     Get Webelements     id:password
+    # Ignore all changes on ${username_element}
+    ${ignore_username} =    Visual Ignore Element       ${username_element}     diffing_options={}
+    # Only checks for style changes on ${password_element}
+    ${ignore_password} =    Visual Ignore Element       ${password_element}     diffing_options={"style":True}
+    ${ignore_regions} =     Create List     ${ignore_username}      ${ignore_password}
+    Visual Snapshot     Login Page     capture_dom=True        ignore_regions=${ignore_regions}        diffing_method=BALANCED
+
     Submit Credentials
     Welcome Page Should Be Open
     Visual Snapshot    Valid Login    capture_dom=True
