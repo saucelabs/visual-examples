@@ -14,6 +14,7 @@ Valid Login
     Input Username    ${username}
     Input Password    secret_sauce
 
+    # Capture snapshot with selective regions
     ${username_element}     Get Webelements     id:user-name
     ${password_element}     Get Webelements     id:password
     # Ignore all changes on ${username_element}
