@@ -79,13 +79,13 @@ npm run sauce-visual-check-mobile
 By default the tests will be executed on the US DC, if you want to run them on the EU DC then please run the following command
 
 ```sh { name=npm-run-eu }
-REGION=eu npm run sauce-visual
+SAUCE_REGION=eu-central-1 npm run sauce-visual
 ```
 
 or
 
 ```sh { name=npm-run-modified-eu }
-REGION=eu npm run sauce-visual-check
+SAUCE_REGION=eu-central- npm run sauce-visual-check
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.

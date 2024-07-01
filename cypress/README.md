@@ -232,7 +232,7 @@ export default defineConfig({
   e2e: {
     [...]
     saucelabs: {
-      regionbuildName: 'eu-central-1',
+      region: 'eu-central-1',
     },
     [...]
   }
