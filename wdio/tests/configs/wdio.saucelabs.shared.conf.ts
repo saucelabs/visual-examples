@@ -15,7 +15,7 @@ export const config: Options.Testrunner = {
   // =================
   user: sauceUsername,
   key: sauceAccessKey,
-  region: (process.env.REGION || 'us') as Options.SauceRegions,
+  region: (process.env.SAUCE_REGION || 'us') as Options.SauceRegions,
   //
   // ============
   // Capabilities

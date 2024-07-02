@@ -44,10 +44,8 @@ module.exports = {
       silent: true,
       selenium: {
         host: `ondemand.${
-          process.env.REGION && process.env.REGION.toLocaleLowerCase() === 'eu'
-            ? 'eu-central'
-            : 'us-west'
-        }-1.saucelabs.com`,
+          process.env.SAUCE_REGION || 'us-west-1'
+        }.saucelabs.com`,
         port: 443,
       },
       desiredCapabilities: {
