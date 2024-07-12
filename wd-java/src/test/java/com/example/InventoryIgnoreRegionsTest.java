@@ -3,7 +3,6 @@ package com.example;
 import com.example.pageobjects.InventoryPage;
 import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.CheckOptions;
-import com.saucelabs.visual.DataCenter;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.junit5.TestMetaInfoExtension;
 import com.saucelabs.visual.model.IgnoreRegion;
@@ -15,13 +14,13 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.util.Collections;
-import java.util.List;
 
 import static com.example.TestUtils.dotenv;
 
 @ExtendWith({TestMetaInfoExtension.class})
 public class InventoryIgnoreRegionsTest {
 
+    // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
     private static final String username = dotenv.get("SAUCE_USERNAME");
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
@@ -31,7 +30,7 @@ public class InventoryIgnoreRegionsTest {
     @BeforeAll
     public static void init() throws MalformedURLException {
         driver = TestUtils.getDriver(username, accessKey);
-        visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+        visual = new VisualApi.Builder(driver, username, accessKey)
                 .withBuild("Sauce Demo Test")
                 .withBranch("main")
                 .withProject("JUnit + WebDriver examples for " + System.getenv("SAUCE_USERNAME"))

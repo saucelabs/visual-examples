@@ -41,12 +41,13 @@ public class TestUtils {
     }
 
     private static URL getDriverUrl(String username, String accessKey) throws MalformedURLException {
+
         if (username == null || accessKey == null || username.trim().isEmpty() || accessKey.trim().isEmpty()) {
             String err = "Sauce Labs credentials not found. Please set SAUCE_USERNAME and SAUCE_ACCESS_KEY in your environment";
             throw new RuntimeException(err);
         }
-        // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
-        return new URL("https://" + username + ":" + accessKey + "@ondemand.us-west-1.saucelabs.com:443/wd/hub");
+        String dataCenter = dotenv.get("SAUCE_REGION", "us-west-1");
+        return new URL("https://" + username + ":" + accessKey + "@ondemand." + dataCenter + ".saucelabs.com:443/wd/hub");
     }
 
     private static MutableCapabilities getChromeDesktopCapabilities() {
