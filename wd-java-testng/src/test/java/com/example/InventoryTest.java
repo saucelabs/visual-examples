@@ -17,7 +17,7 @@ import static com.example.TestUtils.dotenv;
 @Listeners({TestMetaInfoListener.class})
 public class InventoryTest {
 
-    // Can be found at "Driver creation" on https://app.saucelabs.com/user-settings
+    // Can be found at https://app.saucelabs.com/user-settings
     private static final String username = dotenv.get("SAUCE_USERNAME");
     private static final String accessKey = dotenv.get("SAUCE_ACCESS_KEY");
 
