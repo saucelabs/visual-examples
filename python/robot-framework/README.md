@@ -47,3 +47,7 @@ VISUAL_CHECK=1 robot tests
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 - It should detect changes and display differences between the two runs of the inventory page test
+
+## Installation & Usage
+
+View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/python-robot-framework/).
