@@ -29,7 +29,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build NUnit example
+      - name: Build XUnit example
         uses: docker/build-push-action@v4
         with:
           context: ./dotnet-xunit
@@ -37,6 +37,9 @@ jobs:
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
+          build-args:
+            - GITHUB_RUN_ID=${{ GITHUB_RUN_ID }}
+            - GITHUB_RUN_ATTEMPT=${{ GITHUB_RUN_ATTEMPT }}
 
   nunit:
     runs-on: ubuntu-latest

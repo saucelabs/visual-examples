@@ -30,7 +30,7 @@ public class SauceDemo
         {
             Name = "My Visual Build",
             Project = "csharp-project",
-            Branch = "csharp-branch"
+            Branch = Environment.GetEnvironmentVariable("SAUCE_VISUAL_BRANCH_NAME") ?? "main"
         });
         VisualClient.CaptureDom = true;
         TestContext.Progress.WriteLine($"Build: {VisualClient.Build.Url}");
