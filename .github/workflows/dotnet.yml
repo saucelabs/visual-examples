@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build XUnit example
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         with:
           context: ./dotnet-xunit
           file: ./dotnet-xunit/Dockerfile
@@ -49,7 +49,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build NUnit example
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         with:
           context: ./dotnet-nunit
           file: ./dotnet-nunit/Dockerfile
