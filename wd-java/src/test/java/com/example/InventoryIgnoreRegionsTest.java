@@ -73,7 +73,6 @@ public class InventoryIgnoreRegionsTest {
         visual.sauceVisualCheck(
                 "Inventory Page - with selective ignore regions",
                 new CheckOptions.Builder()
-                        .withIgnoreElements(Collections.singletonList(inventoryPage.getAddBackpackToCartButton()))
                         // Disable visual-only changes on the whole snapshot
                         .disableOnly(EnumSet.of(DiffingFlag.Visual))
                         // Disable any content changes on AddBackpackToCardButton
