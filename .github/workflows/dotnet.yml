@@ -37,9 +37,7 @@ jobs:
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
-          build-args: |
-            GITHUB_RUN_ID=${{ GITHUB_RUN_ID }}
-            GITHUB_RUN_ATTEMPT=${{ GITHUB_RUN_ATTEMPT }}
+          build-args: GITHUB_RUN_ID=${{ GITHUB_RUN_ID }}
 
   nunit:
     runs-on: ubuntu-latest
