@@ -37,7 +37,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 - Run the test
 
 ```sh {"id":"01HHQ3FQDWBD7ZSD2PQEDEJ47V","name":"mvn-run-test"}
-./mvnw clean test -Dtest=InventoryTest
+./mvnw clean test
 ```
 
 By default, the test will run on desktop with a Chrome browser.
@@ -46,7 +46,7 @@ you can set the PLATFORM_NAME environment variable accordingly.
 Available options are ANDROID, ANDROID_EMULATOR, IOS and IOS_SIMULATOR.
 
 ```sh {"id":"01HHQ3FQDWBD7ZSD2PQFW90YT9","name":"mvn-run-test-android-emulator"}
-PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
+PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
@@ -54,7 +54,7 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test -Dtest=InventoryTest
 - Re-run the tests
 
 ```sh {"id":"01HHQ3FQDWBD7ZSD2PQK0ZT30D","name":"mvn-run-test-modified"}
-./mvnw clean test -Dmodified=true -Dtest=InventoryTest
+./mvnw clean test -Dmodified=true
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
