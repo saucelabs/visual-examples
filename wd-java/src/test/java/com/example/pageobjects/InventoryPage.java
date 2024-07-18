@@ -20,7 +20,7 @@ public class InventoryPage {
         return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
     }
 
-    public void addBackpackToCart() {
-        getAddBackpackToCartButton().click();
+    public WebElement getMenuButton() {
+        return driver.findElement(By.id("react-burger-menu-btn"));
     }
 }
