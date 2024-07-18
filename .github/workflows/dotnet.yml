@@ -39,7 +39,7 @@ jobs:
             "dotenv=${{ secrets.DOTENV }}"
           build-args: |
             GITHUB_RUN_ID=${{ github.run.id }}
-            GITHUB_RUN_ATTEMPT=${{ github.run.id }}
+            GITHUB_RUN_ATTEMPT=${{ github.run.attempt }}
 
   nunit:
     runs-on: ubuntu-latest
@@ -58,4 +58,4 @@ jobs:
             "dotenv=${{ secrets.DOTENV }}"
           build-args: |
             GITHUB_RUN_ID=${{ github.run.id }}
-            GITHUB_RUN_ATTEMPT=${{ github.run.id }}
+            GITHUB_RUN_ATTEMPT=${{ github.run.attempt }}
