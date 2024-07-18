@@ -49,7 +49,7 @@ public class InventoryTest {
 
         // this is here to generate a diff to better demonstrate sauce visual
         if(System.getProperty("modified") != null) {
-            inventoryPage.addBackpackToCart();
+            inventoryPage.clickAddBackpackToCart();
         }
 
         visual.sauceVisualCheck("Inventory Page");
