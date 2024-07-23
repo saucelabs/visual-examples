@@ -5,6 +5,7 @@ import com.example.pageobjects.LoginPage;
 import com.saucelabs.visual.CheckOptions;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import com.saucelabs.visual.model.DiffingFlag;
 import com.saucelabs.visual.model.IgnoreRegion;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,6 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.util.Collections;
+import java.util.EnumSet;
 
 import static com.example.TestUtils.dotenv;
 
@@ -43,19 +45,41 @@ public class InventoryIgnoreRegionsTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
 
-        CheckOptions options = new CheckOptions();
+        // This example captures a snapshots, and ignore every change in a 200x200px square,
+        // which top-left point is located at 100,100px.
         IgnoreRegion ignoreRegion = new IgnoreRegion(100,100,200,200);
-        options.setIgnoreRegions(Collections.singletonList(ignoreRegion));
-        visual.sauceVisualCheck("Before Login", options);
+        visual.sauceVisualCheck(
+                "Before Login",
+                new CheckOptions.Builder()
+                        .withIgnoreRegions(Collections.singletonList(ignoreRegion))
+                        .build());
 
         loginPage.login("standard_user", "secret_sauce");
 
         InventoryPage inventoryPage = new InventoryPage(driver);
         inventoryPage.open();
 
-        CheckOptions options2 = new CheckOptions();
-        options2.setIgnoreElements(Collections.singletonList(inventoryPage.getAddBackpackToCartButton()));
-        visual.sauceVisualCheck("Inventory Page", options2);
+        // This example captures a snapshots, and ignore all changes on AddBackpackToCartButton.
+        visual.sauceVisualCheck(
+                "Inventory Page",
+                new CheckOptions.Builder()
+                        .withIgnoreElements(Collections.singletonList(inventoryPage.getAddBackpackToCartButton()))
+                        .build());
+
+        // This example captures a snapshots, and ignore:
+        //   - Visual-only changes on the whole snapshot
+        //   - Content changes that applies to AddBackpackToCartButton
+        //   - Any non-position changes that applies to MenuButton
+        visual.sauceVisualCheck(
+                "Inventory Page - with selective ignore regions",
+                new CheckOptions.Builder()
+                        // Disable visual-only changes on the whole snapshot
+                        .disableOnly(EnumSet.of(DiffingFlag.Visual))
+                        // Disable any content changes on AddBackpackToCardButton
+                        .disableOnly(EnumSet.of(DiffingFlag.Content), inventoryPage.getAddBackpackToCartButton())
+                        // Disable all but Position changes on MenuButton
+                        .enableOnly(EnumSet.of(DiffingFlag.Position), inventoryPage.getMenuButton())
+                        .build());
     }
 
     @AfterAll

@@ -21,5 +21,9 @@ WORKDIR /workspace
 
 COPY . .
 
+ARG GITHUB_RUN_ID
+ARG GITHUB_RUN_ATTEMPT
+ARG SAUCE_VISUAL_BRANCH_NAME=${GITHUB_RUN_ID}${GITHUB_RUN_ATTEMPT}
+
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run dotnet-test
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env env $(cat /workspace/.env | xargs) runme run dotnet-test-modified
