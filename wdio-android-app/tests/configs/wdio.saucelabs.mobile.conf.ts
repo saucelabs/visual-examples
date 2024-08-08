@@ -14,16 +14,16 @@ export const config: Options.Testrunner = {
   // For available devices please check
   // https://app.saucelabs.com/live/app-testing
   capabilities: [
-    // {
-    //   'appium:deviceName': 'Android GoogleAPI Emulator',
-    //   'appium:platformVersion': '14.0',
-    //   'appium:automationName': 'UiAutomator2',
-    //   'appium:app': `storage:${process.env.ANDROID_APP_FILEID}`,
-    //   platformName: 'Android',
-    //   'sauce:options': {
-    //     build
-    //   },
-    // },
+    {
+      'appium:deviceName': 'Android GoogleAPI Emulator',
+      'appium:platformVersion': '14.0',
+      'appium:automationName': 'UiAutomator2',
+      'appium:app': `storage:${process.env.ANDROID_APP_FILEID}`,
+      platformName: 'Android',
+      'sauce:options': {
+        build
+      },
+    },
     {
       'appium:deviceName': 'Google Pixel 8',
       'appium:automationName': 'UiAutomator2',
