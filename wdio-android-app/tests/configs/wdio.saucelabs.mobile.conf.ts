@@ -21,6 +21,7 @@ export const config: Options.Testrunner = {
       'appium:app': `storage:${process.env.ANDROID_APP_FILEID}`,
       platformName: 'Android',
       'sauce:options': {
+        appiumVersion: 'latest',
         build
       },
     },
