@@ -62,7 +62,7 @@ export ANDROID_APP_FILEID=<file-ID-returned-by-saucectl>
 - Run the test
 
 
-```sh
+```sh { name=npm-run }
 npm run sauce-visual
 ```
 

@@ -66,3 +66,33 @@ jobs:
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
+
+  wdio-android-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install saucectl
+        uses: saucelabs/saucectl-run-action@v4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          skip-run: true
+
+      - name: Pre-Upload App
+        id: upload
+        working-directory: ./wdio-android-app/
+        run: |
+          ANDROID_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.apk -o json | jq -r '.id')
+          echo "::set-output name=ANDROID_APP_FILEID::${ANDROID_APP_FILEID}"
+
+      - name: Build wdio example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./wdio-android-app
+          file: ./wdio/Dockerfile
+          push: false
+          secrets: |
+            dotenv=${{ secrets.DOTENV }}
+            ANDROID_APP_FILEID=${{ steps.upload.outputs.ANDROID_APP_FILEID }}
