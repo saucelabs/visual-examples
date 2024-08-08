@@ -1,6 +1,4 @@
-import 'dotenv/config';
-import updateDotenv from 'update-dotenv';
-import readline from 'readline-sync';
+import { config } from 'dotenv';
 
 /**
  * Get the Sauce Labs credentials from the environment variables, if not available,
@@ -10,6 +8,8 @@ export async function getSauceCredentials(): Promise<{
   sauceUsername: string;
   sauceAccessKey: string;
 }> {
+  config();
+
   let sauceUsername = process.env.SAUCE_USERNAME;
   let sauceAccessKey = process.env.SAUCE_ACCESS_KEY;
 
