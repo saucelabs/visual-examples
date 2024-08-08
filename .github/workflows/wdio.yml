@@ -67,8 +67,11 @@ jobs:
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
 
-  wdio-android-app:
+  wdio-native-app:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [ios, android]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -82,21 +85,25 @@ jobs:
 
       - name: Pre-Upload App
         id: upload
-        working-directory: ./wdio-android-app/
+        working-directory: ./wdio-${{ matrix.}}-app/
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
-          ANDROID_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.apk -o json | jq -r '.id')
-          echo "ANDROID_APP_FILEID=${ANDROID_APP_FILEID}" >> $GITHUB_OUTPUT
+          EXT=apk
+          if [ "${{ matrix.platform }}" = "ios" ];then
+            EXT=ipa
+          fi
+          APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.${EXT} -o json | jq -r '.id')
+          echo "APP_FILEID=${APP_FILEID}" >> $GITHUB_OUTPUT
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
         with:
-          context: ./wdio-android-app
+          context: ./wdio-${{ matrix.platform }}-app
           file: ././wdio/Dockerfile
           build-args:
-            ANDROID_APP_FILEID=${{ steps.upload.outputs.ANDROID_APP_FILEID }}
+            APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"

@@ -56,7 +56,7 @@ npx saucectl storage upload ./app/SauceLabs-Demo-App.apk
 
 - Get the file ID and export it to the env
 ```sh { name=set-file-id }
-export ANDROID_APP_FILEID=<file-ID-returned-by-saucectl>
+export APP_FILEID=<file-ID-returned-by-saucectl>
 ```
 
 - Run the test
