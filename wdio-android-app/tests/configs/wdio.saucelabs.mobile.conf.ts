@@ -17,7 +17,7 @@ export const config: Options.Testrunner = {
     {
       'appium:deviceName': 'Google Pixel 8',
       'appium:automationName': 'UiAutomator2',
-      'appium:app': `storage:${process.env.ANDROID_APP_FILEID}`,
+      'appium:app': `storage:${process.env.APP_FILEID}`,
       // Platform Version is not mandatory for Real Devices
       // If you want to use a specific or a range of versions then check
       // https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation
