@@ -88,7 +88,7 @@ jobs:
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
           ANDROID_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.apk -o json | jq -r '.id')
-          echo "::set-output name=ANDROID_APP_FILEID::${ANDROID_APP_FILEID}"
+          echo "ANDROID_APP_FILEID::${ANDROID_APP_FILEID}" >> $GITHUB_OUTPUT
 
       - name: Build wdio example
         uses: docker/build-push-action@v4
