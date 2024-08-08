@@ -14,26 +14,15 @@ export async function getSauceCredentials(): Promise<{
   let sauceAccessKey = process.env.SAUCE_ACCESS_KEY;
 
   if (!sauceUsername) {
-    sauceUsername = await readline.question(
-      'What is your Sauce Labs username? '
-    );
-    await updateDotenv({
-      SAUCE_USERNAME: sauceUsername,
-    });
-    console.log('Sauce Labs username is saved in the .env file.');
+    console.error('no SAUCE_USERNAME variable set')
   }
 
   if (!sauceAccessKey) {
-    sauceAccessKey = await readline.question(
-      'What is your Sauce Labs API key?? ',
-      {
-        hideEchoBack: true,
-      }
-    );
-    await updateDotenv({
-      SAUCE_ACCESS_KEY: sauceAccessKey,
-    });
-    console.log('Sauce Labs API key is saved in the .env file.');
+    console.error('no SAUCE_ACCESS_KEY variable set')
+  }
+
+  if (!sauceUsername || !sauceAccessKey) {
+    throw new Error('Credentials are incomplete');
   }
 
   return { sauceUsername, sauceAccessKey };
