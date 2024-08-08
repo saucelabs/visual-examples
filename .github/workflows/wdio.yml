@@ -95,7 +95,7 @@ jobs:
         with:
           context: ./wdio-android-app
           file: ./wdio/Dockerfile
-          args:
+          build-args:
             ANDROID_APP_FILEID=${{ steps.upload.outputs.ANDROID_APP_FILEID }}
           push: false
           secrets: |
