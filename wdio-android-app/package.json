@@ -21,6 +21,7 @@
   "dependencies": {
     "@saucelabs/wdio-sauce-visual-service": "^0.5.4",
     "readline-sync": "^1.4.10",
+    "saucectl": "^0.180.0",
     "update-dotenv": "^1.1.1"
   }
 }

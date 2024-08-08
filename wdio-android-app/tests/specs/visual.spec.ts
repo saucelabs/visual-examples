@@ -24,17 +24,17 @@ describe('Android Native App', () => {
   });
 
   it('Check App Catalog', async () => {
-    const images = await App.productImages;
+    const firstImage = (await App.productImages)[0];
     const prices = await App.productPrices;
 
     await browser.sauceVisualCheck(`App Catalog`, {
       regions: [
-        // Ignore one image
+        // Ignore any changes on the first image
         {
-          element: [images[1]],
+          element: [firstImage],
           enableOnly: [],
         },
-        // Ignore prices changes
+        // Ignore pany price change
         {
           element: prices,
           enableOnly: [],
