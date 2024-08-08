@@ -15,16 +15,14 @@ export const config: Options.Testrunner = {
   // https://app.saucelabs.com/live/app-testing
   capabilities: [
     {
+      // You should always target a specific device and OS version.
+      // Different devices will generate different baselines as their screen size and pixel density are different.
+      // See: https://docs.saucelabs.com/visual-testing/mobile-native-testing/#best-practices
       'appium:deviceName': 'Google Pixel 8',
+      'appium:platformVersion': '14',
+      platformName: 'Android',
       'appium:automationName': 'UiAutomator2',
       'appium:app': `storage:${process.env.APP_FILEID}`,
-      // Platform Version is not mandatory for Real Devices
-      // If you want to use a specific or a range of versions then check
-      // https://docs.saucelabs.com/mobile-apps/supported-devices/#dynamic-device-allocation
-      // If you don't specify a specific version it will select an available iPhone, as requested in `'appium:deviceName'`,
-      // with the then available OS version
-      // 'appium:platformVersion': '14',
-      platformName: 'Android',
       'sauce:options': {
         appiumVersion: 'latest',
         build
