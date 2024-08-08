@@ -84,6 +84,7 @@ jobs:
         id: upload
         working-directory: ./wdio-android-app/
         run: |
+          . ${{ secrets.DOTENV }}
           ANDROID_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.apk -o json | jq -r '.id')
           echo "::set-output name=ANDROID_APP_FILEID::${ANDROID_APP_FILEID}"
 
