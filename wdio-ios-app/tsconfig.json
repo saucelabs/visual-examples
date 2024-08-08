@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "types": [
+            "node",
+            "@wdio/globals/types",
+            "expect-webdriverio",
+            "@wdio/mocha-framework",
+            "@wdio/sauce-service",
+            "@saucelabs/wdio-sauce-visual-service",
+        ],
+        "allowSyntheticDefaultImports": true,
+        "target": "es2022",
+        "noEmit": true,
+        "allowImportingTsExtensions": true
+    }
+}
