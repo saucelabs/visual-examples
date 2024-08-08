@@ -85,7 +85,7 @@ jobs:
 
       - name: Pre-Upload App
         id: upload
-        working-directory: ./wdio-${{ matrix.}}-app/
+        working-directory: ./wdio-${{ matrix.platform }}-app/
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
