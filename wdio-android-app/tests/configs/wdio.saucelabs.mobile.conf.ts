@@ -16,12 +16,11 @@ export const config: Options.Testrunner = {
   capabilities: [
     {
       'appium:deviceName': 'Android GoogleAPI Emulator',
-      'appium:platformVersion': '14.0',
+      'appium:platformVersion': 'current_major',
       'appium:automationName': 'UiAutomator2',
       'appium:app': `storage:${process.env.ANDROID_APP_FILEID}`,
       platformName: 'Android',
       'sauce:options': {
-        appiumVersion: 'latest',
         build
       },
     },
