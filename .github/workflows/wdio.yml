@@ -83,8 +83,10 @@ jobs:
       - name: Pre-Upload App
         id: upload
         working-directory: ./wdio-android-app/
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
         run: |
-          . ${{ secrets.DOTENV }}
           ANDROID_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.apk -o json | jq -r '.id')
           echo "::set-output name=ANDROID_APP_FILEID::${ANDROID_APP_FILEID}"
 
@@ -93,7 +95,8 @@ jobs:
         with:
           context: ./wdio-android-app
           file: ./wdio/Dockerfile
+          args:
+            ANDROID_APP_FILEID=${{ steps.upload.outputs.ANDROID_APP_FILEID }}
           push: false
           secrets: |
-            dotenv=${{ secrets.DOTENV }}
-            ANDROID_APP_FILEID=${{ steps.upload.outputs.ANDROID_APP_FILEID }}
+            dotenv="${{ secrets.DOTENV }}"
