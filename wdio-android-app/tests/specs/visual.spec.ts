@@ -3,8 +3,6 @@ import LoginPage from '../pages/login.page.ts';
 import MenuPage from '../pages/menu.page.ts';
 import App from '../pages/app.ts';
 
-import { DiffingMethod } from '@saucelabs/wdio-sauce-visual-service';
-
 describe('Android Native App', () => {
   it('Displays App Catalog', async () => {
     await browser.sauceVisualCheck(`Startup`);
