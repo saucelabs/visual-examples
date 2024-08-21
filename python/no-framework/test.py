@@ -37,8 +37,6 @@ def main():
     driver = get_driver()
     log_step("Starting Test")
 
-    # Session ID is required for various calls when taking snapshots of running sessions
-    session_id = driver.session_id
     visual_client = SauceLabsVisual()
 
     # Create the visual build.
