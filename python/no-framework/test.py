@@ -50,7 +50,7 @@ def main():
     assert "Swag Labs" in driver.title
     visual_client.create_snapshot_from_webdriver(
         "Before Login",
-        session_id=session_id,
+        driver=driver,
         # Both of these fields are optional, but if your test framework supports them,
         # or you identify your tests in a meaningful way we recommend setting them as they
         # provide additional ways for you to group and manage your tests in the Sauce Visual UI.
@@ -78,7 +78,7 @@ def main():
     add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
     visual_client.create_snapshot_from_webdriver(
         "Inventory Page",
-        session_id=session_id,
+        driver=driver,
         # Enable DOM capture, False by default.
         capture_dom=True,
         full_page_config=FullPageConfig(
@@ -118,7 +118,7 @@ def main():
 
     visual_client.create_snapshot_from_webdriver(
         "Inventory Page (Clipped)",
-        session_id=session_id,
+        driver=driver,
         # Clip the screenshot (and DOM capture) to a single element on the page
         clip_selector='#inventory_container',
         capture_dom=True,
