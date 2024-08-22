@@ -45,7 +45,7 @@ export const config: Options.Testrunner = {
         buildName: 'Sauce Demo Test',
         branch: 'main',
         project: 'WDIO examples',
-        captureDom: true,
+        captureDom: false,
         diffingMethod: DiffingMethod.Balanced,
       },
     ],
