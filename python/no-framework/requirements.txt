@@ -1,2 +1,2 @@
-selenium==4.21.0
-saucelabs-visual==0.0.12
+selenium==4.23.1
+saucelabs-visual==0.1.0
