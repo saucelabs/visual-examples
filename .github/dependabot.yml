@@ -71,6 +71,32 @@ updates:
       - dependency-name: "@saucelabs/*"
         dependency-type: all
   - package-ecosystem: npm
+    directory: /wdio-ios-app
+    schedule:
+      interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+    allow:
+      - dependency-name: "@saucelabs/*"
+        dependency-type: all
+  - package-ecosystem: npm
+    directory: /wdio-android-app
+    schedule:
+      interval: daily
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - "dependabot"
+    reviewers:
+      - saucelabs/visual-team
+    allow:
+      - dependency-name: "@saucelabs/*"
+        dependency-type: all
+  - package-ecosystem: npm
     directory: /nightwatch/default
     schedule:
       interval: daily
