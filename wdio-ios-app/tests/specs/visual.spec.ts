@@ -3,7 +3,7 @@ import LoginPage from '../pages/login.page.ts';
 import MenuPage from '../pages/menu.page.ts';
 import App from '../pages/app.ts';
 
-describe('Android Native App', () => {
+describe('iOS Native App', () => {
   it('Displays App Catalog', async () => {
     await browser.sauceVisualCheck(`Startup`);
   });
