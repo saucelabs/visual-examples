@@ -6,98 +6,17 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /cypress
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /storybook
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /wdio
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /wdio-cucumber
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /wdio-jasmine
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /nightwatch/default
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /nightwatch/mocha
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "@saucelabs/*"
-        dependency-type: all
-  - package-ecosystem: npm
-    directory: /nightwatch/cucumberjs
+    directories: 
+      - /cypress
+      - /nightwatch/default
+      - /nightwatch/mocha
+      - /nightwatch/cucumberjs
+      - /storybook
+      - /wdio
+      - /wdio-android-app
+      - /wdio-cucumber
+      - /wdio-ios-app
+      - /wdio-jasmine
     schedule:
       interval: daily
       time: "08:00"
@@ -110,20 +29,9 @@ updates:
       - dependency-name: "@saucelabs/*"
         dependency-type: all
   - package-ecosystem: maven
-    directory: /wd-java
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "com.saucelabs.visual:*"
-        dependency-type: all
-  - package-ecosystem: maven
-    directory: /wd-java-testng
+    directories: 
+      - /wd-java
+      - /wd-java-testng
     schedule:
       interval: daily
       time: "08:00"
@@ -136,20 +44,9 @@ updates:
       - dependency-name: "com.saucelabs.visual:*"
         dependency-type: all
   - package-ecosystem: nuget
-    directory: /dotnet-nunit
-    schedule:
-      interval: daily
-      time: "08:00"
-      timezone: Etc/UTC
-    labels:
-      - "dependabot"
-    reviewers:
-      - saucelabs/visual-team
-    allow:
-      - dependency-name: "SauceLabs.*"
-        dependency-type: all
-  - package-ecosystem: nuget
-    directory: /dotnet-xunit
+    directories: 
+      - /dotnet-nunit
+      - /dotnet-xunit
     schedule:
       interval: daily
       time: "08:00"
