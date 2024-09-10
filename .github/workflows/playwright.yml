@@ -1,0 +1,35 @@
+name: Playwright Tests
+
+on:
+  push:
+    paths:
+      - 'playwright-js/**'
+      - '.github/workflows/playwright.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'playwright-js/**'
+      - '.github/workflows/playwright.yml'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  playwright-js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Playwright example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./playwright-js/
+          file: ./playwright-js/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
