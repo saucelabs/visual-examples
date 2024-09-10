@@ -12,6 +12,7 @@ updates:
       - /nightwatch/mocha
       - /nightwatch/cucumberjs
       - /storybook
+      - /playwright-js
       - /wdio
       - /wdio-android-app
       - /wdio-cucumber
