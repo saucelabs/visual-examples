@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react";
+import { SauceVisualParams } from "@saucelabs/visual-storybook";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -11,7 +11,7 @@ const preview: Preview = {
     },
     sauceVisual: {
       captureDom: true,
-    },
+    } satisfies SauceVisualParams,
   },
 };
 
