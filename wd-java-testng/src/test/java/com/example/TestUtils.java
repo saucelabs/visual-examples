@@ -72,7 +72,7 @@ public class TestUtils {
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("platformName", "Android");
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("appiumVersion", "latest");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
@@ -94,7 +94,7 @@ public class TestUtils {
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("appiumVersion", "latest");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
