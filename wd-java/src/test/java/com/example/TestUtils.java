@@ -79,11 +79,15 @@ public class TestUtils {
 
     private static MutableCapabilities getIosSimulatorCapabilities() {
         MutableCapabilities caps = new MutableCapabilities();
-        caps.setCapability("appium:deviceName", "iPhone Simulator");
-        caps.setCapability("appium:platformVersion", "16.2");
+        caps.setCapability("appium:deviceName", "iPad Simulator");
+        caps.setCapability("appium:platformVersion", "15.0");
         caps.setCapability("appium:automationName", "XCUITest");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
+        MutableCapabilities sauceOptions = new MutableCapabilities();
+        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
+        caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }
 
@@ -94,7 +98,7 @@ public class TestUtils {
         caps.setCapability("browserName", "Safari");
         caps.setCapability("platformName", "iOS");
         MutableCapabilities sauceOptions = new MutableCapabilities();
-        sauceOptions.setCapability("appiumVersion", "2.0.0");
+        sauceOptions.setCapability("appiumVersion", "latest");
         caps.setCapability("sauce:options", sauceOptions);
         return caps;
     }

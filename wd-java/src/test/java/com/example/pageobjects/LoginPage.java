@@ -13,7 +13,7 @@ public class LoginPage {
     }
 
     public void open() {
-        driver.get("https://www.saucedemo.com/");
+        driver.get("https://stg2-dmp.optum.com/automation-directory/o5-simple-cards0.html");
     }
 
     public WebElement getInputUsername() {
