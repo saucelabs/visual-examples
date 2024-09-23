@@ -40,7 +40,7 @@ public class InventoryTest {
     LoginPage loginPage = new LoginPage(driver);
     loginPage.open();
     CheckOptions options = new CheckOptions();
-    //options.setClipSelector(".o5-simple-card-grouping__brand-white");
+    options.setClipSelector(".o5-simple-card-grouping__brand-white");
     options.setDiffingMethod(CheckOptions.DiffingMethod.BALANCED);
     visual.sauceVisualCheck("Before Login", options);
   }
