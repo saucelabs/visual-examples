@@ -55,7 +55,7 @@ jobs:
         with:
           context: ./wdio-ios-app
           file: ./wdio-ios-app/Dockerfile
-          build-args:
+          build-args: |
             APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
             SIMULATOR_APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
             RUN_TYPE=${{ matrix.runtype }}

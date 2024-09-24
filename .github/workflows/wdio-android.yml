@@ -53,7 +53,7 @@ jobs:
         with:
           context: ./wdio-android-app
           file: ./wdio-android-app/Dockerfile
-          build-args:
+          build-args: |
             APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
             RUN_TYPE=${{ matrix.runtype }}
           push: false
