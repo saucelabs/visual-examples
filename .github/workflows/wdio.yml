@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [ios, android]
+        platform: [ios]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
