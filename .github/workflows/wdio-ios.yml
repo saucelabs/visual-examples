@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        run-type: [realdevice, simulator]
+        runtype: [realdevice, simulator]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -58,7 +58,7 @@ jobs:
           build-args:
             APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
             SIMULATOR_APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
-            RUN_TYPE=${{ matrix.run-type }}
+            RUN_TYPE=${{ matrix.runtype }}
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
