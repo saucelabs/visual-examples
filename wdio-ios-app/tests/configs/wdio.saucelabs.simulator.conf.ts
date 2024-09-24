@@ -15,18 +15,14 @@ export const config: Options.Testrunner = {
   // https://app.saucelabs.com/live/app-testing
   capabilities: [
     {
-      // You should always target a specific device and OS version.
-      // Different devices will generate different baselines as their screen size and pixel density are different.
-      // See: https://docs.saucelabs.com/visual-testing/mobile-native-testing/#best-practices
-      'appium:deviceName': 'iPhone 14 Pro',
-      'appium:platformVersion': '17',
       platformName: 'iOS',
+      'appium:app': `storage:${process.env.SIMULATOR_APP_FILEID}`,
+      'appium:deviceName': 'iPhone Instant Simulator',
+      'appium:platformVersion': 'current_major',
       'appium:automationName': 'XCUITest',
-      'appium:app': `storage:${process.env.APP_FILEID}`,
       'sauce:options': {
-        appiumVersion: 'latest',
-        name: `wdio-ios-app - Real Device`,
-        build
+        name: `wdio-ios-app - Simulator`,
+        build,
       },
     }
   ],
