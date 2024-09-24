@@ -28,5 +28,6 @@ ARG APP_FILEID
 ARG SIMULATOR_APP_FILEID
 ARG RUN_TYPE
 
+RUN echo "${APP_FILEID} / ${SIMULATOR_APP_FILEID} / ${RUN_TYPE}"
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-${RUN_TYPE}
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-${RUN_TYPE}-modified
