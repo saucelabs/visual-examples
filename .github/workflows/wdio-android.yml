@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app-type: [realdevice, emulator]
+        run-type: [realdevice, emulator]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
           file: ./wdio-android-app/Dockerfile
           build-args:
             APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
-            TYPE=${{ matrix.app-type }}
+            RUN_TYPE=${{ matrix.run-type }}
           push: false
           secrets: |
             "dotenv=${{ secrets.DOTENV }}"
