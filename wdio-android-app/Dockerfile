@@ -27,7 +27,5 @@ RUN runme run npm-install
 ARG APP_FILEID
 ARG RUN_TYPE
 
-RUN echo "${RUN_TYPE} / ${APP_FILEID}"
-RUN env
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run "npm-run-${RUN_TYPE}"
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run "npm-run-${RUN_TYPE}-modified"
