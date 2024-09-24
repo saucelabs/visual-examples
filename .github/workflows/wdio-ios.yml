@@ -40,7 +40,7 @@ jobs:
 
       - name: Pre-Upload App
         id: upload
-        working-directory: ./wdio-android-app/
+        working-directory: ./wdio-ios-app/
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
