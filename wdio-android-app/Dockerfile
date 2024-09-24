@@ -28,4 +28,4 @@ ARG APP_FILEID
 ARG RUN_TYPE
 
 RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-${RUN_TYPE}
-RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-${RUN_TYPE}}-modified
+RUN --mount=type=secret,id=dotenv,target=/workspace/.env runme run npm-run-${RUN_TYPE}-modified
