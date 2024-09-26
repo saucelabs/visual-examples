@@ -20,6 +20,11 @@ export const config: Options.Testrunner = {
       'appium:platformVersion': 'current_major',
       'appium:app': `storage:${process.env.APP_FILEID}`,
       'appium:automationName': 'UIAutomator2',
+      // https://kobiton.com/blog/understanding-appium-desired-capabilities/
+      // Appium checks periodically that the main activity is (in our demo app, the SplashActivity).
+      // SplashActivity may transition to MainActivity before Appium has check that it was displayed.
+      // Waiting for MainActivity permits Appium to notice that the app is fully started, and allow tests to continue.
+      'appium:appWaitActivity': 'com.saucelabs.mydemoapp.android.view.activities.MainActivity',
       'sauce:options': {
         build,
         name: `wdio-android-app - Emulator`,
