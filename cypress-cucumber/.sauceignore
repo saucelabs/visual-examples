@@ -1,0 +1,21 @@
+# This file instructs saucectl to not package any files mentioned here.
+/artifacts/
+cypress/videos/
+cypress/results/
+cypress/screenshots/
+node_modules/
+.git/
+.github/
+.DS_Store
+.hg/
+.vscode/
+.idea/
+.gitignore
+.hgignore
+.gitlab-ci.yml
+.npmrc
+*.gif
+.env
+Dockerfile
+package-lock.json
+README.md
