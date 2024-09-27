@@ -1,0 +1,24 @@
+{
+  "name": "@saucelabs/cypress-visual-plugin-example",
+  "description": "Sauce Labs Visual Example for Cypress",
+  "engines": {
+    "node": "^16.13 || >=18"
+  },
+  "scripts": {
+    "sauce-visual": "cypress run",
+    "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
+  },
+  "dependencies": {
+    "@saucelabs/cypress-visual-plugin": "^0.6.2",
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
+    "@tsconfig/node18": "^18.2.4",
+    "cypress": "^13.7.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.4",
+    "chalk": "^5.3.0"
+  }
+}

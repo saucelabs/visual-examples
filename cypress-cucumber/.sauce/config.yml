@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: cypress
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    tags:
+      - visual
+      - demo
+    build: Visual Demo
+cypress:
+  version: 13.13.3 # See https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms for a list of supported versions.
+  configFile: "cypress.config.js"
+
+npm:
+  packages:
+    "@saucelabs/cypress-visual-plugin": "^0.6.3"
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2"
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2"
+
+rootDir: ./
+suites:
+  - name: "Sauce Demo Cypress"
+    browser: "chrome"
+    platformName: "Windows 11"
+    screenResolution: "1920x1080"  # (optional)
+    config:
+      specPattern: [ "cypress/e2e/**/*.feature" ]
+      env:
+        SAUCE_USERNAME: $SAUCE_USERNAME
+        SAUCE_ACCESS_KEY: $SAUCE_ACCESS_KEY
+        CYPRESS_VISUAL_CHECK: $VISUAL_CHECK
+
+artifacts:
+  download:
+    when: never
+    match:
+      - console.log
+    directory: ./artifacts/

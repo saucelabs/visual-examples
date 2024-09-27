@@ -6,13 +6,13 @@ name: Cypress Testing
 on:
   push:
     paths:
-      - 'cypress/**'
+      - 'cypress*/**'
       - '.github/workflows/cypress.yml'
     branches:
       - main
   pull_request:
     paths:
-      - 'cypress/**'
+      - 'cypress*/**'
       - '.github/workflows/cypress.yml'
     branches:
       - main
@@ -47,6 +47,36 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./cypress
+          file: ./cypress/Dockerfile.saucectl
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  cypress-cucumber:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Cypress example
+        uses: docker/build-push-action@v5
+        with:
+          context: ./cypress-cucumber
+          file: ./cypress/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  cypress-cucumber-saucectl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Cypress example
+        uses: docker/build-push-action@v5
+        with:
+          context: ./cypress-cucumber
           file: ./cypress/Dockerfile.saucectl
           push: false
           secrets: |
