@@ -50,6 +50,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 - Upload application binary using `saucectl`
 
+For Real Devices:
 ```sh { name=upload-binary }
 npx saucectl storage upload ./app/SauceLabs-Demo-App.ipa
 ```
@@ -59,19 +60,42 @@ npx saucectl storage upload ./app/SauceLabs-Demo-App.ipa
 export APP_FILEID=<file-ID-returned-by-saucectl>
 ```
 
+
+For Simulators:
+```sh { name=upload-binary-simulators }
+npx saucectl storage upload ./app/SauceLabs-Demo-App.Simulator.ipa
+```
+
+- Get the file ID and export it to the env
+```sh { name=set-file-id-simulators }
+export SIMULATOR_APP_FILEID=<file-ID-returned-by-saucectl>
+```
+
 - Run the test
 
-
-```sh { name=npm-run }
+On a Real Device:
+```sh { name=npm-run-realdevice }
 npm run sauce-visual
+```
+
+On a Simulator:
+
+```sh { name=npm-run-simulator }
+npm run sauce-visual-simulator
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
-```sh { name=npm-run-modified }
+On a Real Device:
+```sh { name=npm-run-realdevice-modified }
 npm run sauce-visual-check
+```
+
+On a Simulator:
+```sh { name=npm-run-simulator-modified }
+npm run sauce-visual-simulator-check
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.

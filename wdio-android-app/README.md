@@ -61,17 +61,28 @@ export APP_FILEID=<file-ID-returned-by-saucectl>
 
 - Run the test
 
-
-```sh { name=npm-run }
+On a real device:
+```sh { name=npm-run-realdevice }
 npm run sauce-visual
+```
+
+On an emulator:
+```sh { name=npm-run-emulator }
+npm run sauce-visual-emulator
 ```
 
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 - Re-run the tests
 
-```sh { name=npm-run-modified }
+On a real device:
+```sh { name=npm-run-realdevice-modified }
 npm run sauce-visual-check
+```
+
+On an emulator:
+```sh { name=npm-run-emulator-modified }
+npm run sauce-visual-emulator-check
 ```
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.

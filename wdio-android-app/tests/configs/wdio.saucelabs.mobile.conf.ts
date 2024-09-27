@@ -25,8 +25,9 @@ export const config: Options.Testrunner = {
       'appium:app': `storage:${process.env.APP_FILEID}`,
       'sauce:options': {
         appiumVersion: 'latest',
-        build
+        build,
+        name: `wdio-android-app - Real Device`,
       },
-    }
+    },
   ],
 };

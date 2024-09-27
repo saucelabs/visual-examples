@@ -16,7 +16,9 @@
   },
   "scripts": {
     "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
-    "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts"
+    "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual-simulator": "wdio run ./tests/configs/wdio.saucelabs.simulator.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual-simulator-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.simulator.conf.ts --spec tests/specs/visual.spec.ts"
   },
   "dependencies": {
     "@saucelabs/wdio-sauce-visual-service": "^0.6.0",
