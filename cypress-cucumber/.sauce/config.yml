@@ -10,7 +10,7 @@ sauce:
     build: Visual Demo
 cypress:
   version: 13.13.3 # See https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms for a list of supported versions.
-  configFile: "cypress.config.js"
+  configFile: "cypress.config.ts"
 
 npm:
   packages:
