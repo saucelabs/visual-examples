@@ -17,6 +17,10 @@ npm:
     "@saucelabs/cypress-visual-plugin": "^0.6.3"
     "@badeball/cypress-cucumber-preprocessor": "^20.1.2"
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2"
+    "typescript": "^5.4.3"
+    "cypress-on-fix": "^1.0.3"
+    "ts-node": "^10.9.2"
+    "@tsconfig/node18": "^18.2.4"
 
 rootDir: ./
 suites:
