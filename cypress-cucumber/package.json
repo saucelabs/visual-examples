@@ -9,11 +9,13 @@
     "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
   },
   "dependencies": {
-    "@saucelabs/cypress-visual-plugin": "^0.6.2",
-    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3",
+    "@saucelabs/cypress-visual-plugin": "^0.6.6",
+    "@saucelabs/visual": "^0.9.0",
     "@tsconfig/node18": "^18.2.4",
     "cypress": "^13.7.2",
+    "cypress-on-fix": "^1.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   },
