@@ -6,17 +6,17 @@ When('on Sauce Demo Page', () => {
   cy.visit('https://www.saucedemo.com/');
 });
 
-Then('{string} should be visible', (selector) => {
+Then('{string} should be visible', (selector: string) => {
   cy.get(selector).should('be.visible');
 });
 
-Then('I capture a screenshot named {string}', (screenshotName) => {
+Then('I capture a screenshot named {string}', (screenshotName: string) => {
   cy.sauceVisualCheck(screenshotName, {
     captureDom: true
   });
 });
 
-Then('I log in as {string}', (username) => {
+Then('I log in as {string}', (username: string) => {
   let user = Cypress.env('VISUAL_CHECK') ? 'visual_user' : 'standard_user';
   if (username != 'standard_user') {
     user = username;
@@ -25,7 +25,7 @@ Then('I log in as {string}', (username) => {
   cy.get('[data-test="password"]').type('secret_sauce').should('have.value', 'secret_sauce');
 });
 
-Then('I log in as {string} with a screenshot', (username) => {
+Then('I log in as {string} with a screenshot', (username: string) => {
   let user = Cypress.env('VISUAL_CHECK') ? 'visual_user' : 'standard_user';
   if (username != 'standard_user') {
     user = username;
