@@ -61,4 +61,4 @@ PLATFORM_NAME=ANDROID_EMULATOR ./mvnw clean test
 
 ## Installation & Usage
 
-View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/cypress/).
+View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/java/).
