@@ -41,8 +41,6 @@ describe('Android Native App', () => {
     });
   });
 
-
-
   // NOTE: Full page screenshot for native apps is in beta stage
   // some of the functionality may not work as expected (especially virtual devices, clipping, ignore regions)
   if (!!process.env.FPS) {
