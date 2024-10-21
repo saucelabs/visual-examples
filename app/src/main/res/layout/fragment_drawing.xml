@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".view.fragments.DrawingFragment">
+
+    <TextView
+        android:id="@+id/drawingTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drawing"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/titleMarginTop"
+        android:textSize="@dimen/titleTextSize"
+        android:textStyle="bold"
+        android:paddingStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <com.github.gcacace.signaturepad.views.SignaturePad-->
+<!--        android:id="@+id/signature_pad"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:penColor="@android:color/holo_red_light"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:background="@drawable/drawing_bg"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/drawingTV"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/buttonsLL"/>-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        android:src="@drawable/drawing_bg"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/drawingTV"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/buttonsLL" />-->
+
+<!--    <com.kyanogen.signatureview.SignatureView-->
+<!--        android:id="@+id/signature_pad"-->
+<!--        xmlns:sign="http://schemas.android.com/apk/res-auto"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:penColor="@android:color/holo_red_light"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginBottom="15dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/drawingTV"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/buttonsLL"-->
+<!--        sign:enableSignature="true"/>-->
+
+    <ImageView
+        android:id="@+id/padBackgroundIV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/drawing_bg"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background_for_drawing_pad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawingTV"
+        app:layout_constraintBottom_toTopOf="@id/buttonsLL"/>
+
+    <com.williamww.silkysignature.views.SignaturePad
+        android:id="@+id/signature_pad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/pad_to_draw_on"
+        app:layout_constraintBottom_toTopOf="@id/buttonsLL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawingTV"
+        app:penColor="@color/green" />
+
+    <LinearLayout
+        android:id="@+id/buttonsLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.widget.Button
+            android:id="@+id/clearBtn"
+            android:layout_weight="1"
+            android:text="@string/clear"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/removes_anything_drawn_on_pad"
+            android:background="@drawable/login_button_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.widget.Button
+            android:layout_weight="1"
+            android:id="@+id/saveBtn"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:contentDescription="@string/save_anything_drawn_on_pad"
+            android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:background="@drawable/login_button_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

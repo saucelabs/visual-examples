@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/manages_scrolling_of_views_in_given_screen"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/completeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkout_complete"
+                    style="@style/TextViewStyle"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_22"
+                    android:layout_marginTop="60dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                    app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+
+                <TextView
+                    android:id="@+id/thankYouTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thank_you_for_your_order"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/completeTV"
+                    app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                    app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+
+                <TextView
+                    android:id="@+id/swagTV"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15"
+                    android:text="@string/your_new_swag_is_on_its_way"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_16"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                    app:layout_constraintStart_toStartOf="@id/leftGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/thankYouTV" />
+
+                <TextView
+                    android:id="@+id/orderTV"
+                    android:layout_width="@dimen/_0"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/your_order_has_been_dispatched_and_will_arrive_as_fast_as_the_pony_gallops"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16"
+                    android:layout_marginTop="@dimen/_15"
+                    app:layout_constraintTop_toBottomOf="@+id/swagTV"
+                    app:layout_constraintEnd_toEndOf="@id/rightGuideline"
+                    app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+
+                <Button
+                    android:id="@+id/shoopingBt"
+                    style="@style/TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/green"
+                    android:contentDescription="@string/tap_to_open_catalog"
+                    android:paddingStart="@dimen/_20"
+                    android:paddingEnd="@dimen/_20"
+                    android:text="@string/continue_shopping"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderTV" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/leftGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="20dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/rightGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="20dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
