@@ -46,7 +46,7 @@ public class VisualTest extends BaseTest {
             .build();
 
     @Test
-    public void successfulLoginTest() {
+    public void checkAppCatalog() {
 
         waitView(withId(R.id.menuIV));
 
