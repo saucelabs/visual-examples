@@ -47,4 +47,16 @@ describe('Android Native App', () => {
       clipElement: catalogContent,
     });
   });
+
+  // NOTE: Full page screenshot for native apps is in beta stage
+  // some of the functionality may not work as expected (especially virtual devices, clipping, ignore regions)
+  if (!!process.env.FPS) {
+    it('Full Page - Check App Catalog', async () => {
+      await browser.sauceVisualCheck(`Full Page - App Catalog`, {
+        fullPage: {
+          scrollElement: $('//androidx.recyclerview.widget.RecyclerView')
+        }
+      });
+    });
+  }
 });

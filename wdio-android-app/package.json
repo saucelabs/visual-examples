@@ -15,13 +15,14 @@
     "typescript": "^5.4.3"
   },
   "scripts": {
-    "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
-    "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual": "FPS=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual-check": "FPS=true VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
     "sauce-visual-emulator": "wdio run ./tests/configs/wdio.saucelabs.emulator.conf.ts --spec tests/specs/visual.spec.ts",
     "sauce-visual-emulator-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.emulator.conf.ts --spec tests/specs/visual.spec.ts"
   },
   "dependencies": {
-    "@saucelabs/wdio-sauce-visual-service": "^0.6.0",
+    "@saucelabs/wdio-sauce-visual-service": "^0.7.0",
+    "@wdio/globals": "^9.1.2",
     "readline-sync": "^1.4.10",
     "saucectl": "^0.180.0",
     "update-dotenv": "^1.1.1"
