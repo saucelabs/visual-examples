@@ -50,9 +50,6 @@ android {
     }
 
     namespace 'com.saucelabs.mydemoapp.android'
-    lint {
-        checkReleaseBuilds false
-    }
 
     signingConfigs {
         debug {
