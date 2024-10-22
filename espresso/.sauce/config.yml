@@ -5,7 +5,6 @@ sauce:
   # Controls how many suites are executed at the same time (sauce test env only).
   concurrency: 2
   metadata:
-    name: Testing My Demo App Android with espresso
     tags:
       - e2e
       - release team
@@ -23,8 +22,9 @@ suites:
     devices:
       - name: "Google.*"
         platformVersion: "14"
-      - name: "Samsung.*"
-        platformVersion: "13"
+    testOptions:
+      size: large
+      visualCheck: $VISUAL_CHECK
 
 
 # Controls what artifacts to fetch when the suite on Sauce Cloud has finished.
