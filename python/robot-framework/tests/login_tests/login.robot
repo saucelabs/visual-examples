@@ -4,7 +4,7 @@ Documentation     A test suite with a single test for valid login.
 ...               This test has a workflow that is created using keywords in
 ...               the imported resource file.
 Resource          resource.robot
-Suite Setup    Open Browser    browser=${BROWSER}    remote_url=${REMOTE URL}    options=set_capability('sauce:options', ${DESIRED CAPABILITIES})
+Suite Setup    Open Browser    browser=${BROWSER}    remote_url=${REMOTE URL}    options=platform_name="${PLATFORM NAME}";browser_version="${BROWSER VERSION}";set_capability('sauce:options', ${DESIRED CAPABILITIES})
 Suite Teardown    Close Browser
 
 *** Test Cases ***
