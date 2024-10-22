@@ -73,4 +73,4 @@ VISUAL_CHECK=true npx saucectl run
 
 ## Installation & Usage
 
-View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/playwright/).
+View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/espresso/).
