@@ -34,7 +34,7 @@ SAUCE_ACCESS_KEY==__YOUR_SAUCE_ACCESS_KEY__
 - Go to https://app.saucelabs.com/visual/builds and select your latest build
 - Accept all diffs, so they become new baselines.
 
-- Rerun the test, this time passing the visualCheck parameter
+- Rerun the test, this time passing the `visualCheck` parameter
 ```sh { name=gradle-visual-test }
 ./gradlew connectedAndroidTest \
 -Pandroid.testInstrumentationRunnerArguments.class=com.saucelabs.mydemoapp.android.view.activities.VisualTest \
@@ -63,7 +63,7 @@ npx saucectl run
 - Review your screenshots by clicking on the url printed in the test or go to https://app.saucelabs.com/visual/builds.
 - Accept all diffs, so they become new baselines.
 
-- Run saucectl this time passing the visualCheck parameter
+- Run saucectl with `VISUAL_CHECK` environment variable
 
 ```sh { name=saucectl-run-visual-check }
 VISUAL_CHECK=true npx saucectl run
