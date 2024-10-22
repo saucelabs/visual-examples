@@ -126,7 +126,7 @@ def main():
 
     # Finish the Visual build, so we can update the results UI and finish calculation.
     visual_client.finish_build()
-    log_step("Visual Build Finished")
+    log_step("Visual Build Finished: {}".format(visual_client.get_build_link()))
 
     driver.close()
     log_step("Finished Test")
