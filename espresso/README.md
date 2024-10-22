@@ -1,24 +1,49 @@
-# my-demo-app-android
+# Getting started with Playwright
 
-*My Demo App* is a... demo app! 
-It was built by the Sauce Labs team to showcase product capabilities of the Sauce Labs mobile devices cloud, The Sauce Labs mobile beta testing platform, TestFairy, and more products and technologies that will be added to this project soon.
+Included is a full setup for our recommended way of using Sauce Visual with Espresso 
+in [VisualTest](./app/src/androidTest/java/com/saucelabs/mydemoapp/android/view/activities/VisualTest.java)
 
-This app is part of a set of demo apps.
+## Prerequisites
 
-[My Demo App - Android](https://github.com/saucelabs/my-demo-app-android)
+- Android Studio Koala | 2024.1.1 and above
+- Sauce Labs Account
 
-[My Demo App - iOS](https://github.com/saucelabs/my-demo-app-ios)
+## Run the demo with Local Emulator
 
-### QR code scanner
+- Open the app with Android Studio
 
-This app has a QR code scanner.
-You can find it in the menu under the option "QR CODE SCANNER".
-This page opens the camera (you first need to allow the app to use the camera) which can be used to scan a QR Code.
-If the QR code holds an URL it will automatically open it in a browser. The [following image](./docs/assets/qr-code.png)
-can be used to demo this option.
+- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and 
+add the following lines to `local.properties` file
 
-![QR Code](./docs/assets/qr-code.png)
+```sh { name=set-credentials }
+SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
+SAUCE_ACCESS_KEY==__YOUR_SAUCE_ACCESS_KEY__
+# You can change the region to upload to via the SAUCE_REGION env variable. See the
+# docs for more details on how to customize your run.
+```
 
-## Publish
+- Start a local emulator with Android Studio
 
-To publish a new version, create a release with a valid semver tag name. A CI workflow will handle setting the app version name/code and upload the APK into the release. 
+- Run the test
+
+```sh { name=gradle-test }
+./gradlew connectedAndroidTest \
+-Pandroid.testInstrumentationRunnerArguments.class=com.saucelabs.mydemoapp.android.view.activities.LoginTest
+```
+
+- Go to https://app.saucelabs.com/visual/builds and select your latest build
+- Accept all diffs, so they become new baselines.
+
+- Rerun the test, this time passing a parameter
+```sh { name=gradle-visual-test }
+./gradlew connectedAndroidTest \
+-Pandroid.testInstrumentationRunnerArguments.class=com.saucelabs.mydemoapp.android.view.activities.LoginTest \
+-Pandroid.testInstrumentationRunnerArguments.visualCheck=true
+```
+
+- Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
+- It should detect changes and display differences between the two runs
+
+## Installation & Usage
+
+View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/playwright/).
