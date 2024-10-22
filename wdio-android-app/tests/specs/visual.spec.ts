@@ -41,6 +41,13 @@ describe('Android Native App', () => {
     });
   });
 
+  it('Captures only catalog content', async () => {
+    const catalogContent = await App.catalogContent;
+    await browser.sauceVisualCheck(`Catalog Fragment`, {
+      clipElement: catalogContent,
+    });
+  });
+
   // NOTE: Full page screenshot for native apps is in beta stage
   // some of the functionality may not work as expected (especially virtual devices, clipping, ignore regions)
   if (!!process.env.FPS) {
@@ -52,11 +59,4 @@ describe('Android Native App', () => {
       });
     });
   }
-
-  it('Captures only catalog content', async () => {
-    const catalogContent = await App.catalogContent;
-    await browser.sauceVisualCheck(`Catalog Fragment`, {
-      clipElement: catalogContent,
-    });
-  });
 });
