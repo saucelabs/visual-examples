@@ -19,8 +19,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
-        buildConfigField "String", "SAUCE_USERNAME", getProperty("SAUCE_USERNAME", "")
-        buildConfigField "String", "SAUCE_ACCESS_KEY", getProperty("SAUCE_ACCESS_KEY", "")
+        buildConfigField "String", "SAUCE_USERNAME", getProperty("SAUCE_USERNAME", "\"\"")
+        buildConfigField "String", "SAUCE_ACCESS_KEY", getProperty("SAUCE_ACCESS_KEY", "\"\"")
     }
 
     testOptions {
