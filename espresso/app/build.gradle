@@ -4,8 +4,7 @@ apply plugin: 'jacoco'
 android {
     signingConfigs {}
 
-    compileSdkVersion 31
-    buildToolsVersion "30.0.2"
+    compileSdk 33
     useLibrary 'org.apache.http.legacy'
     ndkVersion '21.3.6528147'
 
@@ -32,7 +31,8 @@ android {
     buildTypes {
         debug {
             debuggable true
-            testCoverageEnabled true
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
         }
         release {
             minifyEnabled false
@@ -49,7 +49,8 @@ android {
         enabled = true
     }
 
-    lintOptions {
+    namespace 'com.saucelabs.mydemoapp.android'
+    lint {
         checkReleaseBuilds false
     }
 
@@ -58,6 +59,9 @@ android {
             v1SigningEnabled true
             v2SigningEnabled true
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -90,6 +94,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //Libraries For Testing
+    androidTestImplementation("com.saucelabs.visual:visual-espresso:0.0.1")
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
     androidTestImplementation("com.android.support.test.espresso:espresso-contrib:3.0.2")
     androidTestImplementation 'androidx.test:runner:1.4.0'
@@ -138,6 +143,10 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
     implementation "com.google.zxing:core:3.3.3"
+
+    configurations.implementation {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    }
 }
 
 apply plugin: 'com.google.gms.google-services'
