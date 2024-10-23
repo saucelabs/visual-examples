@@ -19,7 +19,9 @@ ${INVENTORY PAGE}    https://www.saucedemo.com/inventory.html
 # REMOTE URL=https://ondemand.eu-central-1.saucelabs.com/wd/hub
 # SAUCE_REGION=eu-central-1
 ${REMOTE URL}    https://ondemand.us-west-1.saucelabs.com:443/wd/hub
-${DESIRED CAPABILITIES}    {"username": "%{SAUCE_USERNAME}", "accessKey": "%{SAUCE_ACCESS_KEY}", "sauce:options": {"browser_version": "latest", "platform_name": "Windows 11", "browser": "chrome"}}
+${DESIRED CAPABILITIES}    {"username": "%{SAUCE_USERNAME}", "accessKey": "%{SAUCE_ACCESS_KEY}", "screenResolution": "1280x800"}
+${PLATFORM NAME}    Windows 11
+${BROWSER VERSION}    latest
 
 *** Keywords ***
 Open Browser To Login Page
