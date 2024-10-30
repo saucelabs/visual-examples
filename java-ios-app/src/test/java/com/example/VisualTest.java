@@ -10,8 +10,10 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -71,5 +73,19 @@ public class VisualTest {
     visual.sauceVisualCheck(
         "Catalog Fragment",
         new CheckOptions.Builder().withClipElement(catalogPage.getCatalogContent()).build());
+  }
+
+  @Test
+  @EnabledIfEnvironmentVariable(named = "FPS", matches = "enabled")
+  void checkFullPageCatalog() {
+    CatalogPage catalogPage = new CatalogPage(driver);
+    visual.sauceVisualCheck(
+        "Full page app catalog",
+        new CheckOptions.Builder()
+            .withFullPageConfig(
+                new FullPageScreenshotConfig.Builder()
+                    .withScrollElement(catalogPage.getFullPageCatalog())
+                    .build())
+            .build());
   }
 }

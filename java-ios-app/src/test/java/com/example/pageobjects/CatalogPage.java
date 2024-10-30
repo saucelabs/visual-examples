@@ -26,4 +26,9 @@ public class CatalogPage {
     return driver.findElement(
         AppiumBy.xpath("//XCUIElementTypeOther[@name=\"Catalog-screen\"]/XCUIElementTypeOther[2]"));
   }
+
+  public WebElement getFullPageCatalog() {
+    return driver.findElement(
+            AppiumBy.xpath("//XCUIElementTypeCollectionView"));
+  }
 }
