@@ -18,7 +18,7 @@ brew install --cask temurin
 
 ```sh { "name":"clone" }
 git clone https://github.com/saucelabs/visual-examples
-cd visual-examples/wd-java
+cd visual-examples/java-ios-app
 ```
 
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings
