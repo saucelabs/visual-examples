@@ -57,5 +57,5 @@ jobs:
             SIMULATOR_APP_FILEID=${{ steps.upload.outputs.SIMULATOR_APP_FILEID }}
           push: false
           secret-envs: |
-            "id=SAUCE_USERNAME"
-            "id=SAUCE_ACCESS_KEY"
+            "SAUCE_USERNAME=SAUCE_USERNAME"
+            "SAUCE_ACCESS_KEY=SAUCE_ACCESS_KEY"
