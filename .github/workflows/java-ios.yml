@@ -45,7 +45,7 @@ jobs:
           echo "SIMULATOR_APP_FILEID=${SIMULATOR_APP_FILEID}" >> $GITHUB_OUTPUT
 
       - name: Build example
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6.9.0
         env:
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
@@ -56,6 +56,6 @@ jobs:
             APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
             SIMULATOR_APP_FILEID=${{ steps.upload.outputs.SIMULATOR_APP_FILEID }}
           push: false
-          secrets: |
+          secret-envs: |
             "id=SAUCE_USERNAME"
             "id=SAUCE_ACCESS_KEY"
