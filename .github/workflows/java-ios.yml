@@ -3,14 +3,14 @@ name: Java iOS Tests
 on:
   push:
     paths:
-      - 'wd-java*/**'
-      - '.github/workflows/java.yml'
+      - 'java-ios-app/**'
+      - '.github/workflows/java-ios.yml'
     branches:
       - main
   pull_request:
     paths:
-      - 'wd-java*/**'
-      - '.github/workflows/java.yml'
+      - 'java-ios-app/**'
+      - '.github/workflows/java-ios.yml'
     branches:
       - main
 
@@ -19,30 +19,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  wd-java:
+  java-ios-app:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Build wd-java example
-        uses: docker/build-push-action@v4
-        with:
-          context: ./wd-java
-          file: ./wd-java/Dockerfile
-          push: false
-          secrets: |
-            "dotenv=${{ secrets.DOTENV }}"
 
-  wd-java-testng:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Build wd-java-testng example
-        uses: docker/build-push-action@v4
+      - name: Install saucectl
+        uses: saucelabs/saucectl-run-action@v4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          context: ./wd-java-testng
-          file: ./wd-java/Dockerfile
+          skip-run: true
+
+      - name: Pre-Upload App
+        id: upload
+        working-directory: ./wdio-ios-app/
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: |
+          APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.ipa -o json | jq -r '.id')
+          SIMULATOR_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.Simulator.ipa -o json | jq -r '.id')
+          echo "APP_FILEID=${APP_FILEID}" >> $GITHUB_OUTPUT
+          echo "SIMULATOR_APP_FILEID=${SIMULATOR_APP_FILEID}" >> $GITHUB_OUTPUT
+
+      - name: Build example
+        uses: docker/build-push-action@v4
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        with:
+          context: ./java-ios-app
+          file: ./java-ios-app/Dockerfile
+          build-args: |
+            APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
+            SIMULATOR_APP_FILEID=${{ steps.upload.outputs.SIMULATOR_APP_FILEID }}
           push: false
           secrets: |
-            "dotenv=${{ secrets.DOTENV }}"
+            "id=SAUCE_USERNAME"
+            "id=SAUCE_ACCESS_KEY"
