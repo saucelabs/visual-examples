@@ -1,0 +1,48 @@
+name: Java iOS Tests
+
+on:
+  push:
+    paths:
+      - 'wd-java*/**'
+      - '.github/workflows/java.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'wd-java*/**'
+      - '.github/workflows/java.yml'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  wd-java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build wd-java example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./wd-java
+          file: ./wd-java/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"
+
+  wd-java-testng:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build wd-java-testng example
+        uses: docker/build-push-action@v4
+        with:
+          context: ./wd-java-testng
+          file: ./wd-java/Dockerfile
+          push: false
+          secrets: |
+            "dotenv=${{ secrets.DOTENV }}"

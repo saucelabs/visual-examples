@@ -75,6 +75,7 @@ public class VisualTest {
         new CheckOptions.Builder().withClipElement(catalogPage.getCatalogContent()).build());
   }
 
+
   @Test
   @EnabledIfEnvironmentVariable(named = "FPS", matches = "enabled")
   void checkFullPageCatalog() {
@@ -88,4 +89,5 @@ public class VisualTest {
                     .build())
             .build());
   }
+
 }
