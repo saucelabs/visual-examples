@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM eclipse-temurin:8u432-b06-jdk-jammy AS runner
 
 # Install curl
