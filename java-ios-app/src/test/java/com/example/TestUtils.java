@@ -34,7 +34,7 @@ public class TestUtils {
     MutableCapabilities sauceOptions = new MutableCapabilities();
     sauceOptions.setCapability("appiumVersion", "latest");
     sauceOptions.setCapability("name", "java-ios-app - Real Device");
-    sauceOptions.setCapability("build", "Sauce Demo Test" + Instant.now());
+    sauceOptions.setCapability("build", "Sauce Demo Test " + Instant.now());
     caps.setCapability("sauce:options", sauceOptions);
     return caps;
   }
