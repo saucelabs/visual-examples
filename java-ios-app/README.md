@@ -44,6 +44,15 @@ VISUAL_CHECK=enabled ./mvnw clean test
 
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 
+
+**NOTE**: If you'd like run the full page screenshot test additionally,
+  you need to pass the environment variable FPS=enabled when running the test.
+
+```sh { "name":"mvn-run-ios-test-fps" }
+FPS=enabled ./mvnw clean test
+```
+
 ## Installation & Usage
 
-View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/java/).
+View installation and usage instructions on
+the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/java/).

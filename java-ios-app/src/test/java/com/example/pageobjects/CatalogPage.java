@@ -1,10 +1,9 @@
 package com.example.pageobjects;
 
 import io.appium.java_client.AppiumBy;
+import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.util.List;
 
 public class CatalogPage {
 
@@ -28,7 +27,6 @@ public class CatalogPage {
   }
 
   public WebElement getFullPageCatalog() {
-    return driver.findElement(
-            AppiumBy.xpath("//XCUIElementTypeCollectionView"));
+    return driver.findElement(AppiumBy.xpath("//XCUIElementTypeCollectionView"));
   }
 }

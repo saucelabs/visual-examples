@@ -6,11 +6,10 @@ import com.example.pageobjects.MenuPage;
 import com.saucelabs.visual.CheckOptions;
 import com.saucelabs.visual.VisualApi;
 import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.saucelabs.visual.model.FullPageScreenshotConfig;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
@@ -75,7 +74,6 @@ public class VisualTest {
         new CheckOptions.Builder().withClipElement(catalogPage.getCatalogContent()).build());
   }
 
-
   @Test
   @EnabledIfEnvironmentVariable(named = "FPS", matches = "enabled")
   void checkFullPageCatalog() {
@@ -89,5 +87,4 @@ public class VisualTest {
                     .build())
             .build());
   }
-
 }
