@@ -1,0 +1,61 @@
+name: Java iOS Tests
+
+on:
+  push:
+    paths:
+      - 'java-ios-app/**'
+      - '.github/workflows/java-ios.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'java-ios-app/**'
+      - '.github/workflows/java-ios.yml'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  java-ios-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install saucectl
+        uses: saucelabs/saucectl-run-action@v4
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          skip-run: true
+
+      - name: Pre-Upload App
+        id: upload
+        working-directory: ./wdio-ios-app/
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        run: |
+          APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.ipa -o json | jq -r '.id')
+          SIMULATOR_APP_FILEID=$(saucectl storage upload ./app/SauceLabs-Demo-App.Simulator.ipa -o json | jq -r '.id')
+          echo "APP_FILEID=${APP_FILEID}" >> $GITHUB_OUTPUT
+          echo "SIMULATOR_APP_FILEID=${SIMULATOR_APP_FILEID}" >> $GITHUB_OUTPUT
+
+      - name: Build example
+        uses: docker/build-push-action@v6.9.0
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+        with:
+          context: ./java-ios-app
+          file: ./java-ios-app/Dockerfile
+          build-args: |
+            APP_FILEID=${{ steps.upload.outputs.APP_FILEID }}
+            SIMULATOR_APP_FILEID=${{ steps.upload.outputs.SIMULATOR_APP_FILEID }}
+          push: false
+          secret-envs: |
+            "SAUCE_USERNAME=SAUCE_USERNAME"
+            "SAUCE_ACCESS_KEY=SAUCE_ACCESS_KEY"
