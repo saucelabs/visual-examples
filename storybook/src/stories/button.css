@@ -28,3 +28,6 @@
   font-size: 16px;
   padding: 12px 24px;
 }
+.storybook-button:disabled {
+  background: #e8e8e8;
+}
