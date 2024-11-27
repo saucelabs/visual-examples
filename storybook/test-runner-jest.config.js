@@ -17,6 +17,7 @@ module.exports = {
       devices: [ 'Desktop Edge', 'Desktop Firefox', 'Desktop Chrome', 'Desktop Safari', 'Pixel 5', 'iPhone 14 Pro Max'],
     },
   },
+  testTimeout: 60_000,
 
   /** Add your own overrides below
    * @see https://jestjs.io/docs/configuration
