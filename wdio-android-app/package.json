@@ -15,8 +15,8 @@
     "typescript": "^5.4.3"
   },
   "scripts": {
-    "sauce-visual": "FPS=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
-    "sauce-visual-check": "FPS=true VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual": "wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
+    "sauce-visual-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.mobile.conf.ts --spec tests/specs/visual.spec.ts",
     "sauce-visual-emulator": "wdio run ./tests/configs/wdio.saucelabs.emulator.conf.ts --spec tests/specs/visual.spec.ts",
     "sauce-visual-emulator-check": "VISUAL_CHECK=true wdio run ./tests/configs/wdio.saucelabs.emulator.conf.ts --spec tests/specs/visual.spec.ts"
   },
