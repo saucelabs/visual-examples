@@ -26,6 +26,7 @@ describe('Android Native App', () => {
     const prices = await App.productPrices;
 
     await browser.sauceVisualCheck(`App Catalog`, {
+      captureDom: true,
       regions: [
         // Ignore any changes on the first image
         {
@@ -44,19 +45,16 @@ describe('Android Native App', () => {
   it('Captures only catalog content', async () => {
     const catalogContent = await App.catalogContent;
     await browser.sauceVisualCheck(`Catalog Fragment`, {
+      captureDom: true,
       clipElement: catalogContent,
     });
   });
 
-  // NOTE: Full page screenshot for native apps is in beta stage
-  // some of the functionality may not work as expected (especially virtual devices, clipping, ignore regions)
-  if (!!process.env.FPS) {
-    it('Full Page - Check App Catalog', async () => {
-      await browser.sauceVisualCheck(`Full Page - App Catalog`, {
-        fullPage: {
-          scrollElement: $('//androidx.recyclerview.widget.RecyclerView')
-        }
-      });
+  it('Full Page - Check App Catalog', async () => {
+    await browser.sauceVisualCheck(`Full Page - App Catalog`, {
+      fullPage: {
+        scrollElement: $("//androidx.recyclerview.widget.RecyclerView"),
+      },
     });
-  }
+  }).timeout(1000 * 60 * 6);
 });
