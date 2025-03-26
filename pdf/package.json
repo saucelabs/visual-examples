@@ -5,8 +5,8 @@
     },
     "scripts": {
         "pdf": "visual-snapshots pdf",
-        "sauce-visual": "visual-snapshots pdf ./files/1 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}",
-        "sauce-visual-check": "visual-snapshots pdf ./files/2 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}"
+        "sauce-visual": "visual-snapshots pdf ./files/1 --project sauce-pdf-demo --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}",
+        "sauce-visual-check": "visual-snapshots pdf ./files/2 --project sauce-pdf-demo  --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}"
     },
     "dependencies": {
         "@saucelabs/visual-snapshots": ">=0.1.0"
