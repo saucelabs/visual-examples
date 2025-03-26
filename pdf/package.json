@@ -1,14 +1,14 @@
 {
-  "name": "SauceLabsVisualExampleforPDF",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "pdf": "visual-snapshots pdf",
-    "demo-v1": "visual-snapshots pdf ./files/1 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}",
-    "demo-v2": "visual-snapshots pdf ./files/2 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}"
-  },
-  "dependencies": {
-    "@saucelabs/visual-snapshots": "file:../../visual-sdks/visual-js/visual-snapshots"
-  }
+    "name": "SauceLabsVisualExampleforPDF",
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "pdf": "visual-snapshots pdf",
+        "demo-v1": "visual-snapshots pdf ./files/1 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}",
+        "demo-v2": "visual-snapshots pdf ./files/2 --build-name demo --suite-name demo --test-name test_{filename} --snapshot-name snapshot_{filename}"
+    },
+    "dependencies": {
+        "@saucelabs/visual-snapshots": ">=0.1.0"
+    }
 }
