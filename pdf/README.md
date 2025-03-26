@@ -32,4 +32,4 @@
 
 ## Installation and usage
 
-View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/snapshots-cli/). <!-- TODO: Add the actual documentation link -->
+View installation and usage instructions on the [Sauce Docs website](https://docs.saucelabs.com/visual-testing/integrations/snapshots-cli/).
