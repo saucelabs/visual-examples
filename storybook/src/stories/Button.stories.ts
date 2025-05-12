@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
+import { SauceVisualParams } from "@saucelabs/visual-storybook";
 import { Button } from "./Button";
 import { expect, userEvent, within } from '@storybook/test';
 
