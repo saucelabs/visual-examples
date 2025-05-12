@@ -7,6 +7,12 @@
   display: inline-block;
   line-height: 1;
 }
+.storybook-button:hover {
+  background: #f1f1f1;
+}
+.storybook-button:focus {
+  box-shadow: 0 0 10px blue;
+}
 .storybook-button--primary {
   color: white;
   background-color: #1ea7fd;
@@ -27,4 +33,7 @@
 .storybook-button--large {
   font-size: 16px;
   padding: 12px 24px;
+}
+.storybook-button:disabled {
+  background: #e8e8e8;
 }
