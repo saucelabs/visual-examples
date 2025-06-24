@@ -28,7 +28,7 @@ apt-get install nodejs -y
 
 ```sh { name=clone }
 git clone https://github.com/saucelabs/visual-examples
-cd visual-examples/wdio
+cd visual-examples/wdio-ios-app
 ```
 
 - install npm dependencies:
