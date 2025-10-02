@@ -7,7 +7,7 @@ export const config: WebdriverIO.Config = {
 
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
-    region: 'us',
+    region: (process.env.SAUCE_REGION as WebdriverIO.Config['region']) ?? 'us',
     specs: [
         './tests/**/*.ts'
     ],
@@ -82,10 +82,12 @@ export const config: WebdriverIO.Config = {
       // Resize all windows to small, static size
       await browser.setWindowRect(0, 0, 800, 600);
       // Calculate the difference between the window outer dimensions and document dimensions
-      const [width, height] = await driver.executeScript(`
-      return [window.outerWidth - window.innerWidth + arguments[0],
-            window.outerHeight - window.innerHeight + arguments[1]];
-            `, [1280, 1110]);
+      const [width, height] = await driver.executeScript(
+          `return [window.outerWidth - window.innerWidth + arguments[0], window.outerHeight - window.innerHeight + arguments[1]];`,
+          // The desired _viewport_ dimensions can be set here in [width, height] format./
+          // These two values were chosen to match the Figma artboards in our demo file.
+          [1280, 1110]
+      );
       await browser.setWindowRect(0, 0, width, height);
     },
 }
