@@ -24,7 +24,6 @@ export const config: WebdriverIO.Config = {
             '@saucelabs/wdio-sauce-visual-service',
             // The options for the Sauce Visual service
             {
-                project: 'figma-examples',
                 diffingMethodSensitivity: DiffingMethodSensitivity.Low,
                 // Override baselines to match against figma. These settings can differ depending
                 // on how much time you put into categorizing your Figma files. If you use accurate
@@ -32,7 +31,6 @@ export const config: WebdriverIO.Config = {
                 // items.
                 baselineOverride: {
                     browser: Browser.Figma,
-                    browserVersion: null,
                     operatingSystem: OperatingSystem.Unknown,
                     operatingSystemVersion: null,
                     device: null,
