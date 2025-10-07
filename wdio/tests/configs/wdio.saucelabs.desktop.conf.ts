@@ -18,6 +18,11 @@ export const config: Options.Testrunner = {
         screenResolution: '2560x1600',
         build: buildName,
       },
+      'goog:chromeOptions': {
+        prefs: {
+          "profile.password_manager_leak_detection": false,
+        },
+      },
     },
     {
       browserName: 'firefox',
