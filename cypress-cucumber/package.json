@@ -9,7 +9,7 @@
     "sauce-visual-check": "cypress run --env VISUAL_CHECK=true"
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+    "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3",
     "@saucelabs/cypress-visual-plugin": "^0.6.6",
     "@tsconfig/node18": "^18.2.4",
