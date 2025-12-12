@@ -13,7 +13,7 @@ public class TestUtils {
     static final Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
     static RemoteWebDriver getDriver(String username, String accessKey) throws MalformedURLException {
-        String platform = dotenv.get("PLATFORM_NAME", "");
+        String platform = "";
         MutableCapabilities caps;
         switch (platform) {
             case "ANDROID": {

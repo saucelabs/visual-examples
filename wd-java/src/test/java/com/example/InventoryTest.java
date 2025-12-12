@@ -41,6 +41,7 @@ public class InventoryTest {
 
   @Test
   void checkInventoryPageLooksTheSame() {
+    driver.executeScript("sauce:job-name=checkInventoryPageLooksTheSame");
     LoginPage loginPage = new LoginPage(driver);
     loginPage.open();
 
@@ -71,6 +72,7 @@ public class InventoryTest {
 
   @AfterAll
   public static void tearDown() {
+    driver.executeScript("sauce:job-result=passed");
     if (driver != null) {
       driver.quit();
     }

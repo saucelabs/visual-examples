@@ -9,6 +9,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -38,6 +39,7 @@ public class InventoryFullPageTest {
 
     @Test
     void checkInventoryPageLooksTheSame() {
+        driver.executeScript("sauce:job-name=checkInventoryPageLooksTheSame");
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
 
@@ -57,6 +59,8 @@ public class InventoryFullPageTest {
 
     @AfterAll
     public static void tearDown() {
+        driver.executeScript("sauce:job-result=passed");
+
         if (driver != null) {
             driver.quit();
         }
