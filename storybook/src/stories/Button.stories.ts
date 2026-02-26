@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
-import { SauceVisualParams } from "@saucelabs/visual-storybook";
-import { Button } from "./Button";
-import { expect, userEvent, within } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { takeVisualSnapshot } from '@saucelabs/visual-storybook/play';
+import type { SauceVisualParams } from '@saucelabs/visual-storybook';
+import { expect, fn, userEvent, within } from 'storybook/test';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+import { Button } from './Button';
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Button",
+  title: 'Example/Button',
   component: Button,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -25,8 +26,8 @@ const meta = {
     await button.blur();
   },
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: "centered",
+    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+    layout: 'centered',
     sauceVisual: {
       variations: [
         {
@@ -72,10 +73,14 @@ const meta = {
       ],
     } satisfies SauceVisualParams<Meta<typeof Button>['args']>,
   },
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ['autodocs'],
+  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: { control: 'color' },
   },
+  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
+  args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -83,6 +88,6 @@ type Story = StoryObj<typeof meta>;
 
 export const _Button: Story = {
   args: {
-    label: "Button",
+    label: 'Button',
   },
 };
