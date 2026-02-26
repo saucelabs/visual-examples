@@ -1,14 +1,11 @@
 import { getJestConfig } from '@storybook/test-runner';
 import { getVisualTestConfig } from '@saucelabs/visual-storybook';
 
-// The default Jest configuration comes from @storybook/test-runner
-const testRunnerConfig = getJestConfig();
-
 /**
  * @type {import('@jest/types').Config.InitialOptions}
  */
 export default {
-  ...testRunnerConfig,
+  ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
   ...getVisualTestConfig(),
 
