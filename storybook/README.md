@@ -38,8 +38,8 @@ npm run test-storybook
 
 - Go to https://app.saucelabs.com/visual/builds and select your latest Storybook run
 - Accept all diffs, so they become new baselines.
-- Make some changes in one of the Storybook Stories or, optionally, restart Storybook with a `VISUAL_CHECK` env to see all styles removed from the `Button` components for a sample run:
-  - `VISUAL_CHECK=1 npm run storybook`
+- Make some changes in one of the Storybook Stories or, optionally, restart Storybook with a `VITE_VISUAL_CHECK` env to see all styles removed from the `Button` components for a sample run:
+  - `VITE_VISUAL_CHECK=1 npm run storybook`
 - Re-run the tests
 - Open the test or go to https://app.saucelabs.com/visual/builds to review changes.
 - It should detect changes and display differences between the two runs of the various stories

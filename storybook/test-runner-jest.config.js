@@ -1,11 +1,10 @@
-const { getJestConfig } = require('@storybook/test-runner');
-const { getVisualTestConfig } = require('@saucelabs/visual-storybook');
+import { getJestConfig } from '@storybook/test-runner';
+import { getVisualTestConfig } from '@saucelabs/visual-storybook';
 
 /**
  * @type {import('@jest/types').Config.InitialOptions}
  */
-module.exports = {
-  // The default configuration comes from @storybook/test-runner
+export default {
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
   ...getVisualTestConfig(),
@@ -18,9 +17,8 @@ module.exports = {
     },
   },
   testTimeout: 60_000,
-
-  /** Add your own overrides below
+  /** Add your own overrides below, and make sure
+   *  to merge testRunnerConfig properties with your own
    * @see https://jestjs.io/docs/configuration
-   * @see https://github.com/playwright-community/jest-playwright#configuration
    */
 };
