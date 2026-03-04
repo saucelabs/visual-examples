@@ -20,6 +20,7 @@ npx playwright install
 - Configure with your Sauce credentials from https://app.saucelabs.com/user-settings and run
 
 ```sh { name=set-credentials }
+export APP_FILEID="filename=SauceLabs-Demo-App.ipa"
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 # You can change the region to upload to via the SAUCE_REGION env variable. See the
