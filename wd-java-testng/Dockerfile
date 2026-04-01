@@ -1,4 +1,4 @@
-FROM eclipse-temurin:8u392-b08-jdk-jammy as runner
+FROM eclipse-temurin:11-jdk-jammy as runner
 
 # Install curl
 RUN apt-get update && apt-get install -y curl
