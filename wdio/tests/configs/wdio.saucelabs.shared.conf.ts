@@ -7,7 +7,7 @@ import { DiffingMethod } from '@saucelabs/wdio-sauce-visual-service';
 // Get the Sauce Labs credentials
 const { sauceUsername, sauceAccessKey } = await getSauceCredentials();
 
-export const config: Options.Testrunner = {
+export const config: WebdriverIO.Config = {
   ...sharedConfig,
   //
   // =================
@@ -42,9 +42,9 @@ export const config: Options.Testrunner = {
       '@saucelabs/wdio-sauce-visual-service',
       // The options for the Sauce Visual service
       {
-        buildName: 'Sauce Demo Test',
+        buildName: 'Sauce Demo Test WDIO-9 Latest',
         branch: 'main',
-        project: 'WDIO examples',
+        project: 'WDIO examples - wdio9',
         captureDom: true,
         diffingMethod: DiffingMethod.Balanced,
       },

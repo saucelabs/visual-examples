@@ -1,9 +1,8 @@
-import type { Options } from '@wdio/types';
 import { config as sauceSharedConfig } from './wdio.saucelabs.shared.conf.ts';
 
 const build = `Sauce Demo Test - ${new Date().getTime()}`;
 
-export const config: Options.Testrunner = {
+export const config: WebdriverIO.Config = {
   ...sauceSharedConfig,
   // ============
   // Capabilities
