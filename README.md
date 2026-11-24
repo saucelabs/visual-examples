@@ -13,6 +13,7 @@ This repository contains several examples that explain how to get started with S
 - [JS/TS - WebdriverIO + Cucumber](./wdio-cucumber/README.md)
 - [Storybook - Playwright](./storybook/README.md)
 - [Python - Robot Framework](./python/robot-framework/README.md)
+- [Swift - XCUITest](./xcuitest/README.md)
 
 ## Documentation
 
